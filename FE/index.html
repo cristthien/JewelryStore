@@ -204,10 +204,10 @@
 
         <script>
           var header = document.getElementById('header');
-          var headerHeight = header.clientHeight;
+          // var headerHeight = header.clientHeight;
           var mobileMenu = document.getElementById('mobile-menu');
           mobileMenu.onclick = function(){
-            var isClosed = header.clientHeight === headerHeight;
+            var isClosed = header.clientHeight === 79;
             if (isClosed) {
               header.style.height = 'auto';
             }

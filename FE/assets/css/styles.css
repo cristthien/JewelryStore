@@ -1,3 +1,8 @@
+:root{
+    --category-item__height: 40px; /* 24px + 16px (Mỗi mục có chiều cao là 24px và khoảng cách giữa các mục là 16px) */
+}
+
+
 /* Reset CSS */
 * {
     padding: 0;
@@ -347,12 +352,51 @@ html {
     background-color: #eee;
 }
 
-.caterory__heading{
-    font-size: .875rem;
-    text-transform: uppercase;
+
+/* CSS cho phần CATEGORY */
+
+#content-product-item{
+    background-color: #fff;
+    position: relative;
+    display: block;
+    z-index: 1;
+    padding-bottom: 160px;
+    border-bottom: 1px solid #E09051;
+    height: auto;
+    padding-top: 32px;
 }
 
 
+.path-to-page{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 32px;
+}
+
+.breadcrumb-item a{
+    text-decoration: none;
+    color: #000;
+    font-size: .85rem;
+}
+
+.category-manager-section {
+    height: calc(5 * var(--category-item__height)); /* Chiều cao tối đa cho 5 mục, mỗi mục có chiều cao là 20px và khoảng cách giữa các mục là 10px */
+    overflow: hidden; /* Ẩn các mục vượt qua chiều cao tối đa */
+    display: none;
+}
+
+.category-manager-section.show {
+    display: block; /* Hiển thị khi có lớp 'show' */
+}
+
+.caterory__heading{
+    display: flex;
+    justify-content: space-between;
+    font-size: .875rem;
+    text-transform: uppercase;
+    padding: 16px;
+    margin-bottom: 0; /* dat mac dinh vi heading co 1 khoang margin bottom = 0.8rem*/
+    cursor: pointer;
+}
 
 input[type="radio"] {
 	border: 1px solid #000 !important;
@@ -372,18 +416,39 @@ input[type="radio"]:checked {
 }
 
 .category__holder{
-    margin-top: 8px;
+    margin-bottom: 16px;
 }
 
 .category__item{
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
+    font-size: .85rem;
+    padding: 16px;
 }
 
 .category__item:hover{
     text-decoration: underline;
 }
+
+.more-category-btn{
+    text-transform: uppercase;
+    color: #000;
+    font-size: 14px;
+    padding: 0 16px;
+    cursor: pointer;
+    display: none;
+}
+
+.more-category-btn.show{
+    display: block;
+}
+
+.more-category-btn:hover{
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
 
 /* Css cho phần chọn grid (góc bên phải trên cùng của list sản phẩm) */
 
