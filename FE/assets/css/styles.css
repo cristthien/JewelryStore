@@ -1,0 +1,501 @@
+/* Reset CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Brilliant Cut, Almarai, Helvetica, Arial, sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+/* Header section */
+
+#header{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 4px 36px;
+    height: 130px;
+    border-bottom: 1px solid #E09051;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* Css cho tên thương hiệu */
+.header-brand-name
+{
+    margin: auto;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    font-family: 'Libre Caslon Display', serif;
+    font-size: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav-to-home{
+    color: #000;
+    text-decoration: none;
+}
+
+/* Css cho các nút bên trái */
+
+#header .header-left-function {
+    position: absolute;
+    top: 0;
+    float: left;
+    padding: 30px 12px;
+}
+
+#header .mobile-menu-btn{
+    float: left;
+    font-size: 24px;
+    line-height: 50px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+}
+
+
+.header-search-btn,
+.header-location-btn {
+    color: #000;
+    margin-right: 20px; /* Tạo khoảng cách giữa các phần tử */
+    font-size: 20px;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+/* Css cho các nút bên phải*/
+#header .header-right-function {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    padding: 30px 12px;
+    margin-left: 20px;
+}
+
+.header-user-btn,
+.header-shopping-cart-btn {
+    color: #000;
+    margin-right: 20px; /* Tạo khoảng cách giữa các phần tử */
+    font-size: 20px;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+
+/* Css chung cho cả 2 bên function */
+.header-function i:hover {
+    color: #ccc;
+}
+
+.header-left-function a,
+.header-right-function a{
+    text-decoration: none;
+}
+
+
+/* Css cho nav */
+#header-nav {
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+#header-nav > li{
+    display: inline-block;
+}
+
+#header-nav  li a{
+    color: #000;
+    text-decoration: none;
+    line-height: 46px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0 24px;
+    margin: 8px;
+}
+
+#header-nav > li:hover > a{
+    opacity: 0.6;
+}
+
+
+/* của bootstrap */
+.nav-component{
+    padding: 0 24px !important;
+}
+
+
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-header li a{
+    color: #000;
+    text-decoration: none;
+    line-height: 46px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.navbar-nav .nav-item:hover a{
+    opacity: 0.6 !important;
+}
+
+/* Slider section */
+
+#slider{
+    background-color: #fff;
+    margin-top: 130px;
+    display: block;
+    border-bottom: 1px solid #E09051;
+    height: auto;
+}
+
+.slider-slogan {
+    margin-top: 20%;
+    margin-left: 15%;
+    font-size: 50px;
+    font-family: 'Libre Caslon Display', serif;
+}
+
+.slogan-desc{
+    margin-left: 15%;
+    font-size: 16px;
+}
+
+@media (max-width: 992px) {
+    .slider-slogan {
+        margin-top: 5%;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .slogan-desc{
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.slider-img {
+
+    width: 100%;
+    height: 100%;
+    /* max-height: 75%; */
+    border: none;
+    background-repeat: no-repeat;
+}
+
+
+/* Content section */
+#content{
+    background-color: #fff;
+    position: relative;
+    display: block;
+    z-index: 1;
+    padding-bottom: 160px;
+    border-bottom: 1px solid #E09051;
+    height: auto;
+}
+
+#content .jewelry-img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+    .jewelry-img {
+        margin-top: 20px;
+        margin-bottom: 20px; /* Thiết lập margin dưới cho ảnh khi màn hình nhỏ hơn hoặc bằng 576px */
+    }
+}
+
+.jewelry-img:hover{
+    opacity: 0.6;
+    cursor: pointer;
+} 
+
+.extended-desc-jewelry{
+    width: fit-content;
+    padding: 0 12px;
+    border-bottom: 1px solid #000;
+}
+
+.collection-img{
+    width: 100%;
+    max-height: 406px;
+    padding: 80px 0px 30px;
+    display: block;
+}
+
+  /* CSS để đặt các indicator nằm dưới của ảnh */
+.carousel-indicators {
+    bottom: 10px; /* Đặt vị trí bottom cho các indicator */
+}
+
+#content .heading {
+    margin: 5px;
+    font-weight: 500;
+    font-size: 26px;
+    font-family: 'Libre Caslon Display', serif;
+}
+
+#content .text-description{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.extended-desc-collection{
+    width: fit-content;
+    padding: 0 12px;
+    border-bottom: 1px solid #000;
+}
+
+/* Contact-section */
+.contact-section{
+    margin-top: 160px;
+}
+
+.input-email-control, 
+.form-submit-btn {
+    border-radius: 0;
+}
+
+/* Footer section */
+#footer{
+    background-color: #fff;
+    height: 1000px;
+    position: relative;
+    margin-top: 40px;
+    height: auto;
+}
+
+.footer-heading{
+    font-size: 1rem;
+}
+
+.footer-nav {
+    list-style-type: none;
+    font-size: 0.75rem;
+}
+
+.footer-nav li a {
+    text-transform: uppercase;
+    line-height: 46px;
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-nav li:hover a{
+    opacity: 0.6;
+}
+
+.footer .socials-list{
+    
+    margin-top: 16px;
+    font-size: 24px;
+    
+}
+
+.socials-list a{
+    color:  rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    padding-right: 16px;
+}
+
+/* high jewelry web */
+#card__header{
+    background-color: #fff;
+    margin-top: 130px;
+    display: block;
+    height: auto;
+}
+
+.header-img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-repeat: no-repeat;
+}
+
+.card__header-desc {
+    font-size: 50px;
+    font-family: 'Libre Caslon Display', serif;
+    text-transform: uppercase;
+}
+
+.card__header-item{
+    background-color: #eee;
+}
+
+.caterory__heading{
+    font-size: .875rem;
+    text-transform: uppercase;
+}
+
+
+
+input[type="radio"] {
+	border: 1px solid #000 !important;
+    appearance: none;
+    background-clip: content-box;
+    padding: 3px;
+}
+
+input[type="radio"]:checked {
+	background-color: #000;
+    color: black;
+
+}
+
+.form-check-input:checked[type=radio] {
+    --bs-form-check-bg-image: none;
+}
+
+.category__holder{
+    margin-top: 8px;
+}
+
+.category__item{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+}
+
+.category__item:hover{
+    text-decoration: underline;
+}
+
+/* Css cho phần chọn grid (góc bên phải trên cùng của list sản phẩm) */
+
+.grid-selection{
+    display: flex;
+    justify-content: end;
+}
+
+/* Css cho phần product item */
+.product-item__img{
+    height: auto;
+    margin: auto;
+    cursor: pointer;
+}
+
+.carousel-indicators {
+    margin-bottom:0 !important;
+}
+
+.product-item__btn-direction{
+    display: none;
+}
+
+/* .product-item__btn-icon{
+    background-color: #fff;
+} */
+
+/* .product-item__btn-left-icon {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/32/32213.png);
+}
+
+.product-item__btn-right-icon {
+    background-image: url(https://cdn-icons-png.flaticon.com/512/32/32213.png);
+} */
+
+.carousel-control-next, 
+.carousel-control-prev {
+    opacity: 1;
+}
+
+
+.product-item:hover .product-item__btn-direction{
+    display: inline-block;
+}
+
+
+.product-item{
+    text-align: center;
+    position: relative;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.product-item-col:hover{
+    border: 1px solid #000;
+}
+
+.product-item__name{
+    display: block;
+    text-transform: uppercase;
+    font-family: Brilliant Cut,Almarai,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    text-decoration: none;
+    color: inherit;
+}
+.product-item__desc{
+    display: block;
+    font-family: Fancy Cut,Almarai,Times,serif;
+    text-decoration: none;
+    color: inherit;
+    line-height: 24px;
+    height: 48px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+}
+
+.product-item__price{
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.product-item__like{
+    display: none;
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 0 7.5px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+}
+
+.product-item:hover .product-item__like {
+    display: block;
+}
+
+i.product-item__like-fill{
+    display: none;
+}
+
+.product-item__like-liked .product-item__like-fill{
+    display: inline-block;
+}
+
+.product-item__like-liked .product-item__like-unfill{
+    display: none;
+}
+
