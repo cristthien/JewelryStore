@@ -366,6 +366,25 @@ html {
     padding-top: 32px;
 }
 
+.category__mobile{
+    border-bottom: 1px solid #ccc;
+    display: none;
+    text-align: center;
+    cursor: pointer;
+}
+.category__mobile > div:first-child{
+    border-right: 1px solid #ccc;
+}
+
+.caterory__heading-mobile{
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 12px;
+}
+
+.caterory__heading-mobile:hover {
+    opacity: 0.6;
+}
 
 .path-to-page{
     border-bottom: 1px solid #ccc;
@@ -376,6 +395,17 @@ html {
     text-decoration: none;
     color: #000;
     font-size: .85rem;
+}
+
+.breadcrumb-item:hover a{
+    text-decoration: underline;
+    opacity: 0.6;
+}
+.category-sort{
+    display: block;
+}
+.category-filter{
+    display: block;
 }
 
 .category-manager-section {
@@ -449,6 +479,26 @@ input[type="radio"]:checked {
     opacity: 0.6;
 }
 
+.form-check-input[type=checkbox] {
+    border-radius: 0;
+    border-color: #000;
+}
+
+.form-check-input:focus {
+    border-color: #000;
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-check-input:checked[type=checkbox] {
+    --bs-form-check-bg-image: url('https://banner2.cleanpng.com/20180422/ipq/kisspng-computer-icons-check-mark-clip-art-checkmark-icon-5adcd28df20a16.3537749415244212619914.jpg');
+}
+
+.form-check-input:checked {
+    background-color: transparent;
+    border-color: #000;
+}
+
 
 /* Css cho phần chọn grid (góc bên phải trên cùng của list sản phẩm) */
 
@@ -490,7 +540,7 @@ input[type="radio"]:checked {
 }
 
 
-.product-item:hover .product-item__btn-direction{
+.product-item-col:hover .product-item__btn-direction{
     display: inline-block;
 }
 
@@ -548,7 +598,7 @@ input[type="radio"]:checked {
     cursor: pointer;
 }
 
-.product-item:hover .product-item__like {
+.product-item-col:hover .product-item__like {
     display: block;
 }
 
@@ -564,3 +614,18 @@ i.product-item__like-fill{
     display: none;
 }
 
+.buy-btn{
+    border-radius: 0 !important;
+    width: 90%;
+    margin-top: 22px;
+    height: 38px;
+    text-transform: uppercase;
+    display: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-item-col:hover .buy-btn {
+    display: block;
+}

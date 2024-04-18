@@ -8,13 +8,12 @@
 }
 
 /* Tablet */
-@media (min-width: 740px) and (max-width: 1023px) {
-
+@media (min-width: 768px) and (max-width: 1023px) {
 
 }
 
 /* Mobile */
-@media (max-width: 740px){
+@media (max-width: 768px){
     #header-nav > li{
         display: block;
         text-align: left;
@@ -32,5 +31,13 @@
     .header-left-function .header-location-btn{
         display: none;
     }
-
+    .category-sort{
+        display: none;
+    }
+    .category-filter{
+        display: none;
+    }
+    .category__mobile{
+        display:flex;
+    }
 }
