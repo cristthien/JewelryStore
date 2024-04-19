@@ -514,6 +514,10 @@ input[type="radio"]:checked {
     cursor: pointer;
 }
 
+.product-item__like{
+    z-index: 2;
+}
+
 .carousel-indicators {
     margin-bottom:0 !important;
 }
@@ -537,6 +541,7 @@ input[type="radio"]:checked {
 .carousel-control-next, 
 .carousel-control-prev {
     opacity: 1;
+    z-index: 1;
 }
 
 
@@ -550,10 +555,12 @@ input[type="radio"]:checked {
     position: relative;
     margin-top: 8px;
     margin-bottom: 8px;
+    height: auto;
 }
 
 .product-item-col:hover{
     border: 1px solid #000;
+    cursor: pointer;
 }
 
 .product-item__name{
@@ -620,12 +627,115 @@ i.product-item__like-fill{
     margin-top: 22px;
     height: 38px;
     text-transform: uppercase;
-    display: none;
+    visibility: hidden;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
 .product-item-col:hover .buy-btn {
-    display: block;
+    visibility: visible;
 }
+
+/* CSS cho phần product detail */
+.product-detail__path-to-page{
+    margin-top: 16px;
+    font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
+}
+
+
+.product-detail__img{
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    margin-bottom: 10px;
+}
+
+.product-detail__desc-container{
+    padding-top: 40px;
+    padding-bottom: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.product-detail__heading{
+    font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+}
+
+.description {
+    font-family: "Fancy Cut", Almarai, Times, serif;
+    font-size: 16px;
+    line-height: 24px;
+    max-height: 48px; /* Chỉ cho hiển thị khoảng 2 dòng */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.read-more{
+    color: #000;
+}
+
+.read-more:hover{
+    opacity: 0.6;
+}
+/* Hiển thị toàn bộ nội dung khi nút "Read More" được click */
+.product-detail__desc-container.expanded .description {
+    max-height: none; /* Loại bỏ giới hạn chiều cao */
+}
+
+/* Thêm dấu '...' vào cuối nội dung khi bị cắt */
+.description::after {
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 90%);
+    padding: 0 15px;
+}
+
+/* Ẩn dấu '...' khi nội dung được mở rộng */
+.product-detail__desc-container.expanded .description::after {
+    display: none;
+}
+
+.product-detail__price{
+    font-weight: 600;
+    margin-top: 50px;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
+}
+
+.product-detail__buy-btn{
+    border-radius: 0 !important;
+    width: 100%;
+    margin-top: 22px;
+    height: 38px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.product-detail__action {
+    border: 0.0625rem solid rgb(29, 28, 28);
+    text-align: center;
+    width: 45px;
+    height: 38px;
+    margin-top: 22px;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.product-detail__like{
+    display: flex;
+    align-items: center;
+}
+
