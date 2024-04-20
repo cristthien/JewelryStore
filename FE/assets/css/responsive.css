@@ -41,6 +41,16 @@
         display:flex;
     }
 
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .product-detail__img-container > .row>* {
+        /* CSS của các thẻ div .row là con trực tiếp của .product-detail__img-container */
+        padding: 0;
+
+    }
     /* .related-product__col{
         display: none;
     } */
