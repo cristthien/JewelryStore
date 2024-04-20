@@ -571,11 +571,13 @@ input[type="radio"]:checked {
     font-weight:bold;
     text-decoration: none;
     color: inherit;
+    text-align: center;
 }
 .product-item__desc{
     display: block;
     font-family: Fancy Cut,Almarai,Times,serif;
     text-decoration: none;
+    text-align: center;
     color: inherit;
     line-height: 24px;
     height: 48px;
@@ -590,6 +592,7 @@ input[type="radio"]:checked {
 .product-item__price{
     font-weight: 600;
     margin-top: 8px;
+    text-align: center;
 }
 
 .product-item__like{
@@ -638,6 +641,11 @@ i.product-item__like-fill{
 }
 
 /* CSS cho phần product detail */
+/* .product-detail-section{
+    border-bottom: 1px solid #E09051;
+} */
+
+
 .product-detail__path-to-page{
     margin-top: 16px;
     font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
@@ -739,3 +747,77 @@ i.product-item__like-fill{
     align-items: center;
 }
 
+/* CSS comment section */
+.comment-section{
+    border-top: 1px solid #E09051;
+    border-bottom: 1px solid #E09051;
+}
+
+.comment-section__main{
+    height: 400px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+
+.comment-section__heading{
+    text-transform: uppercase;
+    font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+/* CSS related product */
+.related-product__heading, 
+.recommend-product__heading{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Brilliant Cut", Almarai, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.related-product__desc{
+    text-align: center;
+}
+
+.related-product__col:hover{
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.discover-btn{
+    border-radius: 0 !important;
+    width: 90%;
+    margin-top: 22px;
+    height: 38px;
+    text-transform: uppercase;
+    visibility: hidden;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.related-product__col:hover .discover-btn {
+    visibility: visible;
+}
+
+/* Css recommned product */
+
+.recommend-product__col:hover{
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.recommend-product__item{
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
