@@ -1,12 +1,18 @@
+const Staff = require("../models/staffModel.js");
+const Customer = require("../models/customerModel.js");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+const getAll = require("../utilities/getAll.js");
 class staffController {
   // [GET] /staff
   index(req, res) {
-    res.json({ msg: "Staff Controllers" });
+    getAll(req, res, Staff);
   }
-  //[POST] /customer/signup
+  //[POST] /staff/signup
   signup(req, res) {
     const email = req.body.email;
-    Customer.findOne({ email: email })
+    Staff.findOne({ email: email })
       .exec()
       .then((result) => {
         if (!req.body.password || !email) {
@@ -16,14 +22,15 @@ class staffController {
             if (err) {
               res.status(500).json({ msg: "internal sever error" });
             }
-            const newCustomer = new Customer({
+            const newStaff = new Staff({
               name: req.body.name,
               email: req.body.email,
               password: hash,
+              role: req.body.role,
             });
-            newCustomer
+            newStaff
               .save()
-              .then((newCus) => res.status(200).json({ newCus }))
+              .then((newstaff) => res.status(200).json({ newstaff }))
               .catch((e) => {
                 res.status(401).json({ e });
               });
@@ -35,19 +42,26 @@ class staffController {
       .catch((e) => res.status(400).json(e));
   }
 
-  //[POST] /customer/login
+  //[POST] /staff/login
   login(req, res) {
-    Customer.findOne({ email: req.body.email })
+    Staff.findOne({ email: req.body.email })
       .exec()
-      .then((customer) => {
-        if (!customer) {
+      .then((staff) => {
+        if (!staff) {
           res.status(400).json({ msg: "Email or password is not correct" });
         } else {
           bcrypt
-            .compare(req.body.password, customer.password)
+            .compare(req.body.password, staff.password)
             .then(function (result) {
               if (result) {
-                res.status(200).json({ msg: "tra vef jwt" });
+                const token = jwt.sign(
+                  { staffID: staff._id },
+                  process.env.JWT_SECRET_KEY,
+                  {
+                    expiresIn: "2 days",
+                  }
+                );
+                res.status(200).json({ token: token });
               } else {
                 res
                   .status(400)
@@ -57,6 +71,27 @@ class staffController {
         }
       })
       .catch((e) => res.status(400).json(e));
+  }
+  getDetailStaff(req, res) {
+    Staff.findOne({ _id: req.params.staffID })
+      .then((result) => {
+        res.status(200).json(result);
+      })
+      .catch((e) => {
+        res.status(500).json(e);
+      });
+  }
+  getAllCustomer(req, res) {
+    getAll(req, res, Customer);
+  }
+  UpdateInfo(req, res) {
+    Staff.findOneAndUpdate({ _id: req.params.staffID }, req.body, {
+      new: true,
+    })
+      .then((result) => res.status(200).json(result))
+      .catch((e) => {
+        res.status(500).json(e);
+      });
   }
 }
 module.exports = new staffController();

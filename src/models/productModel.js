@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
-
-const customerSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+const slug = require("mongoose-slug-generator");
+mongoose.plugin(slug);
+const productSchema = new Schema({
   name: { type: String, required: true },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-    match:
-      /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
-  },
-  password: { type: String, required: true },
-  address: { type: String },
+  price: { type: Number, required: true },
+  description: { type: String, required: true },
+  image: { type: [String], default: undefined },
+  collection: { type: [String], ref: "Collection" },
+  stock: { type: Number },
+  slug: { type: String, slug: ["name", "price"] },
 });
-module.exports = mongoose.model("Customer", customerSchema);
+module.exports = mongoose.model("Product", productSchema);

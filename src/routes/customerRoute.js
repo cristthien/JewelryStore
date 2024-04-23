@@ -10,6 +10,11 @@ customerRoute.get(
   checkAuthCustomer,
   customerController.getDetailInfo
 );
+customerRoute.patch(
+  "/:customerID",
+  checkAuthCustomer,
+  customerController.UpdateInfo
+);
 customerRoute.get("/", customerController.index);
 
 module.exports = customerRoute;

@@ -2,6 +2,7 @@ const Customer = require("../models/customerModel.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+
 class customerController {
   // [GET] /customeer   Only staff can  see it
   index(req, res) {
@@ -25,6 +26,7 @@ class customerController {
               name: req.body.name,
               email: req.body.email,
               password: hash,
+              role: req.body.role,
             });
             newCustomer
               .save()
@@ -78,6 +80,15 @@ class customerController {
         res.status(200).json(result);
       })
       .catch((e) => res.status(400).json(e));
+  }
+  UpdateInfo(req, res) {
+    Customer.findOneAndUpdate({ _id: req.params.customerID }, req.body, {
+      new: true,
+    })
+      .then((result) => res.status(200).json(result))
+      .catch((e) => {
+        res.status(500).json(e);
+      });
   }
 }
 module.exports = new customerController();
