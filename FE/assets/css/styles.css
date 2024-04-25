@@ -1,4 +1,6 @@
 :root{
+    --header-height__origin: 130px;
+    --header-height__extend: 400px;
     --category-item__height: 40px; /* 24px + 16px (Mỗi mục có chiều cao là 24px và khoảng cách giữa các mục là 16px) */
 }
 
@@ -17,6 +19,16 @@ html {
 .clear {
     clear: both;
 }
+
+ul {
+    padding-left: 0;
+}
+
+.col-20 {
+    width: 20%;
+    float: left;
+}
+
 /* Header section */
 
 #header{
@@ -26,7 +38,7 @@ html {
     right: 0;
     background-color: #fff;
     padding: 4px 36px;
-    height: 130px;
+    height: auto;
     border-bottom: 1px solid #E09051;
     z-index: 999;
     overflow: hidden;
@@ -56,10 +68,10 @@ html {
 /* Css cho các nút bên trái */
 
 #header .header-left-function {
-    position: absolute;
-    top: 0;
+    /* position: absolute;
+    top: 0; */
     float: left;
-    padding: 30px 12px;
+    /* padding: 30px 12px; */
 }
 
 #header .mobile-menu-btn{
@@ -83,11 +95,11 @@ html {
 
 /* Css cho các nút bên phải*/
 #header .header-right-function {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    right: 0;
+    right: 0; */
     float: right;
-    padding: 30px 12px;
+    /* padding: 30px 12px; */
     margin-left: 20px;
 }
 
@@ -122,7 +134,7 @@ html {
     display: inline-block;
 }
 
-#header-nav  li a{
+#header-nav > li a{
     color: #000;
     text-decoration: none;
     line-height: 46px;
@@ -131,36 +143,48 @@ html {
     font-size: 1rem;
     padding: 0 24px;
     margin: 8px;
+    cursor: pointer;
 }
 
 #header-nav > li:hover > a{
     opacity: 0.6;
 }
 
-
-/* của bootstrap */
-.nav-component{
-    padding: 0 24px !important;
+.subnav{
+    animation: subnavFadeIn ease .5s;
+    overflow: hidden;
 }
 
-
-
-.navbar-expand-lg .navbar-collapse {
-    justify-content: center;
-    align-items: center;
+@keyframes subnavFadeIn{
+    from {
+        /* transform: scale(0.5); */
+        max-height: 0;
+    }
+    to {
+        /* transform: scale(1); */
+        max-height: auto;
+    }
 }
 
-.nav-header li a{
-    color: #000;
+.subnav__item:hover{
+    opacity: 0.6;
+}
+
+.subnav__item{
     text-decoration: none;
-    line-height: 46px;
-    display: block;
-    text-transform: uppercase;
-    font-size: 1rem;
+    color: #000;
+    text-align:center;
 }
 
-.navbar-nav .nav-item:hover a{
-    opacity: 0.6 !important;
+.View-all-btn{
+    padding-top: 16px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.View-all-btn:hover{
+    opacity: 0.6;
 }
 
 /* Slider section */
@@ -330,14 +354,15 @@ html {
 /* high jewelry web */
 #card__header{
     background-color: #fff;
-    margin-top: 130px;
+    /* margin-top: 130px; */
     display: block;
+    /* display: none; */
     height: auto;
 }
 
 .header-img{
     width: 100%;
-    height: 100%;
+    height: auto;
     border: none;
     background-repeat: no-repeat;
 }
@@ -354,17 +379,6 @@ html {
 
 
 /* CSS cho phần CATEGORY */
-
-#content-product-item{
-    background-color: #fff;
-    position: relative;
-    display: block;
-    z-index: 1;
-    padding-bottom: 160px;
-    border-bottom: 1px solid #E09051;
-    height: auto;
-    padding-top: 32px;
-}
 
 .category__mobile{
     border-bottom: 1px solid #ccc;
@@ -821,3 +835,141 @@ i.product-item__like-fill{
     margin-top: 10px; 
     margin-bottom: 10px;
 }
+
+/* CSS cho login page */
+.login-container{
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    height: auto;
+    width: 60%;
+}
+.login__header{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login__label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.hide-password{
+    display: inline;
+    float: right;
+}
+
+
+.login__body {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.login__input{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+}
+
+.login__btn{
+    background-color: #ccc;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    line-height: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.login__btn:hover{
+    opacity: 0.6;
+}
+
+.login__btn:disabled:hover{
+    opacity: 1;
+}
+
+.Term-of-use{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.issue-with-sign{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.forgot-pass{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login__other {
+    display: flex; /* Hiển thị các phần tử cùng một hàng */
+    justify-content: space-between; /* Căn các phần tử con theo hai bên */
+    align-items: center;
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+.create-account__heading{
+    color: #000;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.create-account__btn{
+    border-radius: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+    line-height: 40px;
+    margin-bottom: 42px;
+    background-color: #fff;
+}
+
+.create-account__btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.policy{
+    color: #000;
+}
+
+.policy:hover{
+    opacity: 0.6;
+}
+
+.forgot-pass:hover{
+    opacity: 0.6;
+}
+
+.issue-with-sign:hover{
+    opacity: 0.6;
+}
+
+/* Css cho create account */
+.have-account{
+    text-align: center;
+}
+
+.error-message{
+    display: none; 
+    color: red;
+}
+
