@@ -1,26 +1,41 @@
-var header = document.getElementById('header');
-var mobileMenu = document.getElementById('mobile-menu');
-// var headerHeight = header.clientHeight;
-mobileMenu.onclick = function(){
-  var isClosed = header.clientHeight === 79;
+// var header = document.getElementById('header');
+// var mobileMenu = document.getElementById('mobile-menu');
+// mobileMenu.onclick = function(){
+//   console.log(header.clientHeight);
+//   var isClosed = header.clientHeight === 79;
+//   if (isClosed) {
+//     header.style.height = 'auto';
+//   }
+//   else {
+//     header.style.height = null;
+//   }
+// }
+const header = document.getElementById('header');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleHeaderHeight() {
+  const isClosed = header.clientHeight === 79;
   if (isClosed) {
     header.style.height = 'auto';
-  }
-  else {
+  } else {
     header.style.height = null;
   }
 }
+mobileMenu.addEventListener('click', toggleHeaderHeight);
+
+
+
 const navHighJewelry = document.querySelector('.nav__high-jewelry');
 const subnavHighJewelry = document.querySelector('.subnav__high-jewelry');
 const navJewelry = document.querySelector('.nav__jewelry');
 const subnavJewelry = document.querySelector('.subnav__jewelry');
 const navAccessories = document.querySelector('.nav__accessories');
 const subnavAccessories = document.querySelector('.subnav__accessories');
-const slider = document.getElementById("slider");
-const content = document.getElementById("content");
+const slider = document.getElementById('slider');
+const content = document.getElementById('content');
 const footer = document.querySelector('footer');
 const headerTop = document.querySelector('.header-top');
-const cardHeader = document.getElementById("card__header");
+const cardHeader = document.getElementById('card__header');
 
     navHighJewelry.addEventListener('mouseover', function(event) {
       event.preventDefault();
@@ -83,3 +98,4 @@ const cardHeader = document.getElementById("card__header");
             subnav.style.display = 'block';
         }
     }
+    

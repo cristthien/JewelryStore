@@ -33,8 +33,12 @@
             <div class="col-3">
               <div class="header-function">
                 <div class="header-right-function">
-                  <a href="#"><i class="header-shopping-cart-btn ti-shopping-cart"></i></a>
                   <a href="login.html"><i class="header-user-btn ti-user"></i></a>
+                  <a id="openOffcanvas">
+                    <i class="header-shopping-cart-btn ti-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section">
+                      <span class="shopping__badge">3</span>
+                    </i>
+                  </a>
                 </div>
               </div>
             </div>
@@ -52,7 +56,19 @@
               </li>
               <li><a class="header-nav__item">Stories</a>
               </li>
+              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__high-jewelry">High jewelry</a>
+              </li>
+              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__jewelry">Jewelry</a>
+              </li>
+              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__accessories">Accessories</a>
+              </li>
+              <li><a class="header-nav__item-mobile">News</a>
+              </li>
+              <li><a class="header-nav__item-mobile">Stories</a>
+              </li>
             </ul>
+
+            <!-- subnav section -->
             <div class="subnav subnav__high-jewelry" style="border-top: 1px solid #ddd; display: none;">
               <div class="row justify-content-center" style="padding-top: 10px;">
               <div class="col-2">
@@ -146,8 +162,207 @@
               <a href="highjewelry.html" class="View-all-btn">view all</a>
             </div>
             </div>
+
+            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__high-jewelry">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title">High Jewelry</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="row justify-content-center" style="padding-top: 10px;">
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <a href="highjewelry.html" class="View-all-btn">view all</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__jewelry">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title">Jewelry</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="row justify-content-center" style="padding-top: 10px;">
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <a href="highjewelry.html" class="View-all-btn">view all</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__accessories">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title">Accessories</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="row justify-content-center" style="padding-top: 10px;">
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="highjewelry.html" class="subnav__item">
+                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                      <p class="subnav__desc">Thiện ngu</p>
+                    </a>
+                  </div>
+                  <a href="highjewelry.html" class="View-all-btn">view all</a>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Bag section -->
+            <div class="offcanvas offcanvas-end" id="shopping-bag-section">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title shopping-bag__title">Shopping bag</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body shopping-bag__body">
+                <div class="row shopping-bag__item">
+                  <div class="col-6">
+                    <a href="productDetail.html" class="shopping-bag__img">
+                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <div class="product-item__close">
+                      <i class="ti-close"></i>
+                    </div>
+                    <a href="productDetail.html" class="product-item__name-shopping-bag">
+                      La Panthère de Cartier Watch
+                    </a>
+                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
+                    <div class="product-item__price-shopping-bag">
+                      <span class="product-item__low-price"></span>
+                      <span class="product-item__high-price">$47,200.00</span>
+                    </div>
+                  </div>
+                </div> <!-- end row-->
+                <div class="row shopping-bag__item">
+                  <div class="col-6">
+                    <a href="productDetail.html" class="shopping-bag__img">
+                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <div class="product-item__close">
+                      <i class="ti-close" onclick="deleteRow(this)"></i>
+                    </div>
+                    <a href="productDetail.html" class="product-item__name-shopping-bag">
+                      La Panthère de Cartier Watch
+                    </a>
+                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
+                    <div class="product-item__price-shopping-bag">
+                      <span class="product-item__low-price"></span>
+                      <span class="product-item__high-price">$47,200.00</span>
+                    </div>
+                  </div>
+                </div> <!-- end row-->
+                <div class="row shopping-bag__item">
+                  <div class="col-6">
+                    <a href="productDetail.html" class="shopping-bag__img">
+                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <div class="product-item__close">
+                      <i class="ti-close"></i>
+                    </div>
+                    <a href="productDetail.html" class="product-item__name-shopping-bag">
+                      La Panthère de Cartier Watch
+                    </a>
+                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
+                    <div class="product-item__price-shopping-bag">
+                      <span class="product-item__low-price"></span>
+                      <span class="product-item__high-price">$47,200.00</span>
+                    </div>
+                  </div>
+                </div> <!-- end row-->
+                <div class="subTotal-section">
+                  <div class="row" style="margin-top: 10px;">
+                    <div class="col-6">
+                      <p class="subTotal__text">subtotal</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="subToTal__calc">$22,550.00</p>
+                    </div>
+                  </div>
+                  <p class="subTotal__message">Shipping and taxes calculated at checkout.</p>
+                  <div class="row justify-content-center"></div>
+                  <button type="button" class="btn btn-dark subTotal__btn">View My Shopping Bag</button>
+                </div>
+              </div>
+            </div>
+
         </div>
-        
+
         <!-- Slider section -->
         <div id="slider">
           <div class="container container-fluid">
@@ -200,12 +415,12 @@
 
           <!-- Collection section -->
           <!-- Carousel -->
-          <div id="demo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+          <div id="collection-section" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></butto>
+              <button type="button" data-bs-target="#collection-section" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#collection-section" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#collection-section" data-bs-slide-to="2"></butto>
             </div>
 
             <!-- The slideshow/carousel -->
@@ -222,10 +437,10 @@
             </div>
             
             <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#collection-section" data-bs-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#collection-section" data-bs-slide="next">
               <span class="carousel-control-next-icon"></span>
             </button>
           </div>
@@ -297,11 +512,17 @@
           </div>
         </footer>
 
-  </div>
-
-        <script src="js/bootstrap.bundle.min.js"></script>
+      </div>
+</body>
+<script src="js/bootstrap.bundle.min.js"></script>
 
         <script src="./header.js"></script>
 
-</body>
+        <!-- <script>
+          const shoppingIcon = document.getElementById('openOffcanvas');
+          shoppingIcon.addEventListener('mouseover', function () {
+          var myOffcanvas = new bootstrap.Offcanvas(document.getElementById('shopping-bag-section'));
+          myOffcanvas.show();
+          });
+        </script> -->
 </html>

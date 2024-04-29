@@ -25,6 +25,15 @@
     #header {
         height: var(--header-height);
     }
+
+    #header-nav .header-nav__item{
+        display: none;
+    }
+
+    #header-nav .header-nav__item-mobile{
+        display: block;
+    }
+
     #slider{
         margin-top: var(--header-height);
     }
