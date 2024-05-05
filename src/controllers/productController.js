@@ -12,7 +12,6 @@ class productController {
   async index(req, res) {
     try {
       let products = await Product.find().select("name price image slug stock");
-
       const totalLength = products.length; // Calculate total length
       products = MultipleMongooseObject(products);
 

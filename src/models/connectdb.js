@@ -2,11 +2,15 @@ const mongoose = require("mongoose");
 
 function connectDB() {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/JewelryStore")
+    .connect(
+      "mongodb+srv://cristhuuthien:thien123@cluster0.vre9cbj.mongodb.net/dbStore?retryWrites=true&w=majority&appName=Cluster0"
+    )
     .then(() => {
-      console.log("connect successfull");
+      console.log("Connection successful");
     })
-    .catch((error) => handleError(error));
+    .catch((error) => {
+      console.error("Connection error:", error);
+    });
 }
 
 module.exports = connectDB;
