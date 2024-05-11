@@ -79,6 +79,10 @@ searchBtn.addEventListener('click', function(event){
        toggleHeaderSearch();
      }
 
+     navHighJewelry.addEventListener('mouseover', navHighJewelryHandler);
+     navJewelry.addEventListener('mouseover', navJewelryHandler);
+     navAccessories.addEventListener('mouseover', navAccessoriesHandler);
+
     headerTop.addEventListener('mouseover', function(event) {
       hideSubnav(subnavHighJewelry);
       hideSubnav(subnavJewelry);

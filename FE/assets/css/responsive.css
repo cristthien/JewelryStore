@@ -42,18 +42,26 @@
         display: block;
     }
 
+    .search__area{
+        width: 90%;
+    }
+
     #slider{
         margin-top: var(--header-height);
     }
+
     .header-left-function .header-location-btn{
         display: none;
     }
+
     .category-sort{
         display: none;
     }
+
     .category-filter{
         display: none;
     }
+
     .category__mobile{
         display:flex;
     }

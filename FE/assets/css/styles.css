@@ -48,9 +48,9 @@ ul {
 .header-brand-name
 {
     margin: auto;
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     width: 100px;
     height: 60px;
     line-height: 60px;
@@ -68,19 +68,15 @@ ul {
 /* Css cho các nút bên trái */
 .header-left-function{
     float: left;
-    margin-left: 10px;
+    display: flex;
 }
 
-/* .header-location-btn {
-    float: right;
-} */
-
 #header .mobile-menu-btn{
-    float: left;
+    /* float: left; */
     font-size: 24px;
     line-height: 50px;
     cursor: pointer;
-    margin-right: 16px;
+    margin-right: 20px;
     display: none;
 }
 
@@ -91,16 +87,17 @@ ul {
     font-size: 20px;
     line-height: 46px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 /* Css cho các nút bên phải*/
 .header-right-function{
     float: right;
-    margin-right: 10px;
+    display: flex;
 }
 
 .header-right-function #openOffcanvas{
-    display: flex; /* Sử dụng flexbox */
+    display: flex;
     align-items: center;
 }
 
@@ -110,7 +107,7 @@ ul {
     font-size: 20px;
     line-height: 46px;
     cursor: pointer;
-    float: right;
+    margin-left: 20px;
 }
 
 .shopping__badge{
@@ -120,6 +117,7 @@ ul {
     height: 24px;
     text-align: center;
     margin-bottom: 0;
+    /* width: 16px; */
 }
 
 /* Css chung cho cả 2 bên function */
@@ -235,10 +233,6 @@ ul {
     margin-right: auto; 
     padding-top: 80px;
     padding-bottom: 80px;
-}
-
-.input-search-control{
-    width: 50%;
 }
 
 .shopping-bag__title{
