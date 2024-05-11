@@ -66,13 +66,14 @@ ul {
 }
 
 /* Css cho các nút bên trái */
-
-#header .header-left-function {
-    /* position: absolute;
-    top: 0; */
+.header-left-function{
     float: left;
-    /* padding: 30px 12px; */
+    margin-left: 10px;
 }
+
+/* .header-location-btn {
+    float: right;
+} */
 
 #header .mobile-menu-btn{
     float: left;
@@ -87,20 +88,20 @@ ul {
 .header-search-btn,
 .header-location-btn {
     color: #000;
-    margin-right: 16px; /* Tạo khoảng cách giữa các phần tử */
     font-size: 20px;
     line-height: 46px;
     cursor: pointer;
 }
 
 /* Css cho các nút bên phải*/
-#header .header-right-function {
-    /* position: absolute;
-    top: 0;
-    right: 0;
-    padding: 30px 12px; */
+.header-right-function{
     float: right;
-    /* margin-left: 20px; */
+    margin-right: 10px;
+}
+
+.header-right-function #openOffcanvas{
+    display: flex; /* Sử dụng flexbox */
+    align-items: center;
 }
 
 .header-user-btn,
@@ -109,16 +110,16 @@ ul {
     font-size: 20px;
     line-height: 46px;
     cursor: pointer;
-}
-
-.header-shopping-cart-btn{
-    margin-left: 16px;
+    float: right;
 }
 
 .shopping__badge{
     background-color: #000;
     border-radius: 10px;
     color: #fff;
+    height: 24px;
+    text-align: center;
+    margin-bottom: 0;
 }
 
 /* Css chung cho cả 2 bên function */
@@ -208,6 +209,37 @@ ul {
     opacity: 0.6;
 }
 
+.header-search-section{
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 2;
+    transition: top 0.3s ease;
+    height: 100%;
+}
+
+.header-search-section.open{
+    display: block;
+}
+
+.header-search-container{
+    background-color: #fff;
+    border-bottom: 1px solid #E09051;
+}
+
+.search__area{
+    width: 50%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.input-search-control{
+    width: 50%;
+}
 
 .shopping-bag__title{
     font-family: 'Brilliant Cut', Almarai, Helvetica, Arial, sans-serif;
@@ -676,6 +708,7 @@ input[type="radio"]:checked {
     display: block;
     text-transform: uppercase;
     font-family: Brilliant Cut,Almarai,Helvetica,Arial,sans-serif;
+    margin-top: 14px;
     font-size: 14px;
     font-weight:bold;
     text-decoration: none;
@@ -1005,11 +1038,13 @@ i.product-item__like-fill{
 .issue-with-sign{
     text-decoration: underline;
     cursor: pointer;
+    order: 1;
 }
 
 .forgot-pass{
     text-decoration: underline;
     cursor: pointer;
+    order: 2;
 }
 
 .login__other {
@@ -1073,3 +1108,95 @@ i.product-item__like-fill{
     color: orange;
 }
 
+/* Shopping bag section */
+.shopping-bag__container{
+    padding-top: 76px;
+}
+
+.shopping-bag__product-item{
+    background-color: rgb(249, 249, 249);
+    padding: 30px 15px;
+    margin-bottom: 16px;
+}
+
+.shopping-bag__product-item-img{
+    width: 100%;
+}
+
+.shopping-bag__product-item-name{
+    text-transform: uppercase;
+    font-family: Brilliant Cut,Almarai,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    text-decoration: none;
+    color: inherit;
+    text-align: left;
+
+}
+
+.shopping-bag__product-item-price{
+    font-weight: 600;
+    text-align: right;
+}
+
+.shopping-bag__product-item-desc{
+    display: block;
+    font-family: Fancy Cut,Almarai,Times,serif;
+    text-decoration: none;
+    text-align: left;
+    color: inherit;
+    line-height: 24px;
+    margin-bottom: 0px;
+}
+
+.btn-quantity{
+    border: 1px solid rgb(222, 226, 230);
+    /* border-top: 1px solid rgb(222, 226, 230);
+    border-bottom: 1px solid rgb(222, 226, 230); */
+    border-radius: 0 !important;
+}
+
+/* #minusBtn{
+    border-left: 1px solid rgb(222, 226, 230);
+}
+
+#plusBtn{
+    border-right: 1px solid rgb(222, 226, 230);
+} */
+
+.btn-quantity:hover{
+    border: 1px solid rgb(222, 226, 230);
+    /* border-top: 1px solid rgb(222, 226, 230);
+    border-bottom: 1px solid rgb(222, 226, 230); */
+}
+
+.summary-section{
+    margin-top: 32px;
+}
+
+.summary-container{
+    border: 1px solid #000;
+    padding: 28px 32px;
+
+}
+
+.tax__text{
+    font-family: "Fancy Cut",Almarai,Times,serif;
+}
+
+.tax__calc{
+    font-family: "Fancy Cut",Almarai,Times,serif;
+    text-align: right;
+}
+
+.Back-to-shopping a{
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    font-family: "Brilliant Cut",Almarai,Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+}
+
+.Back-to-shopping a:hover {
+    text-decoration: underline;
+}

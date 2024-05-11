@@ -1,29 +1,18 @@
-// var header = document.getElementById('header');
-// var mobileMenu = document.getElementById('mobile-menu');
-// mobileMenu.onclick = function(){
-//   console.log(header.clientHeight);
-//   var isClosed = header.clientHeight === 79;
-//   if (isClosed) {
-//     header.style.height = 'auto';
-//   }
-//   else {
-//     header.style.height = null;
-//   }
-// }
 const header = document.getElementById('header');
 const mobileMenu = document.getElementById('mobile-menu');
 
 function toggleHeaderHeight() {
-  const isClosed = header.clientHeight === 79;
+  var isClosed = header.clientHeight === 79;
   if (isClosed) {
     header.style.height = 'auto';
+    if (headerSearchSection.classList.contains('open')) {
+      document.querySelector('.header-search-section').classList.remove('open');
+    }
   } else {
     header.style.height = null;
   }
-}
+};
 mobileMenu.addEventListener('click', toggleHeaderHeight);
-
-
 
 const navHighJewelry = document.querySelector('.nav__high-jewelry');
 const subnavHighJewelry = document.querySelector('.subnav__high-jewelry');
@@ -36,21 +25,59 @@ const content = document.getElementById('content');
 const footer = document.querySelector('footer');
 const headerTop = document.querySelector('.header-top');
 const cardHeader = document.getElementById('card__header');
+const headerSearchSection = document.querySelector('.header-search-section');
+const headerSearchContainer = document.querySelector('.header-search-container');
 
-    navHighJewelry.addEventListener('mouseover', function(event) {
-      event.preventDefault();
-      toggleSubnav(subnavHighJewelry); // Hiển thị subnav khi di chuột vào nút nav
-    });
+headerSearchSection.addEventListener('click',toggleHeaderSearch)
+headerSearchContainer.addEventListener('click', function(event){
+  event.stopPropagation()
+})
 
-    navJewelry.addEventListener('mouseover', function(event) {
-      event.preventDefault();
-      toggleSubnav(subnavJewelry); // Hiển thị subnav khi di chuột vào nút nav
-    });
+const searchBtn = document.querySelector('.header-search-btn');
 
-    navAccessories.addEventListener('mouseover', function(event) {
+function toggleHeaderSearch(){
+    document.querySelector('.header-search-section').classList.remove('open');
+    navHighJewelry.removeEventListener('click', navHighJewelryHandler);
+    navHighJewelry.addEventListener('mouseover', navHighJewelryHandler);
+    navJewelry.removeEventListener('click', navJewelryHandler);
+    navJewelry.addEventListener('mouseover', navJewelryHandler);
+    navAccessories.removeEventListener('click', navAccessoriesHandler);
+    navAccessories.addEventListener('mouseover', navAccessoriesHandler);
+}
+
+searchBtn.addEventListener('click', function(event){
+  if (!headerSearchSection.classList.contains('open')) {
+      document.querySelector('.header-search-section').classList.add('open');
+      navHighJewelry.removeEventListener('mouseover', navHighJewelryHandler);
+      navHighJewelry.addEventListener('click', navHighJewelryHandler);
+      navJewelry.removeEventListener('mouseover', navJewelryHandler);
+      navJewelry.addEventListener('click', navJewelryHandler);
+      navAccessories.removeEventListener('mouseover', navAccessoriesHandler);
+      navAccessories.addEventListener('click', navAccessoriesHandler);
+      header.style.height = null;
+  }
+  else {
+      document.querySelector('.header-search-section').classList.remove('open');
+  }
+});
+
+    function navHighJewelryHandler(event) {
+     event.preventDefault();
+      toggleSubnav(subnavHighJewelry);
+      toggleHeaderSearch();
+    }
+
+    function navJewelryHandler(event) {
       event.preventDefault();
-      toggleSubnav(subnavAccessories); // Hiển thị subnav khi di chuột vào nút nav
-    });
+       toggleSubnav(subnavJewelry);
+       toggleHeaderSearch();
+     }
+
+     function navAccessoriesHandler(event) {
+      event.preventDefault();
+       toggleSubnav(subnavAccessories);
+       toggleHeaderSearch();
+     }
 
     headerTop.addEventListener('mouseover', function(event) {
       hideSubnav(subnavHighJewelry);
@@ -97,5 +124,17 @@ const cardHeader = document.getElementById('card__header');
         } else {
             subnav.style.display = 'block';
         }
+
+        navHighJewelry.removeEventListener('click', navHighJewelryHandler);
+        navHighJewelry.addEventListener('mouseover', navHighJewelryHandler);
+        navJewelry.removeEventListener('click', navJewelryHandler);
+        navJewelry.addEventListener('mouseover', navJewelryHandler);
+        navAccessories.removeEventListener('click', navAccessoriesHandler);
+        navAccessories.addEventListener('mouseover', navAccessoriesHandler);
     }
     
+    function viewShoppingBag() {
+      // Chuyển đến trang shoppingBag.html
+      window.location.href = 'shoppingBag.html';
+    }
+

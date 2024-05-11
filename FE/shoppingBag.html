@@ -370,141 +370,205 @@
             </div>
 
         </div>
+
         <!-- Slider section -->
         <div id="slider">
         </div>
 
+        <!-- Content section -->
         <div id="content">
-            <div class="login-container">
-                    <h4 class="login__header">Sign in</h4>
-                <div class="login__body container-fluid">
-                    <label for="user-name" class="login__label">
-                        Email or mobile phone number
-                    </label>
-                    <input id="user-name" type="text" class="login__input" placeholder="Email address">
-                    <label for="password" class="login__label">
-                        Your password
-                        <div class="hide-password">
-                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
-                          <span id="toggle-text">Show</span>
-                        </div>
-                    </label>
-                    <input id="password" type="password" class="login__input" placeholder="Password" style="margin-bottom: 0;">
-                    <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
-                    <button id="login-account-btn" class="login__btn" disabled>
-                        Log in
-                    </button>
-                    <div class="Term-of-use">
-                        By continuing, you agree to the <a href="#" class="policy">Privacy Policy</a>.
-                    </div>
-                    <div class="login__other">
-                        <div class="issue-with-sign">
-                            Other issue
-                        </div>
-                        <div class="forgot-pass">
-                            Forget your password
-                        </div>
-                    </div>
-                    <div class="create-account-section">
-                        <div class="create-account__heading">
-                                <span>Don't have an account?</span>
+            <div class="container shopping-bag__container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="shopping-bag__title"><i class="ti-bag"></i> Shopping bag</h3>
                             </div>
-                        <button class="create-account__btn" onclick="window.location.href = 'createAccount.html'">
-                            Create an account
-                        </button>
+                        </div>
+                        <div class="row shopping-bag__product-item">
+                            <div class="col-4">
+                                <a href="productDetail.html" class="shopping-bag__product-item-img">
+                                    <img src="./assets/img/product-item/shopping bag/watch.avif" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a href="productDetail.html" class="shopping-bag__product-item-name">
+                                            La Panthère de Cartier Watch
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="shopping-bag__product-item-price">
+                                            $47,200.00
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="shopping-bag__product-item-desc">Small model, quartz movement, rose gold, diamonds</p>
+                                <form action="" style="margin-top: 16px;">
+                                    <label for="sel-size" class="form-label">Size (select one):</label>
+                                    <select class="form-select" id="sel-size" name="select-size">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                    </select>
+                                </form>
+                                <p style="margin-top: 16px; margin-bottom: 0;">Quantity: </p>
+                                <div class="input-group">
+                                    <button class="btn btn-quantity minusBtn" type="button">-</button>
+                                    <span class="input-group-text quantity">1</span>
+                                    <button class="btn btn-quantity plusBtn" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row shopping-bag__product-item">
+                            <div class="col-4">
+                                <a href="productDetail.html" class="shopping-bag__product-item-img">
+                                    <img src="./assets/img/product-item/shopping bag/watch.avif" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a href="productDetail.html" class="shopping-bag__product-item-name">
+                                            La Panthère de Cartier Watch
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="shopping-bag__product-item-price">
+                                            $47,200.00
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="shopping-bag__product-item-desc">Small model, quartz movement, rose gold, diamonds</p>
+                                <form action="" style="margin-top: 16px;">
+                                    <label for="sel-size" class="form-label">Size (select one):</label>
+                                    <select class="form-select" id="sel-size" name="select-size">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                    </select>
+                                </form>
+                                <p style="margin-top: 16px; margin-bottom: 0;">Quantity: </p>
+                                <div class="input-group">
+                                    <button class="btn btn-quantity minusBtn" type="button">-</button>
+                                    <span class="input-group-text quantity">1</span>
+                                    <button class="btn btn-quantity plusBtn" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-              </div>
-          </div>
+                    <div class="col-md-4">
+                      <div class="summary-section">
+                        <div class="summary-container">
+                          <div class="row">
+                            <div class="col-6">
+                              <p class="subTotal__text" style="margin-right: 12px;">subtotal</p>
+                            </div>
+                            <div class="col-6">
+                              <p class="subToTal__calc" style="margin-left: 12px;">$22,550.00</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-6">
+                              <p class="tax__text" style="margin-right: 12px;">Sales tax</p>
+                            </div>
+                            <div class="col-6">
+                              <p class="tax__calc" style="margin-right: 12px;">$0.00</p>
+                            </div>
+                          </div>
+                          <button type="button" class="btn btn-dark subTotal__btn" onclick="viewShoppingBag()">View My Shopping Bag</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 44px;">
+                  <div class="col-12 Back-to-shopping">
+                    <a href="index.html"><i class="ti-angle-left"></i> Back to shopping</a>
+                  </div>
+                </div>
+
+            </div>
+
+
+          <!-- Contact section -->
+          <!-- <div class="contact-section">
+            <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+            <div class="input-group mb-3 contact-form d-flex justify-content-center">
+              <form action="" class="d-flex mt-3 w-50">
+                      <input type="email" name="" placeholder="Email" required id="contact-id" class="form-control input-email-control">
+                      <button class="btn btn-dark form-submit-btn" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div> -->
         </div>
 
-
         <footer class="container-fluid" style="margin-top: 10px;">
-            <div class="row">
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
-                <ul class="footer-item footer-nav" id="footer-item-1">
-                  <li><a href="#">CONTACT US</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">TRACK YOUR ORDER</a></li>
-                  <li><a href="#">BOOK AN APPOINTMENT</a></li>   
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">OUR COMPANY</h4>
-                <ul class="footer-item footer-nav" id="footer-item-2">
-                  <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
-                  
-                  <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">LEGAL AREA</h4>
-                <ul class="footer-item footer-nav" id="footer-item-3">
-                  <li><a href="#">TERMS OF USE</a></li>
-                  <li><a href="#">PRIVACY POLICY</a></li>   
-                  <li><a href="#">CONDITIONS OF SALE</a></li>  
-                  <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
-                  <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">FOLLOW US</h4>
-                <ul class="footer-item socials-list" id="footer-item-4">
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
-                </ul>
-              </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
+              <ul class="footer-item footer-nav" id="footer-item-1">
+                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">TRACK YOUR ORDER</a></li>
+                <li><a href="#">BOOK AN APPOINTMENT</a></li>   
+              </ul>
             </div>
-          </footer>
-  
-    </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">OUR COMPANY</h4>
+              <ul class="footer-item footer-nav" id="footer-item-2">
+                <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
+                
+                <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">LEGAL AREA</h4>
+              <ul class="footer-item footer-nav" id="footer-item-3">
+                <li><a href="#">TERMS OF USE</a></li>
+                <li><a href="#">PRIVACY POLICY</a></li>   
+                <li><a href="#">CONDITIONS OF SALE</a></li>  
+                <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
+                <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">FOLLOW US</h4>
+              <ul class="footer-item socials-list" id="footer-item-4">
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+      </div>
 </body>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
-<!-- Js cho header -->
-<script src="./header.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
 
+        <script src="./header.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const passwordInput = document.getElementById('password');
-const toggleIcon = document.getElementById('toggle-icon');
-const toggleText = document.getElementById('toggle-text');
-let passwordVisible = false;
+        <script>
+            var plusBtns = document.querySelectorAll('.plusBtn');
+            var minusBtns = document.querySelectorAll('.minusBtn');
 
-toggleIcon.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
+            plusBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var quantitySpan = this.parentElement.querySelector('.quantity');
+                    quantitySpan.textContent = parseInt(quantitySpan.textContent) + 1;
+                });
+            });
 
-toggleText.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
-});
-</script>
-<script src="./checkValidLogin.js"></script>
+            minusBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var quantitySpan = this.parentElement.querySelector('.quantity');
+                    quantitySpan.textContent = Math.max(1, parseInt(quantitySpan.textContent) - 1);
+                });
+            });
+        </script>
 </html>

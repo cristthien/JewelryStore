@@ -4,12 +4,20 @@
 
 /* PC */
 @media (min-width: 1024px){
-
+    .summary-section{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 150px;
+    }
 }
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1023px) {
-
+    .summary-section{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 150px;
+    }
 }
 
 /* Mobile */
@@ -60,8 +68,16 @@
         padding: 0;
 
     }
+    .login-container{
+        width: 90%;
+    }
+
     .login__body {
         padding-left: 30px;
         padding-right: 30px;
+    }
+
+    .Back-to-shopping{
+        text-align: center;
     }
 }
