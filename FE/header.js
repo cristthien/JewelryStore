@@ -57,11 +57,28 @@ searchBtn.addEventListener('click', function(event){
       navAccessories.addEventListener('click', navAccessoriesHandler);
       header.style.height = null;
 
+      // Tính toán sao cho phần search luôn nằm dưới header
       headerSearchSection.style.top = header.offsetHeight + 'px';
       searchSuggestionSection.style.height = window.innerHeight - header.offsetHeight - searchArea.offsetHeight + 'px';
+
+      // Thay icon của searchBtn
+      document.querySelector('.header-search-btn').classList.remove('ti-search');
+      document.querySelector('.header-search-btn').classList.add('ti-close');
+      searchBtn.style.color = 'red';
   }
   else {
       document.querySelector('.header-search-section').classList.remove('open');
+      navHighJewelry.removeEventListener('click', navHighJewelryHandler);
+      navHighJewelry.addEventListener('mouseover', navHighJewelryHandler);
+      navJewelry.removeEventListener('click', navJewelryHandler);
+      navJewelry.addEventListener('mouseover', navJewelryHandler);
+      navAccessories.removeEventListener('click', navAccessoriesHandler);
+      navAccessories.addEventListener('mouseover', navAccessoriesHandler);
+
+      // Thay icon của searchBtn
+      document.querySelector('.header-search-btn').classList.remove('ti-close');
+      document.querySelector('.header-search-btn').classList.add('ti-search');
+      searchBtn.style.color = 'black';
   }
 });
 

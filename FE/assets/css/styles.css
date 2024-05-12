@@ -488,9 +488,7 @@ ul {
 /* high jewelry web */
 #card__header{
     background-color: #fff;
-    /* margin-top: 130px; */
     display: block;
-    /* display: none; */
     height: auto;
 }
 
@@ -1196,7 +1194,7 @@ i.product-item__like-fill{
     text-align: right;
 }
 
-.Back-to-shopping a{
+.back__shopping a{
     text-align: center;
     color: #000;
     text-decoration: none;
@@ -1204,6 +1202,19 @@ i.product-item__like-fill{
     text-transform: uppercase;
 }
 
-.Back-to-shopping a:hover {
+.back__shopping a:hover {
+    text-decoration: underline;
+}
+
+.back__search{
+    text-align: center;
+}
+
+.back__search a {
+    color: #000;
+    text-decoration: none;
+}
+
+.back__search:hover {
     text-decoration: underline;
 }
