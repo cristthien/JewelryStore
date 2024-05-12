@@ -27,13 +27,14 @@ const headerTop = document.querySelector('.header-top');
 const cardHeader = document.getElementById('card__header');
 const headerSearchSection = document.querySelector('.header-search-section');
 const headerSearchContainer = document.querySelector('.header-search-container');
+const searchBtn = document.querySelector('.header-search-btn');
+const searchSuggestionSection = document.querySelector('.search-suggestion-section');
+const searchArea = document.querySelector('.search__area');
 
 headerSearchSection.addEventListener('click',toggleHeaderSearch)
 headerSearchContainer.addEventListener('click', function(event){
   event.stopPropagation()
 })
-
-const searchBtn = document.querySelector('.header-search-btn');
 
 function toggleHeaderSearch(){
     document.querySelector('.header-search-section').classList.remove('open');
@@ -55,10 +56,18 @@ searchBtn.addEventListener('click', function(event){
       navAccessories.removeEventListener('mouseover', navAccessoriesHandler);
       navAccessories.addEventListener('click', navAccessoriesHandler);
       header.style.height = null;
+
+      headerSearchSection.style.top = header.offsetHeight + 'px';
+      searchSuggestionSection.style.height = window.innerHeight - header.offsetHeight - searchArea.offsetHeight + 'px';
   }
   else {
       document.querySelector('.header-search-section').classList.remove('open');
   }
+});
+
+window.addEventListener('resize', function() {
+  headerSearchSection.style.top = header.offsetHeight + 'px';
+  searchSuggestionSection.style.height = window.innerHeight - header.offsetHeight - searchArea.offsetHeight + 'px';
 });
 
     function navHighJewelryHandler(event) {
@@ -141,4 +150,6 @@ searchBtn.addEventListener('click', function(event){
       // Chuyển đến trang shoppingBag.html
       window.location.href = 'shoppingBag.html';
     }
+
+
 

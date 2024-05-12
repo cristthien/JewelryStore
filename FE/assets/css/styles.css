@@ -212,10 +212,10 @@ ul {
     background-color: rgba(0,0,0,0.3);
     left: 0;
     right: 0;
+    bottom: 0;
     display: none;
     z-index: 2;
-    transition: top 0.3s ease;
-    height: 100%;
+    transition: bottom 0.3s ease;
 }
 
 .header-search-section.open{
@@ -233,6 +233,19 @@ ul {
     margin-right: auto; 
     padding-top: 80px;
     padding-bottom: 80px;
+}
+
+.search-suggestion-section{
+    overflow-y: scroll;
+}
+
+.search-suggestion-container{
+    background-color: #fff;
+    display: none;
+}
+
+.search-suggestion-container.open{
+    display: block;
 }
 
 .shopping-bag__title{
