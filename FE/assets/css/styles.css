@@ -239,12 +239,12 @@ ul {
     overflow-y: scroll;
 }
 
-.search-suggestion-container{
+.search-suggestion-section{
     background-color: #fff;
     display: none;
 }
 
-.search-suggestion-container.open{
+.search-suggestion-section.open{
     display: block;
 }
 

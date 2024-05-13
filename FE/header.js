@@ -33,6 +33,10 @@ const searchArea = document.querySelector('.search__area');
 
 headerSearchSection.addEventListener('click',toggleHeaderSearch)
 headerSearchContainer.addEventListener('click', function(event){
+  // Thay icon của searchBtn
+  document.querySelector('.header-search-btn').classList.remove('ti-close');
+  document.querySelector('.header-search-btn').classList.add('ti-search');
+  searchBtn.style.color = 'black';
   event.stopPropagation()
 })
 
@@ -44,6 +48,11 @@ function toggleHeaderSearch(){
     navJewelry.addEventListener('mouseover', navJewelryHandler);
     navAccessories.removeEventListener('click', navAccessoriesHandler);
     navAccessories.addEventListener('mouseover', navAccessoriesHandler);
+    
+          // Thay icon của searchBtn
+          document.querySelector('.header-search-btn').classList.remove('ti-close');
+          document.querySelector('.header-search-btn').classList.add('ti-search');
+          searchBtn.style.color = 'black';
 }
 
 searchBtn.addEventListener('click', function(event){
@@ -166,6 +175,10 @@ window.addEventListener('resize', function() {
     function viewShoppingBag() {
       // Chuyển đến trang shoppingBag.html
       window.location.href = 'shoppingBag.html';
+    }
+
+    function viewSearchFound() {
+      window.location.href = 'searchFounded.html';
     }
 
 
