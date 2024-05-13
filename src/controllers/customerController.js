@@ -2,25 +2,23 @@ const Customer = require("../models/customerModel.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const { error, success } = require("../utilities/responeApj.js");
 
 class customerController {
-  // [GET] /customeer   Only staff can  see it
-  index(req, res) {
-    res.status(200).json({ msg: " Customer Controller" });
-  }
-
   //[POST] /customer/signup
-  signup(req, res) {
+  signup(req, res, next) {
     const email = req.body.email;
     Customer.findOne({ email: email })
       .exec()
       .then((result) => {
         if (!req.body.password || !email) {
-          res.status(400).json({ msg: "Fullfil email and password" });
+          res.status(400).json(error("Fullfil email and password", 400));
         } else if (!result) {
           bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             if (err) {
-              res.status(500).json({ msg: "internal sever error" });
+              res
+                .status(500)
+                .json(error("Have trouble in hasing password", 500));
             }
             const newCustomer = new Customer({
               name: req.body.name,
@@ -30,25 +28,35 @@ class customerController {
             });
             newCustomer
               .save()
-              .then((newCus) => res.status(200).json({ newCus }))
+              .then((newCus) =>
+                res
+                  .status(200)
+                  .json(
+                    success(
+                      "New customer is signed up successfully",
+                      newCus,
+                      200
+                    )
+                  )
+              )
               .catch((e) => {
-                res.status(401).json({ e });
+                next(e);
               });
           });
         } else {
-          res.status(409).json({ msg: "Email is used" });
+          res.status(409).json(error("Email is used by others", 409));
         }
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
 
   //[POST] /customer/login
-  login(req, res) {
+  login(req, res, next) {
     Customer.findOne({ email: req.body.email })
       .exec()
       .then((customer) => {
         if (!customer) {
-          res.status(400).json({ msg: "Email or password is not correct" });
+          res.status(400).json(error("Email or password is not correct", 400));
         } else {
           bcrypt
             .compare(req.body.password, customer.password)
@@ -61,33 +69,56 @@ class customerController {
                     expiresIn: "2 days",
                   }
                 );
-                res.status(200).json({ token: token });
+                res.status(200).json(
+                  success(
+                    "Login successfully",
+                    {
+                      name: customer.name,
+                      token: token,
+                    },
+                    200
+                  )
+                );
               } else {
                 res
                   .status(400)
-                  .json({ msg: "Email or password is not correct" });
+                  .json(error("Email or password is not correct", 400));
               }
             });
         }
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
   //[GET] / customer/:customerID
-  getDetailInfo(req, res) {
+  getDetailInfo(req, res, next) {
     Customer.find({ _id: req.params.customerID })
       .exec()
-      .then((result) => {
-        res.status(200).json(result);
+      .then((customer) => {
+        res.status(200).json(
+          success("Getting information is successfully", {
+            name: customer.name,
+          })
+        );
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
-  UpdateInfo(req, res) {
+  UpdateInfo(req, res, next) {
     Customer.findOneAndUpdate({ _id: req.params.customerID }, req.body, {
       new: true,
     })
-      .then((result) => res.status(200).json(result))
+      .then((customer) =>
+        res
+          .status(200)
+          .json(
+            success(
+              "Updating information is success",
+              { name: customer.name, email: customer.email },
+              200
+            )
+          )
+      )
       .catch((e) => {
-        res.status(500).json(e);
+        next(e);
       });
   }
 }

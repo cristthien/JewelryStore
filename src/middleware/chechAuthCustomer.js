@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const { error } = require("../utilities/responeApj.js");
 module.exports = (req, res, next) => {
   try {
     const authHeader = req.headers["authorization"];
@@ -11,6 +12,6 @@ module.exports = (req, res, next) => {
       throw new Error("Auth Fail");
     }
   } catch (e) {
-    return res.status(401).json(e.message);
+    return res.status(401).json(error(e.message, 401));
   }
 };

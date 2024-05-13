@@ -1,5 +1,6 @@
 const Cart = require("../models/cartModel.js");
 const SizeProduct = require("../models/sizeModel.js");
+const { error, success } = require("../utilities/responeApj.js");
 class orderController {
   // [GET] /news
   index(req, res, next) {
@@ -8,7 +9,7 @@ class orderController {
       .exec()
       .then((cartItems) => {
         if (!cartItems || cartItems.length === 0) {
-          res.status(404).json({ message: "Cart is empty" });
+          res.status(404).json(error("Cart is empty", 404));
         } else {
           const total = cartItems.reduce(
             (acc, item) => acc + item.quantity * item.product.price,
@@ -19,12 +20,18 @@ class orderController {
             (item) => item.quantity > item.product.stock
           );
 
-          res.status(200).json({
-            total: total,
-            length: cartItems.length,
-            products: cartItems,
-            outOfStock: outOfStockItems.length > 0, // Indicate if any out-of-stock items exist
-          });
+          res.status(200).json(
+            success(
+              "Getting cart successfully",
+              {
+                total: total,
+                length: cartItems.length,
+                products: cartItems,
+                outOfStock: outOfStockItems.length > 0, // Indicate if any out-of-stock items exist
+              },
+              200
+            )
+          );
         }
       })
       .catch((err) => next(err));
@@ -67,7 +74,9 @@ class orderController {
           newCartItem
             .save()
             .then((result) => {
-              res.status(200).json(result);
+              res
+                .status(200)
+                .json(success("Update cart successfully", result, 200));
             })
             .catch((err) => next(err));
         } else {
@@ -78,7 +87,9 @@ class orderController {
           cartItem
             .save()
             .then((result) => {
-              res.status(200).json(result);
+              res
+                .status(200)
+                .json(success("Update cart successfully", result, 200));
             })
             .catch((err) => next(err));
         }
@@ -91,9 +102,9 @@ class orderController {
     Cart.findOneAndDelete({ _id: req.body.cardItemID })
       .then((item) => {
         if (!item) {
-          res.status(404).json({ message: "Item not found" });
+          res.status(404).json(error("Item not found", 404));
         } else {
-          res.status(200).json({ message: "Product is deleted" });
+          res.status(200).json(success("Product is deleted", item, 200));
         }
       })
       .catch((err) => next(err));

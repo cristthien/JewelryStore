@@ -2,6 +2,8 @@ const Order = require("../models/orderModel.js");
 const OrderItem = require("../models/orderItemModel.js");
 const Cart = require("../models/cartModel.js");
 const mongoose = require("mongoose");
+const { error, success } = require("../utilities/responeApj.js");
+
 const {
   MultipleMongooseObject,
   SingleMongooseObject,
@@ -21,10 +23,16 @@ class orderController {
           return { order, products }; // Return order with associated products
         })
       );
-      res.status(200).json({
-        length: ordersWithProducts.length,
-        orderDetail: ordersWithProducts,
-      });
+      res.status(200).json(
+        success(
+          "Getting order successfully",
+          {
+            length: ordersWithProducts.length,
+            orderDetail: ordersWithProducts,
+          },
+          200
+        )
+      );
     } catch (err) {
       next(err);
     }
@@ -79,10 +87,10 @@ class orderController {
     } catch (error) {
       await session.abortTransaction();
       session.endSession();
-      res.status(500).json({ message: error.message });
+      res.status(500).json(error(error.message, 500));
     } finally {
       // Release locks for all products
-      res.status(200).json({ message: "Order is created successful" });
+      res.status(200).json(success("Order is created successful", {}, 200));
       await lockingFunctions.releaseLocks(stocks);
     }
   }
@@ -98,9 +106,9 @@ class orderController {
       { new: true }
     );
     if (!result) {
-      res.status(400).json({ message: "Order does not exist to modify" });
+      res.status(400).json(error("Order does not exist to modify", 400));
     } else {
-      res.status(200).json(result);
+      res.status(200).json(success("Update order successfully", result, 200));
     }
   }
 }

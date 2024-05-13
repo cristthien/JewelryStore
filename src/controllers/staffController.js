@@ -4,23 +4,27 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const getAll = require("../utilities/getAll.js");
+const { error, success } = require("../utilities/responeApj.js");
+
 class staffController {
   // [GET] /staff
   index(req, res) {
     getAll(req, res, Staff);
   }
   //[POST] /staff/signup
-  signup(req, res) {
+  signup(req, res, next) {
     const email = req.body.email;
     Staff.findOne({ email: email })
       .exec()
       .then((result) => {
         if (!req.body.password || !email) {
-          res.status(400).json({ msg: "Fullfil email and password" });
+          res.status(400).json(error("Fullfil email and password", 400));
         } else if (!result) {
           bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             if (err) {
-              res.status(500).json({ msg: "internal sever error" });
+              res
+                .status(500)
+                .json(error("Have trouble in hasing password", 500));
             }
             const newStaff = new Staff({
               name: req.body.name,
@@ -30,16 +34,26 @@ class staffController {
             });
             newStaff
               .save()
-              .then((newstaff) => res.status(200).json({ newstaff }))
+              .then((newstaff) =>
+                res
+                  .status(200)
+                  .json(
+                    success(
+                      "New staff is signed up successfully",
+                      newstaff,
+                      200
+                    )
+                  )
+              )
               .catch((e) => {
-                res.status(401).json({ e });
+                next(e);
               });
           });
         } else {
-          res.status(409).json({ msg: "Email is used" });
+          res.status(409).json(error("Email is used by others", 409));
         }
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
 
   //[POST] /staff/login
@@ -48,7 +62,7 @@ class staffController {
       .exec()
       .then((staff) => {
         if (!staff) {
-          res.status(400).json({ msg: "Email or password is not correct" });
+          res.status(400).json(error("Email or password is not correct", 400));
         } else {
           bcrypt
             .compare(req.body.password, staff.password)
@@ -61,16 +75,25 @@ class staffController {
                     expiresIn: "2 days",
                   }
                 );
-                res.status(200).json({ token: token });
+                res.status(200).json(
+                  success(
+                    "Login successfully",
+                    {
+                      name: staff.name,
+                      token: token,
+                    },
+                    200
+                  )
+                );
               } else {
                 res
                   .status(400)
-                  .json({ msg: "Email or password is not correct" });
+                  .json(error("Email or password is not correct", 400));
               }
             });
         }
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
   getDetailStaff(req, res) {
     Staff.findOne({ _id: req.params.staffID })

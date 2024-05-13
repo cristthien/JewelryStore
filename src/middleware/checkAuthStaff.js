@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Staff = require("../models/staffModel.js");
+const { error } = require("../utilities/responeApj.js");
+
 module.exports = (req, res, next) => {
   try {
     const authHeader = req.headers["authorization"];
@@ -19,10 +21,10 @@ module.exports = (req, res, next) => {
           }
         })
         .catch((e) => {
-          res.status(400).json(e);
+          res.status(500).json(error("Internal server error", 500));
         });
     }
   } catch (e) {
-    return res.status(403).json(e.message);
+    return res.status(403).json(error(e.message, 403));
   }
 };

@@ -1,6 +1,7 @@
 const Product = require("../models/productModel.js");
-const getAll = require("../utilities/getAll.js");
 const SizeProduct = require("../models/sizeModel.js");
+const { error, success } = require("../utilities/responeApj.js");
+const getEmbedding = require("../utilities/embeddingGenerator.js");
 
 const {
   SingleMongooseObject,
@@ -9,7 +10,7 @@ const {
 
 class productController {
   // [GET] /news
-  async index(req, res) {
+  async index(req, res, next) {
     try {
       let products = await Product.find().select("name price image slug stock");
       const totalLength = products.length; // Calculate total length
@@ -25,17 +26,22 @@ class productController {
       for (let i = 0; i < products.length; i++) {
         products[i].sizes = sizes[i];
       }
-      res.status(200).json({
-        length: totalLength,
-        data: products,
-      });
+      res.status(200).json(
+        success(
+          "Getting product information successfully",
+          {
+            length: totalLength,
+            data: products,
+          },
+          200
+        )
+      );
     } catch (error) {
-      console.error("Error fetching products:", error);
-      res.status(500).json({ message: "Internal Server Error" });
+      next(err);
     }
   }
 
-  create(req, res) {
+  create(req, res, next) {
     req.body.image = req.files.map((file) => {
       return "img/product/" + file.filename;
     });
@@ -43,65 +49,100 @@ class productController {
       try {
         SizeProduct.insertMany(req.body.sizes);
       } catch (err) {
-        res
-          .status(500)
-          .json({ message: "Insert size product error", error: err });
+        next(err);
       }
     }
 
     const newProduct = new Product(req.body);
     newProduct
       .save()
-      .then((result) => res.status(200).json(result))
-      .catch((e) => res.status(400).json(e));
+      .then((result) =>
+        res
+          .status(200)
+          .json(success("Creating product successfully", newProduct, 200))
+      )
+      .catch((e) => next(e));
   }
-  getDetailProduct(req, res) {
+  getDetailProduct(req, res, next) {
     Product.findOne({ slug: req.params.slug })
       .exec()
       .then((product) => {
         if (!product) {
-          res.status(404).json({ msg: "Not Found" });
+          res.status(404).json(error("Not Found Product", 404));
         } else if (!product.stock) {
           const updatedProduct = SingleMongooseObject(product);
           SizeProduct.find({ product: updatedProduct._id })
             .select("size stock")
             .then((sizes) => {
               updatedProduct.sizes = sizes;
-              res.status(200).json({ updatedProduct });
+              res
+                .status(200)
+                .json(
+                  success(
+                    "Getting detail product successfully",
+                    updatedProduct,
+                    200
+                  )
+                );
             });
         } else {
-          res.status(200).json(product);
+          res
+            .status(200)
+            .json(success("Getting detail product successfully", product, 200));
         }
       })
-      .catch((e) => res.status(400).json(e));
+      .catch((e) => next(e));
   }
-  update(req, res) {
+  update(req, res, next) {
     if (req.files) {
       req.body.image = req.files.map((file) => {
         return "img/product/" + file.filename;
       });
     }
     Product.findOneAndUpdate({ slug: req.params.slug }, req.body, { new: true })
-      .then((result) => res.status(200).json(result))
-      .catch((err) => res.status(500).json(err));
+      .then((result) =>
+        res
+          .status(200)
+          .json(success("Updating product successfully", result, 200))
+      )
+      .catch((err) => next(err));
   }
   delete(req, res) {
     Product.findOneAndDelete({ slug: req.params.slug })
       .then(async (product) => {
         if (!product) {
-          return res.status(404).json({ message: "Product not found" });
+          return res.status(404).json(error("Product not found", 404));
         }
 
         try {
           await SizeProduct.deleteMany({ product: product._id });
-          res.status(200).json({ message: "Product is deleted succesfully" });
+          res
+            .status(200)
+            .json(success("Product is deleted succesfully", {}, 200));
         } catch (err) {
-          res.status(500).json({ message: "Error deleting product" });
+          res.status(500).json(error("Error deleting product", 500));
         }
       })
       .catch((err) => {
-        res.status(500).json({ message: "Error fetching product" });
+        res.status(500).json(error("Error fetching product", 500));
       });
+  }
+  async searchProduct(req, res) {
+    const { slug } = req.params;
+    const queryEmbedding = await getEmbedding(slug);
+    console.log(queryEmbedding);
+    let results = await Product.aggregate([
+      {
+        $vectorSearch: {
+          queryVector: queryEmbedding,
+          path: "name_embedding_hf",
+          numCandidates: 100,
+          limit: 4,
+          index: "sematicProductSeach",
+        },
+      },
+    ]);
+    res.json(results);
   }
 }
 module.exports = new productController();

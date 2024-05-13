@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const Customer = require("../models/customerModel.js");
+const { error } = require("../utilities/responeApj.js");
 module.exports = (req, res, next) => {
   try {
     const authHeader = req.headers["authorization"];
@@ -16,9 +17,9 @@ module.exports = (req, res, next) => {
         }
       })
       .catch((err) => {
-        res.status(500).json(err);
+        res.status(500).json(error(err.message, 500));
       });
   } catch (e) {
-    return res.status(401).json(e.message);
+    return res.status(401).json(error(e.message, 401));
   }
 };

@@ -18,8 +18,10 @@ collectionRoute.put(
   upload.single("thumb"),
   collectionController.update
 );
+collectionRoute.get("/search", collectionController.search);
 collectionRoute.delete("/:slug", collectionController.delete);
 collectionRoute.get("/:slug", collectionController.getDetailCollection);
+
 collectionRoute.get("/", collectionController.index);
 
 module.exports = collectionRoute;

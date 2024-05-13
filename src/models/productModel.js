@@ -10,5 +10,6 @@ const productSchema = new Schema({
   collection: { type: [String], ref: "Collection" },
   stock: { type: Number },
   slug: { type: String, slug: ["name", "price"] },
+  name_embedding_hf: { type: [Number] },
 });
 module.exports = mongoose.model("Product", productSchema);

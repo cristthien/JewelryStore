@@ -1,6 +1,7 @@
 const Comment = require("../models/commentModel.js");
 const OrderItem = require("../models/orderItemModel.js");
 const Order = require("../models/orderModel.js");
+const { error, success } = require("../utilities/responeApj.js");
 
 class commentController {
   // [GET] /news
@@ -9,10 +10,16 @@ class commentController {
     const { product } = req;
     try {
       const comments = await Comment.find({ product: product._id });
-      res.status(200).json({
-        length: comments.length,
-        comments: comments,
-      });
+      res.status(200).json(
+        success(
+          "Getting product comments successfully",
+          {
+            length: comments.length,
+            comments: comments,
+          },
+          200
+        )
+      );
     } catch (err) {
       next(err);
     }
@@ -27,17 +34,21 @@ class commentController {
       order: orderID,
     });
     if (availableComment) {
-      console.log(availableComment);
-      res.status(400).json({
-        message: "Comment for this product already exsits. You can modify it",
-      });
+      res
+        .status(400)
+        .json(
+          error(
+            "Comment for this product already exsits. You can modify it",
+            400
+          )
+        );
     } else {
       const order = await Order.findOne({ _id: orderID });
       if (!order || order.customer != customerID) {
         console.log(order);
-        res.status(400).json({
-          message: "You are not be customer who create this order",
-        });
+        res
+          .status(400)
+          .json(error("You are not be customer who create this order", 400));
       } else {
         const orderItems = await OrderItem.findOne({
           order: orderID,
@@ -53,12 +64,16 @@ class commentController {
           });
           newComment
             .save()
-            .then((result) => res.status(200).json(result))
+            .then((result) =>
+              res
+                .status(200)
+                .json(success("Creating comment successfully", result, 200))
+            )
             .catch((err) => next(err));
         } else {
-          res.status(400).json({
-            message: `${product.name} does not exist in ${orderID}`,
-          });
+          res
+            .status(400)
+            .json(error(`${product.name} does not exist in ${orderID}`, 400));
         }
       }
     }
@@ -74,16 +89,15 @@ class commentController {
       if (!comment || customerID !== comment.customer.toString()) {
         return res
           .status(400)
-          .json({ message: "Deleting comment was unsuccessful" });
+          .json(error("Deleting comment was unsuccessful", 400));
       } else {
         await Comment.deleteOne({ _id: commentID });
         res
           .status(200)
-          .json({ message: `Comment ${commentID} deleted successfully` });
+          .json(success(`Comment ${commentID} deleted successfully`, {}, 200));
       }
     } catch (err) {
-      // Handle any errors that occur during the deletion process
-      res.status(500).json({ error: err.message });
+      next(err);
     }
   }
   async update(req, res, next) {
@@ -94,16 +108,25 @@ class commentController {
       if (!comment || customerID !== comment.customer.toString()) {
         return res
           .status(400)
-          .json({ message: "Upadating comment was unsuccessful" });
+          .json(error("Upadating comment was unsuccessful", 400));
       } else {
-        await Comment.updateOne({ _id: commentID }, req.body, { new: true });
+        const updatedComment = await Comment.updateOne(
+          { _id: commentID },
+          req.body,
+          { new: true }
+        );
         res
           .status(200)
-          .json({ message: `Comment ${commentID} updated successfully` });
+          .json(
+            success(
+              `Comment ${commentID} updated successfully`,
+              updatedComment,
+              200
+            )
+          );
       }
     } catch (err) {
-      // Handle any errors that occur during the deletion process
-      res.status(500).json({ error: err.message });
+      next(err);
     }
   }
 }

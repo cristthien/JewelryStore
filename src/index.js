@@ -20,6 +20,7 @@ app.use(methodOverride("_method"));
 dotenv.config();
 // Route
 routes(app);
+
 // Connectdb
 connectDB();
 app.use(handleError);

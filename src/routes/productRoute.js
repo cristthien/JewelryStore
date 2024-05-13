@@ -18,6 +18,7 @@ productRoute.put(
   upload.array("images", 12),
   productController.update
 );
+productRoute.get("/search/:slug", productController.searchProduct);
 productRoute.delete("/:slug", productController.delete);
 productRoute.get("/:slug", productController.getDetailProduct);
 productRoute.post("/", upload.array("images", 12), productController.create);
