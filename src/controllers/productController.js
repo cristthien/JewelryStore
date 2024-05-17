@@ -1,12 +1,16 @@
 const Product = require("../models/productModel.js");
 const SizeProduct = require("../models/sizeModel.js");
 const { error, success } = require("../utilities/responeApj.js");
-const getEmbedding = require("../utilities/embeddingGenerator.js");
+var _ = require("lodash");
+const semanticProductSearch = require("../utilities/semanticProductSearch.js");
 
 const {
   SingleMongooseObject,
   MultipleMongooseObject,
 } = require("../utilities/Mongoose.js");
+const matchOptionGenerator = require("../utilities/matchOperationGenerator.js");
+const fuzzyProductSearch = require("../utilities/fuzzyProductSearch.js");
+const combineAndRemoveDuplicates = require("../utilities/combineWithoutDuplicate.js");
 
 class productController {
   // [GET] /news
@@ -127,22 +131,26 @@ class productController {
         res.status(500).json(error("Error fetching product", 500));
       });
   }
+
   async searchProduct(req, res) {
-    const { slug } = req.params;
-    const queryEmbedding = await getEmbedding(slug);
-    console.log(queryEmbedding);
-    let results = await Product.aggregate([
-      {
-        $vectorSearch: {
-          queryVector: queryEmbedding,
-          path: "name_embedding_hf",
-          numCandidates: 100,
-          limit: 4,
-          index: "sematicProductSeach",
-        },
-      },
-    ]);
-    res.json(results);
+    const query = req.params.slug;
+    try {
+      let fuzzyResults = await fuzzyProductSearch(query);
+      const semanticResults = await semanticProductSearch(query);
+      const results = combineAndRemoveDuplicates(fuzzyResults, semanticResults);
+
+      res
+        .status(200)
+        .json(
+          success(
+            "Products are found",
+            { length: results.length, products: results },
+            200
+          )
+        );
+    } catch (e) {
+      res.status(404).json(e.message);
+    }
   }
 }
 module.exports = new productController();

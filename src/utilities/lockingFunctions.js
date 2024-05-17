@@ -58,4 +58,5 @@ class lockingFunctions {
     }
   }
 }
+
 module.exports = new lockingFunctions();

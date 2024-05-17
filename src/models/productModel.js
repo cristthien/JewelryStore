@@ -12,4 +12,4 @@ const productSchema = new Schema({
   slug: { type: String, slug: ["name", "price"] },
   name_embedding_hf: { type: [Number] },
 });
-module.exports = mongoose.model("Product", productSchema);
+module.exports = new mongoose.model("Product", productSchema);

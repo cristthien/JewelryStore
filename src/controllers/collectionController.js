@@ -9,7 +9,7 @@ class collectionController {
   // [GET] /news
   index(req, res, next) {
     Collection.find()
-      .select("name slug thumbnail")
+      .select("name slug thumbnail image")
       .then((collections) => {
         if (!collections) {
           res.status(404).json(error("Not Found", 404));
@@ -81,7 +81,7 @@ class collectionController {
         res.status(500).json(error("Error finding collection", 500));
       });
   }
-  getDetailCollection(req, res) {
+  getDetailCollection(req, res, next) {
     Collection.findOne({ slug: req.params.slug })
       .exec()
       .then(async (collection) => {
@@ -91,11 +91,12 @@ class collectionController {
 
         const { _id, name, description, thumbnail } = collection;
 
-        let sortCriteria = sortCriteria(req);
+        // let sortCriteria = sortCriteria(req);
+        let sortCriteria = {};
         let products = await Product.find({
           collection: { $in: [_id] },
         })
-          .select("name price image slug stock")
+          .select("name price image slug stock description")
           .sort(sortCriteria);
 
         const totalLength = products.length;

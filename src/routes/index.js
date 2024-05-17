@@ -24,17 +24,10 @@ function routes(app) {
   //  test
 
   app.use("/solve", async (req, res) => {
-    try {
-      // Update all products with embedding vectors (bulk update)
-      const updatedProducts = await productModel.find({
-        name_embedding_hf: null,
-      });
-      // Update each product with its corresponding embedding (loop)
-      res.json(updatedProducts);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal server error" });
-    }
+    const textSearch = await productModel.find({
+      collection: "66222aee2b6460c00f815810",
+    });
+    res.json(textSearch.length);
   });
 }
 module.exports = routes;
