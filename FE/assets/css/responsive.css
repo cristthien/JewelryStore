@@ -88,4 +88,12 @@
     .back__shopping{
         text-align: center;
     }
+
+    .comment__carousel-controls {
+        top: 0px;
+        right: 0px;
+    }
+    .slogan-video-section{
+        margin-top: 10px;
+    }
 }

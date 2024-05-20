@@ -30,13 +30,11 @@ const headerSearchContainer = document.querySelector('.header-search-container')
 const searchBtn = document.querySelector('.header-search-btn');
 const searchSuggestionSection = document.querySelector('.search-suggestion-section');
 const searchArea = document.querySelector('.search__area');
+const headerNav = document.getElementById('header-nav');
+headerNav.addEventListener('click',toggleHeaderSearch);
 
 headerSearchSection.addEventListener('click',toggleHeaderSearch)
 headerSearchContainer.addEventListener('click', function(event){
-  // Thay icon của searchBtn
-  document.querySelector('.header-search-btn').classList.remove('ti-close');
-  document.querySelector('.header-search-btn').classList.add('ti-search');
-  searchBtn.style.color = 'black';
   event.stopPropagation()
 })
 

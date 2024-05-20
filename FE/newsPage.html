@@ -9,18 +9,6 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
-
-<style>
-  .contact-section__map{
-    margin-top: 10px;
-    text-align: center;
-    font-size: 24px;
-    font-family: 'Libre Caslon Display', serif;
-    text-transform: uppercase;
-    /* font-weight: 600; */
-  }
-</style>
-
 <body>
   <div id="main">
         <!-- Header section -->
@@ -464,26 +452,63 @@
               </div>
             </div>
         </div>
-        
+
         <!-- Slider section -->
         <div id="slider">
+          <div class="container container-fluid">
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="slider-slogan" style="margin-top: 0; margin-left: 0; text-align: center;">
+                      Slogan
+                    </div>
+                    <div class="slogan-desc" style="margin-left: 0; margin-bottom: 10px; text-align: center;">
+                      unique introduction.... must be long
+                    </div>
+                </div>
+                <div class="col-lg-12" style="padding: 0%;">
+                    <a href="#">
+                      <img src="./assets/img/slider/slider2.jpg" alt="Photo shows 3 rings" class="slider-img">
+                    </a>
+                  </div>
+            </div>
+          </div>
         </div>
 
         <!-- Content section -->
-        <div id="content">
-          <div class="contact-section__map">
-            <p>Contact us</p>
-          </div>
-          <div class="container">
-            <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244.9527212788825!2d106.61873322077284!3d10.7926501317974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752d30443d946b%3A0x51e2e88da8981c4a!2zQ8OUTkcgVFkgVE5ISCBUSMavxqBORyBN4bqgSSBE4buKQ0ggVuG7pCBUUlVZ4buATiBUSMOUTkcgU01BUlQgVEnhur5OIFBIw4FU!5e0!3m2!1sen!2s!4v1713245877633!5m2!1sen!2s"
-            height="70"
-            style="width: 100%; height: auto; border: none; border-radius: 5px"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-          </div>
+        <div id="content" style="margin-top: 24px;">
+            <!-- Comment section -->
+            <div class="carousel comment__carousel container">
+                <div class="comment__carousel-inner">
+                </div>
+                <div class="comment__carousel-controls">
+                    <button class="comment__carousel-button prev">&lt;</button>
+                    <span class="comment__carousel-indicator">01 / 06</span>
+                    <button class="comment__carousel-button next">&gt;</button>
+                </div>
+            </div>
+
+
+            <div class="container container-fluid slogan-video-section">
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                          <video width="80%" height="auto" autoplay loop preload="auto"> 
+                            <source src="./assets/img/slider/video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="slider-slogan" style="margin-top: 0; margin-left: 0; text-align: center;">
+                          Slogan
+                        </div>
+                        <div class="slogan-desc" style="margin-left: 0; margin-bottom: 10px; text-align: center;">
+                          unique introduction.... must be long
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+
+
 
           <!-- Contact section -->
           <div class="contact-section">
@@ -539,12 +564,94 @@
           </div>
         </footer>
 
-  </div>
-
-        <script src="js/bootstrap.bundle.min.js"></script>
-
-        <script src="./header.js"></script>
-
-        <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+      </div>
 </body>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script src="./header.js"></script>
+
+  <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const carouselInner = document.querySelector('.comment__carousel-inner');
+    const prevButton = document.querySelector('.comment__carousel-button.prev');
+    const nextButton = document.querySelector('.comment__carousel-button.next');
+    const indicator = document.querySelector('.comment__carousel-indicator');
+
+    const images = [
+        './assets/img/slider/slider3.jpg',
+        './assets/img/slider/slider4.jpg',
+        './assets/img/slider/slider5.jpg',
+        './assets/img/slider/slider6.jpg',
+        './assets/img/slider/slider7.jpg',
+        './assets/img/slider/slider8.jpg',
+        './assets/img/slider/slider9.jpg',
+        './assets/img/slider/slider10.jpg'
+    ];
+
+    let currentIndex = 1;
+
+    function createCarouselItems() {
+        const firstClone = document.createElement('div');
+        firstClone.classList.add('comment__carousel-item');
+        firstClone.innerHTML = `<img src="${images[0]}" alt="Image 1">`;
+
+        const lastClone = document.createElement('div');
+        lastClone.classList.add('comment__carousel-item');
+        lastClone.innerHTML = `<img src="${images[images.length - 1]}" alt="Image ${images.length}">`;
+
+        // Append cloned items to the beginning and end
+        carouselInner.appendChild(lastClone);
+
+        images.forEach((image, index) => {
+            const item = document.createElement('div');
+            item.classList.add('comment__carousel-item');
+            item.innerHTML = `<img src="${image}" alt="Image ${index + 1}">`;
+            carouselInner.appendChild(item);
+        });
+
+        carouselInner.appendChild(firstClone.cloneNode(true));
+    }
+
+    function updateCarousel() {
+        const itemWidth = document.querySelector('.comment__carousel-item').clientWidth;
+        carouselInner.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        updateIndicator();
+    }
+
+    function updateIndicator() {
+        const totalItems = images.length - 2;
+        let currentSlide = currentIndex;
+        if (currentIndex === 0) {
+            currentSlide = totalItems;
+        } else if (currentIndex === totalItems + 1) {
+            currentSlide = 1;
+        }
+        indicator.textContent = `${currentSlide.toString().padStart(2, '0')} / ${totalItems.toString().padStart(2, '0')}`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 1) { // Kiểm tra chỉ số không được nhỏ hơn 1
+            currentIndex--;
+            carouselInner.style.transition = 'transform 0.5s ease';
+            updateCarousel();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < images.length - 2) { // Kiểm tra chỉ số không được lớn hơn images.length - 2
+            currentIndex++;
+            carouselInner.style.transition = 'transform 0.5s ease';
+            updateCarousel();
+        }
+    });
+
+    // Khởi tạo các mục carousel
+    createCarouselItems();
+    // Khởi tạo carousel
+    updateCarousel();
+});
+  </script>
+
 </html>

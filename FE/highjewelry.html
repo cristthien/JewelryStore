@@ -52,9 +52,9 @@
           </li>
           <li><a class="header-nav__item nav__accessories">Accessories</a>
           </li>
-          <li><a class="header-nav__item">News</a>
+          <li><a class="header-nav__item" href="newsPage.html">News</a>
           </li>
-          <li><a class="header-nav__item">Stories</a>
+          <li><a class="header-nav__item" href="story.html">Stories</a>
           </li>
           <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__high-jewelry">High jewelry</a>
           </li>
@@ -62,9 +62,9 @@
           </li>
           <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__accessories">Accessories</a>
           </li>
-          <li><a class="header-nav__item-mobile">News</a>
+          <li><a class="header-nav__item-mobile" href="newsPage.html">News</a>
           </li>
-          <li><a class="header-nav__item-mobile">Stories</a>
+          <li><a class="header-nav__item-mobile" href="story.html">Stories</a>
           </li>
         </ul>
 
@@ -381,7 +381,7 @@
                           <span class="product-item__low-price"></span>
                           <span class="product-item__high-price">$47,200.00</span>
                         </div>
-                        <div class="product-iemt__action">
+                        <div class="product-item__action">
                           <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
                             <i class="product-item__like-unfill fa-regular fa-heart"></i>
                             <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -400,7 +400,7 @@
                           <span class="product-item__low-price"></span>
                           <span class="product-item__high-price">$47,200.00</span>
                         </div>
-                        <div class="product-iemt__action">
+                        <div class="product-item__action">
                           <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
                             <i class="product-item__like-unfill fa-regular fa-heart"></i>
                             <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -419,7 +419,7 @@
                           <span class="product-item__low-price"></span>
                           <span class="product-item__high-price">$47,200.00</span>
                         </div>
-                        <div class="product-iemt__action">
+                        <div class="product-item__action">
                           <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
                             <i class="product-item__like-unfill fa-regular fa-heart"></i>
                             <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -438,7 +438,7 @@
                           <span class="product-item__low-price"></span>
                           <span class="product-item__high-price">$47,200.00</span>
                         </div>
-                        <div class="product-iemt__action">
+                        <div class="product-item__action">
                           <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
                             <i class="product-item__like-unfill fa-regular fa-heart"></i>
                             <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -713,7 +713,7 @@
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
-                    <div class="product-iemt__action">
+                    <div class="product-item__action ">
                       <span class="product-item__like product-item__like-liked">
                         <i class="product-item__like-unfill fa-regular fa-heart"></i>
                         <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -758,7 +758,7 @@
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
-                    <div class="product-iemt__action">
+                    <div class="product-item__action">
                       <span class="product-item__like product-item__like-liked">
                         <i class="product-item__like-unfill fa-regular fa-heart"></i>
                         <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -803,7 +803,7 @@
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
-                    <div class="product-iemt__action">
+                    <div class="product-item__action">
                       <span class="product-item__like product-item__like-liked">
                         <i class="product-item__like-unfill fa-regular fa-heart"></i>
                         <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -848,7 +848,7 @@
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
-                    <div class="product-iemt__action">
+                    <div class="product-item__action">
                       <span class="product-item__like product-item__like-liked">
                         <i class="product-item__like-unfill fa-regular fa-heart"></i>
                         <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -893,7 +893,7 @@
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
-                    <div class="product-iemt__action">
+                    <div class="product-item__action">
                       <span class="product-item__like product-item__like-liked">
                         <i class="product-item__like-unfill fa-regular fa-heart"></i>
                         <i class="product-item__like-fill fa-solid fa-heart"></i>
@@ -1107,25 +1107,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    var productItems = document.querySelectorAll('.slide');
-
-    productItems.forEach(function(productItem, index) {
-        var carouselControlPrev = productItem.querySelector('.carousel-control-prev');
-        var carouselControlNext = productItem.querySelector('.carousel-control-next');
-
-        // Xóa bỏ id cũ (nếu có)
-        productItem.removeAttribute('id');
-
-        // Tạo id mới dựa trên index và gán cho product-item
-        productItem.id = 'product-item__' + (index + 1);
-
-        // Thay đổi giá trị của data-bs-target của carousel-control-prev
-        carouselControlPrev.setAttribute('data-bs-target', '#product-item__' + (index + 1));
-        carouselControlNext.setAttribute('data-bs-target', '#product-item__' + (index + 1));
-    });
-});
-</script>
+<script src="./carouselProduct.js"></script>
 
 </html>
