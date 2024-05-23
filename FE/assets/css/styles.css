@@ -707,6 +707,9 @@ input[type="radio"]:checked {
     z-index: 1;
 }
 
+.product-item-col{
+    display: none; /* Ẩn tất cả các sản phẩm ban đầu */
+}
 
 .product-item-col:hover .product-item__btn-direction{
     display: inline-block;
@@ -1290,4 +1293,24 @@ i.product-item__like-fill{
     margin-top: 64px;
     position: relative; /* Thiết lập vị trí tương đối cho container */
     text-align: center; 
+}
+
+.custom-video {
+    width: 80%;
+    height: 500px;
+}
+
+.custom-video iframe {
+    display: block;
+}
+
+.product-item-btn__show-more {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-btn {
+    border-radius: 0;
 }
