@@ -20,6 +20,8 @@ const navJewelry = document.querySelector('.nav__jewelry');
 const subnavJewelry = document.querySelector('.subnav__jewelry');
 const navAccessories = document.querySelector('.nav__accessories');
 const subnavAccessories = document.querySelector('.subnav__accessories');
+const navNewsPage= document.querySelector('.nav__news');
+const navStoriesPage= document.querySelector('.nav__stories');
 const slider = document.getElementById('slider');
 const content = document.getElementById('content');
 const footer = document.querySelector('footer');
@@ -121,6 +123,19 @@ window.addEventListener('resize', function() {
       hideSubnav(subnavJewelry);
       hideSubnav(subnavAccessories);
     });
+    
+    navNewsPage.addEventListener('mouseover', function(event) {
+      hideSubnav(subnavHighJewelry);
+      hideSubnav(subnavJewelry);
+      hideSubnav(subnavAccessories);
+    });
+    navStoriesPage.addEventListener('mouseover', function(event) {
+      hideSubnav(subnavHighJewelry);
+      hideSubnav(subnavJewelry);
+      hideSubnav(subnavAccessories);
+    });
+
+
     slider.addEventListener('mouseover', function(event) {
         hideSubnav(subnavHighJewelry);
         hideSubnav(subnavJewelry);
@@ -136,11 +151,14 @@ window.addEventListener('resize', function() {
       hideSubnav(subnavJewelry);
       hideSubnav(subnavAccessories);
     });
-    cardHeader.addEventListener('mouseover', function(event) {
-      hideSubnav(subnavHighJewelry);
-      hideSubnav(subnavJewelry);
-      hideSubnav(subnavAccessories);
-    });
+
+    if (cardHeader !== null) {
+      cardHeader.addEventListener('mouseover', function(event) {
+        hideSubnav(subnavHighJewelry);
+        hideSubnav(subnavJewelry);
+        hideSubnav(subnavAccessories);
+      });
+    }
 
     function hideSubnav(subnav) {
         if (subnav.style.display === 'block') {

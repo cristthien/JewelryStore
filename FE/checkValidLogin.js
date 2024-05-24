@@ -4,22 +4,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const passwordWeek = document.getElementById('password-week');
     const loginAccountBtn = document.getElementById('login-account-btn');
 
-    passwordInput.addEventListener('input', function() {
-        const password = passwordInput.value;
-        if (password.length < 8 || !validatePassword(password)) {
-            passwordError.style.display = 'block';
-            loginAccountBtn.disabled = true;
-            passwordWeek.style.display = 'none';
-        } else {
-            passwordError.style.display = 'none';
-            loginAccountBtn.disabled = false;
-            if(checkWeekPassword(password)) {
-                passwordWeek.style.display = 'block';
-            } else {
+    if (passwordInput !== null) {
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            if (password.length < 8 || !validatePassword(password)) {
+                passwordError.style.display = 'block';
+                loginAccountBtn.disabled = true;
                 passwordWeek.style.display = 'none';
+            } else {
+                passwordError.style.display = 'none';
+                loginAccountBtn.disabled = false;
+                if(checkWeekPassword(password)) {
+                    passwordWeek.style.display = 'block';
+                } else {
+                    passwordWeek.style.display = 'none';
+                }
             }
-        }
-    });
+        });
+    }
 
     function checkWeekPassword(password) {
         if (!/[A-Z]/.test(password)) {

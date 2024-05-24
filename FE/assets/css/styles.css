@@ -1314,3 +1314,35 @@ i.product-item__like-fill{
 .custom-btn {
     border-radius: 0;
 }
+
+.profile-list{
+    list-style-type: none;
+}
+
+.profile-list > li{
+    padding-bottom: 24px;
+}
+
+.profile-list > li a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.table-custom td {
+    border-bottom: none;
+    padding-bottom: 16px;
+}
+
+.table-custom td:first-child {
+    width: 20%; /* Đặt chiều rộng mong muốn cho cột đầu tiên */
+}
+
+.table-custom td > input:first-child{
+    width: 50%;
+}
+
+.gender-selection label {
+    margin-right: 14px; /* Tạo khoảng cách giữa các radio button */
+}
