@@ -465,45 +465,42 @@
                         <ul class="profile-list">
                             <li><a class="profile-list__item" href="myProfile.html">My profile</a>
                             </li>
-                            <li><a class="profile-list__item" href="myPassword.html" style="text-decoration: underline;">My password</a>
+                            <li><a class="profile-list__item" href="myPassword.html">My password</a>
                             </li>
                             <li><a class="profile-list__item" href="myOrder.html">My orders</a>
                             </li>
-                            <li><a class="profile-list__item" href="myAddress.html">My addresses</a>
+                            <li><a class="profile-list__item" href="myAddress.html" style="text-decoration: underline;">My addresses</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-9">
-                        <table class="table table-custom">
-                            <tbody>
-                              <tr>
-                                <td style="text-align: right;">Current Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="currentPassword" name="currentPassword">
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">New Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="newPassword" name="newPassword">
-                                    <input type="checkbox" id="showNewPassword" onchange="togglePasswordVisibility('newPassword')"> Show password
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Confirm New Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword">
-                                    <input type="checkbox" id="showConfirmPassword" onchange="togglePasswordVisibility('confirmNewPassword')"> Show password
-                                </td>
-                              </tr>
-                              <tr>
-                                <td></td> <!-- Cell for alignment -->
-                                <td>
-                                    <button class="btn btn-dark" onclick="">Save</button>
-                                </td>
-                              </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <!-- Choose location -->
+                            <div class="col-8" style="text-transform: uppercase; font-family: Fancy Cut,Almarai,Times,serif;">
+                                my address
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-dark my-address__btn-add">
+                                    <i class="ti-plus"></i>
+                                    <span class="d-none d-lg-inline">Add new address</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top: 1px solid #ddd; margin-top: 24px;">
+                          <div class="col-12" style="font-family: Fancy Cut,Almarai,Times,serif;">Address</div>
+                          <div class="col-12 address-item">
+                            <p class="address-item-detail address-item__name">Nguyen Tuan Tu</p>
+                            <i class="fa-solid fa-phone" style="display: inline-block;"></i>
+                            <p class="address-item-detail address-item__phone" style="display: inline-block;">123456789</p>
+                            <br>
+                            <i class="fa-solid fa-address-book" style="display: inline-block;"></i>
+                            <p class="address-item-detail address-item__address-detail" style="display: inline-block;">202 Hiệp Bình</p>
+                            <p class="address-item-detail address-item__address-select">Phường Hiệp Bình Chánh, Thành Phố Thủ Đức, TP. Hồ Chí Minh</p>
+                            <a class="address-item__btn address-item__btn-update">Update</a>
+                            <a class="address-item__btn address-item__btn-remove">Remove</a>
+                            <a class="address-item__btn address-item__btn-default">Default</a>
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -518,6 +515,65 @@
               </form>
             </div>
           </div>
+        </div>
+
+        <!-- Modal hiển thị chọn địa chỉ -->
+        <div class="modal js-modal">
+            <div class="modal-container js-modal-container">
+                <div class="modal-close js-modal-close">
+                    <i class="ti-close"></i>
+                </div>
+                <header class="modal-header">
+                    New address
+                </header>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="user-name" class="modal-label">
+                                Enter user Name
+                            </label>  
+                            <input id="user-name" type="text" class="modal-input" placeholder="User name">
+                        </div>
+                        <div class="col-6">
+                            <label for="phone-number" class="modal-label">
+                                Enter phone number
+                            </label>  
+                            <input id="phone-number" type="text" class="modal-input" placeholder="Phone number">
+                        </div>
+                        <div class="col-12">
+                            <div class="address-selection">
+                              <input id="address" type="text" class="modal-input dropdown-toggle"  data-bs-toggle="dropdown" aria-expanded="false" placeholder="Province/City, District">
+                              <i class="ti-angle-down icon-wrapper"></i>
+                            <div class="dropdown-menu" aria-labelledby="address" style="width: 80%;">
+                                <div class="row">
+                                    <div class="col-6"><span class="dropdown-btn province-button active" id="province-button">Province</span></div>
+                                    <div class="col-6"><span class="dropdown-btn district-button" id="district-button">District</span></div>
+                                </div>
+                                <div id = "province" class="province-menu">
+                                    
+                                </div>
+                                <div id = "district" class="district-menu">
+
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <input type="text" class="form-control modal-input" placeholder="Address detail">
+                        </div>
+                    </div>
+                
+                    
+                    <button id="save-address-btn">
+                        Save
+                    </button>
+    
+                </div>
+    
+                <footer class="modal-footer">
+                    <p class="modal-help">Need <a href="">help?</a></p>
+                </footer>
+            </div>
         </div>
 
         <footer class="container-fluid" style="margin-top: 10px;">
@@ -570,16 +626,38 @@
     <script src="./header.js"></script>
 
     <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
-    <!-- Script cho hiển thị password -->
+
+    <script src="./menuLocation.js"></script>
+
     <script>
-        function togglePasswordVisibility(inputId) {
-            var passwordInput = document.getElementById(inputId);
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
-            }
+        const addNewAddressBtn = document.querySelector('.my-address__btn-add')
+        const updateAddressBtn = document.querySelector('.address-item__btn-update')
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        const modalContainer = document.querySelector('.js-modal-container')
+
+        function showBuyTickets() {
+            modal.classList.add('open')
         }
+
+        function hideBuyTickets() {
+            modal.classList.remove('open')
+        }
+
+        updateAddressBtn.addEventListener('click', showBuyTickets)
+
+        addNewAddressBtn.addEventListener('click', showBuyTickets)
+
+        modalClose.addEventListener('click',hideBuyTickets)
+
+        modal.addEventListener('click',hideBuyTickets)
+
+        modalContainer.addEventListener('click', function(event){
+            event.stopPropagation()
+        })
+
+
     </script>
+
 
 </html>

@@ -456,132 +456,106 @@
         <!-- Slider section -->
         <div id="slider">
         </div>
-        
-        <div id="content">
-            <div class="login-container">
-                    <h4 class="login__header" style="margin-bottom: 0px;">Create an account</h4>
-                    <p class="have-account" style="margin-bottom: 40px;">Already have an account? <a href="login.html" style="color: #000;">Log in</a></p>
-                <div class="login__body container-fluid">
-                    <label for="alias" class="login__label">
-                        What should we call you?
-                    </label>
-                    <input id="alias" type="text" class="login__input" placeholder="Enter your profile name">
-                    <label for="user-name" class="login__label">
-                        What's your email?
-                    </label>
-                    <input id="user-name" type="text" class="login__input" placeholder="Enter your email address">
-                    <label for="password" class="login__label">
-                        Create a password
-                        <div class="hide-password">
-                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
-                          <span id="toggle-text">Show</span>
-                        </div>
-                    </label>
-                    <input id="password" type="password" class="login__input" placeholder="Enter your password" style="margin-bottom: 0px;">
-                    <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
-                    <span id="password-week" class="week-message">Password week. Password should contain uppercase letter</span>
-                    <div class="Term-of-use" style="text-align: start; margin-top: 34px;">
-                        By continuing, you agree to the <a href="" class="policy">Privacy Policy</a>.
+
+        <!-- Content section -->
+        <div id="content" style="margin-top: 24px;">
+            <div class="container container-fluid">
+                <div class="row mb-5 profile-row">
+                    <div class="col-3" style="border-right: 1px solid #ddd;">
+                        <ul class="profile-list">
+                            <li><a class="profile-list__item" href="myProfile.html" style="text-decoration: underline;">My profile</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myPassword.html">My password</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myOrder.html">My orders</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myAddress.html">My addresses</a>
+                            </li>
+                        </ul>
                     </div>
-                    <button id="login-account-btn" class="login__btn" onclick="window.location.href='myProfile.html'" disabled>
-                        Create an account
-                    </button>
+                    <div class="col-9">
+                        <table class="table table-custom">
+                            <tbody>
+                              <tr>
+                                <td style="text-align: right;">The new email address</td>
+                                <td>
+                                    <input type="text" class="form-control email-change__input" placeholder="Enter new email address">
+                                </td>
+                              </tr>
+                              <tr>
+                                <td></td> <!-- Cell for alignment -->
+                                <td>
+                                    <button class="btn btn-dark" onclick="">Save</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
+
+          <!-- Contact section -->
+          <div class="contact-section">
+            <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+            <div class="input-group mb-3 contact-form d-flex justify-content-center">
+              <form action="" class="d-flex mt-3 w-50">
+                      <input type="email" name="" placeholder="Email" required id="contact-id" class="form-control input-email-control">
+                      <button class="btn btn-dark form-submit-btn" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
         </div>
 
-
         <footer class="container-fluid" style="margin-top: 10px;">
-            <div class="row">
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
-                <ul class="footer-item footer-nav" id="footer-item-1">
-                  <li><a href="#">CONTACT US</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">TRACK YOUR ORDER</a></li>
-                  <li><a href="#">BOOK AN APPOINTMENT</a></li>   
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">OUR COMPANY</h4>
-                <ul class="footer-item footer-nav" id="footer-item-2">
-                  <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
-                  
-                  <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">LEGAL AREA</h4>
-                <ul class="footer-item footer-nav" id="footer-item-3">
-                  <li><a href="#">TERMS OF USE</a></li>
-                  <li><a href="#">PRIVACY POLICY</a></li>   
-                  <li><a href="#">CONDITIONS OF SALE</a></li>  
-                  <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
-                  <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">FOLLOW US</h4>
-                <ul class="footer-item socials-list" id="footer-item-4">
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
-                </ul>
-              </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
+              <ul class="footer-item footer-nav" id="footer-item-1">
+                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">TRACK YOUR ORDER</a></li>
+                <li><a href="#">BOOK AN APPOINTMENT</a></li>   
+              </ul>
             </div>
-          </footer>
-  
-    </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">OUR COMPANY</h4>
+              <ul class="footer-item footer-nav" id="footer-item-2">
+                <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
+                
+                <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">LEGAL AREA</h4>
+              <ul class="footer-item footer-nav" id="footer-item-3">
+                <li><a href="#">TERMS OF USE</a></li>
+                <li><a href="#">PRIVACY POLICY</a></li>   
+                <li><a href="#">CONDITIONS OF SALE</a></li>  
+                <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
+                <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">FOLLOW US</h4>
+              <ul class="footer-item socials-list" id="footer-item-4">
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+      </div>
 </body>
-          <script src="js/bootstrap.bundle.min.js"></script>
-          <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
-          <!-- Js cho header -->
-          <script src="./header.js"></script>
-          <script src="./checkValidLogin.js"></script>
-          <script>
-              const loginSection = document.querySelector('.login-container');
 
-// Thêm sự kiện mouseover vào phần tử login-section
-loginSection.addEventListener('mouseover', function(event) {
-    console.log("Mouse over login section");
-});
-    document.addEventListener("DOMContentLoaded", function() {
-    const passwordInput = document.getElementById('password');
-    const toggleIcon = document.getElementById('toggle-icon');
-    const toggleText = document.getElementById('toggle-text');
-    let passwordVisible = false;
+  <script src="js/bootstrap.bundle.min.js"></script>
 
-    toggleIcon.addEventListener('click', function() {
-        passwordVisible = !passwordVisible;
-        if (passwordVisible) {
-            passwordInput.type = 'text';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-            toggleText.innerText = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-            toggleText.innerText = 'Show';
-        }
-    });
+  <script src="./header.js"></script>
 
-    toggleText.addEventListener('click', function() {
-        passwordVisible = !passwordVisible;
-        if (passwordVisible) {
-            passwordInput.type = 'text';
-            toggleIcon.classList.remove('fa-eye');
-            toggleIcon.classList.add('fa-eye-slash');
-            toggleText.innerText = 'Hide';
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.remove('fa-eye-slash');
-            toggleIcon.classList.add('fa-eye');
-            toggleText.innerText = 'Show';
-        }
-    });
-});
-</script>
+  <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
 </html>

@@ -465,45 +465,108 @@
                         <ul class="profile-list">
                             <li><a class="profile-list__item" href="myProfile.html">My profile</a>
                             </li>
-                            <li><a class="profile-list__item" href="myPassword.html" style="text-decoration: underline;">My password</a>
+                            <li><a class="profile-list__item" href="myPassword.html">My password</a>
                             </li>
-                            <li><a class="profile-list__item" href="myOrder.html">My orders</a>
+                            <li><a class="profile-list__item" href="myOrder.html" style="text-decoration: underline;">My orders</a>
                             </li>
                             <li><a class="profile-list__item" href="myAddress.html">My addresses</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-9">
-                        <table class="table table-custom">
-                            <tbody>
-                              <tr>
-                                <td style="text-align: right;">Current Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="currentPassword" name="currentPassword">
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">New Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="newPassword" name="newPassword">
-                                    <input type="checkbox" id="showNewPassword" onchange="togglePasswordVisibility('newPassword')"> Show password
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Confirm New Password</td>
-                                <td>
-                                    <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword">
-                                    <input type="checkbox" id="showConfirmPassword" onchange="togglePasswordVisibility('confirmNewPassword')"> Show password
-                                </td>
-                              </tr>
-                              <tr>
-                                <td></td> <!-- Cell for alignment -->
-                                <td>
-                                    <button class="btn btn-dark" onclick="">Save</button>
-                                </td>
-                              </tr>
-                            </tbody>
-                        </table>
+                        <div class="row shopping-bag__product-item">
+                            <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
+                                <a href="productDetail.html" class="shopping-bag__product-item-img">
+                                    <img src="./assets/img/product-item/shopping bag/watch.avif" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a href="productDetail.html" class="shopping-bag__product-item-name">
+                                            La Panthère de Cartier Watch
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="shopping-bag__product-item-price">
+                                            $47,200.00
+                                        </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="shopping-bag__product-item-desc">Small model, quartz movement, rose gold, diamonds</p>
+                                    </div>
+                                    <!-- Product ordered detail -->
+                                    <div class="col-4" style="margin-top: 10px;">
+                                        <p class="ordered__product-item-detail">Size:</p>
+                                    </div>
+                                    <div class="col-8" style="margin-top: 10px;">
+                                        <p class="ordered__product-item-detail" style="float: right;">15cm</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="ordered__product-item-detail">Quantity:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="ordered__product-item-detail" style="float: right;">2</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="ordered__product-item-detail">Total amount:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="ordered__product-item-detail" style="float: right;">$47,200.00</p>
+                                    </div>
+                                    
+                                </div>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="row shopping-bag__product-item">
+                            <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
+                                <a href="productDetail.html" class="shopping-bag__product-item-img">
+                                    <img src="./assets/img/product-item/shopping bag/watch.avif" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a href="productDetail.html" class="shopping-bag__product-item-name">
+                                            La Panthère de Cartier Watch
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="shopping-bag__product-item-price">
+                                            $47,200.00
+                                        </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="shopping-bag__product-item-desc">Small model, quartz movement, rose gold, diamonds</p>
+                                    </div>
+                                    <!-- Product ordered detail -->
+                                    <div class="col-4" style="margin-top: 10px;">
+                                        <p class="ordered__product-item-detail">Size:</p>
+                                    </div>
+                                    <div class="col-8" style="margin-top: 10px;">
+                                        <p class="ordered__product-item-detail" style="float: right;">15cm</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="ordered__product-item-detail">Quantity:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="ordered__product-item-detail" style="float: right;">2</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="ordered__product-item-detail">Total amount:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="ordered__product-item-detail" style="float: right;">$47,200.00</p>
+                                    </div>
+                                    
+                                </div>
+
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -570,16 +633,5 @@
     <script src="./header.js"></script>
 
     <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
-    <!-- Script cho hiển thị password -->
-    <script>
-        function togglePasswordVisibility(inputId) {
-            var passwordInput = document.getElementById(inputId);
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
-            }
-        }
-    </script>
 
 </html>

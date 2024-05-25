@@ -1035,7 +1035,7 @@ i.product-item__like-fill{
 }
 
 .login__btn{
-    background-color: #ccc;
+    /* background-color: #ccc; */
     border-radius: 20px;
     width: 100%;
     margin-top: 24px;
@@ -1045,6 +1045,14 @@ i.product-item__like-fill{
     line-height: 40px;
     color: #fff;
     margin-bottom: 10px;
+}
+
+.login__btn {
+    background-color: #000; /* Màu chữ khi không bị disabled */
+}
+
+.login__btn:disabled {
+    background-color: #ccc; /* Màu chữ khi bị disabled */
 }
 
 .login__btn:hover{
@@ -1345,4 +1353,190 @@ i.product-item__like-fill{
 
 .gender-selection label {
     margin-right: 14px; /* Tạo khoảng cách giữa các radio button */
+}
+
+.ordered__product-item-detail{
+    font-family: Fancy Cut,Almarai,Times,serif;
+}
+
+.my-address__btn-add{
+    text-transform: capitalize;
+    font-family: Fancy Cut,Almarai,Times,serif;
+    float: right;
+}
+
+
+/* Nháp */
+.modal {
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-container {
+    background: #fff;
+    width: 900px;
+    min-height: 200px;
+    position: relative;
+    animation: modalFadeIn ease .5s;
+}
+
+header.modal-header {
+    background-color: #000;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.modal-close:hover{
+    color: #000;
+    background-color: #ccc;
+    opacity: 1;
+}
+
+.modal-body{
+    padding: 16px;
+}
+
+.modal-label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.address-selection{
+    display: flex;
+    align-items: center;
+}
+
+.modal-input{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.icon-wrapper {
+    transform: translate(-200%, -50%);
+    pointer-events: none; /* Đảm bảo rằng icon không ảnh hưởng đến việc nhập liệu trong input */
+}
+
+#save-address-btn{
+    background-color: #000;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+}
+
+#save-address-btn:hover{
+    opacity: 0.9;
+    background-color: #ccc;
+    color:white
+}
+
+.modal-footer{
+    padding: 16px;
+    text-align: right;
+}
+
+.modal-footer a{
+    color: #2196F3;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.contact-content{
+    margin-top: 48px;
+}
+
+.province-menu{
+    max-height: 200px; 
+    overflow-y: auto;
+}
+
+.district-menu{
+    max-height: 200px; 
+    overflow-y: auto;
+}
+
+.dropdown-btn{
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+  
+.dropdown-btn.active {
+    text-decoration: underline;
+    background-color: black;
+    color: white;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+.address-item{
+    background-color: #eee;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.address-item-detail{
+    font-family: Fancy Cut,Almarai,Times,serif;
+}
+
+.address-item__name{
+    font-size: 24px;
+}
+
+.address-item__address-detail{
+    margin-bottom: 0px;
+}
+
+.address-item__btn-remove{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.address-item__btn{
+    cursor: pointer;
+    text-decoration: none;
 }

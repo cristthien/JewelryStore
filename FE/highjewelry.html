@@ -522,6 +522,7 @@
                           <a href="" class="category__item">recommended</a>
                       </div>
                   </div>
+                  <!-- Phần filter -->
                   <div class="category-filter">
                     <h3 class="caterory__heading">
                       FILTER BY
@@ -536,9 +537,9 @@
                     </div>
                     <h3 class="caterory__heading">
                     CATEGORY
-                    <i class="category-btn__show-more ti-angle-down"></i>
+                    <i class="category-btn__show-more ti-angle-up"></i>
                     </h3>
-                    <div class="category-manager-section">
+                    <div class="category-manager-section show">
                       <div class="form-check category__holder">
                         <input type="checkbox" class="form-check-input category__sort-check" name="category1" value="bracelets">
                         <a href="" class="category__item">Bracelets</a></div>
@@ -563,14 +564,14 @@
                         <a href="" class="category__item">rings</a>
                       </div>
                   </div>
-                  <div class="more-category-btn">
+                  <div class="more-category-btn show">
                     <p>More</p>
                   </div>
                   <h3 class="caterory__heading">
                     collections
-                    <i class="category-btn__show-more ti-angle-down"></i>
+                    <i class="category-btn__show-more ti-angle-up"></i>
                     </h3>
-                    <div class="category-manager-section">
+                    <div class="category-manager-section show">
                       <div class="form-check category__holder">
                         <input type="checkbox" class="form-check-input category__sort-check" name="collection1" value="Jewelry Watch">
                         <a href="" class="category__item">Jewelry Watch</a></div>
@@ -588,7 +589,7 @@
                       </div>
                       <div class="form-check category__holder">
                         <input type="checkbox" class="form-check-input category__sort-check" name="collection5" value="[Sur]Naturel">
-                        <a href="" class="category__item">[Sur]Naturel</a>
+                        <a href="" class="category__item">LE VOYAGE RECOMMENCÉLE VOYAGE RECOMMENCÉ</a>
                       </div>
                       <div class="form-check category__holder">
                         <input type="checkbox" class="form-check-input category__sort-check" name="collection6" value="Essential Lines">
@@ -603,7 +604,7 @@
                         <a href="" class="category__item">Indomptables de</a>
                       </div>
                   </div>
-                  <div class="more-category-btn">
+                  <div class="more-category-btn show">
                     <p>More</p>
                   </div>
                   </div>
@@ -1561,28 +1562,46 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-  // Lặp qua tất cả các phần tử có class là "more-category-btn" và gắn sự kiện click cho mỗi phần tử
-  var moreCategoryBtns = document.querySelectorAll('.more-category-btn');
-  moreCategoryBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(event) {
-          var categorySection = this.previousElementSibling; // Lấy phần tử category-manager-section tương ứng
-          var categoryItems = categorySection.querySelectorAll('.form-check.category__holder'); // Lấy tất cả các mục trong category
-          var categoryMaxHeight = 200;
+  document.addEventListener('DOMContentLoaded', function() {
+    // Thiết lập chiều cao ban đầu cho mỗi category-manager-section
+    var categorySections = document.querySelectorAll('.category-manager-section');
+    categorySections.forEach(function(categorySection) {
+      var categoryItems = categorySection.querySelectorAll('.form-check.category__holder');
+      var initialHeight = 0;
+      for (var i = 0; i < 5 && i < categoryItems.length; i++) {
+        initialHeight += categoryItems[i].offsetHeight + 16;
+      }
+      categorySection.style.height = initialHeight + 'px';
+    });
 
-          var isExtend = categorySection.clientHeight === categoryMaxHeight;
-          if (isExtend) {
-            categorySection.style.height = 'auto';
-          }
-          else {
-            categorySection.style.height = categoryMaxHeight + 'px';
-          }
+    // Lặp qua tất cả các phần tử có class là "more-category-btn" và gắn sự kiện click cho mỗi phần tử
+    var moreCategoryBtns = document.querySelectorAll('.more-category-btn');
+    moreCategoryBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(event) { 
+        var categorySection = this.previousElementSibling; // Lấy phần tử category-manager-section tương ứng
+        var categoryItems = categorySection.querySelectorAll('.form-check.category__holder'); // Lấy tất cả các mục trong category
 
-          // Thay đổi nội dung của nút "more"
-          var buttonText = this.querySelector('p');
-          buttonText.textContent = buttonText.textContent === 'More' ? 'Less' : 'More';
+        // Tính chiều cao của 5 mục đầu tiên
+        var categoryMaxHeight = 0;
+        for (var i = 0; i < 5 && i < categoryItems.length; i++) {
+          categoryMaxHeight += categoryItems[i].offsetHeight + 16;
+        }
+
+        var isExtend = categorySection.clientHeight === categoryMaxHeight;
+        if (isExtend) {
+          categorySection.style.height = 'auto';
+        } else {
+          categorySection.style.height = categoryMaxHeight + 'px';
+        }
+
+        // Thay đổi nội dung của nút "more"
+        var buttonText = this.querySelector('p');
+        buttonText.textContent = buttonText.textContent === 'More' ? 'Less' : 'More';
       });
+    });
   });
 </script>
+
 
 <!-- script cho phần show more của từng heading category -->
 <script>
@@ -1607,50 +1626,54 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  var ratioHeading = document.querySelector('.mobile-menu__sort');
-  var checkHeading = document.querySelector('.mobile-menu__filter');
-  var sortRatio = document.querySelector('.category-sort');
-  var sortCheck = document.querySelector('.category-filter');
-  ratioHeading.addEventListener("click", function() {
-    // Kiểm tra xem category-sort đã được hiển thị chưa
-    var isDisplayed = window.getComputedStyle(sortRatio).display !== 'none';
-    if (!isDisplayed) {
-      sortRatio.style.display = 'block';
-      sortCheck.style.display = 'none';
-    } else {
-      sortRatio.style.display = 'none';
-    }
-  });
-  checkHeading.addEventListener("click", function() {
-    // Kiểm tra xem category-sort đã được hiển thị chưa
-    var isDisplayed = window.getComputedStyle(sortCheck).display !== 'none';
-    if (!isDisplayed) {
-      sortCheck.style.display = 'block';
-      sortRatio.style.display = 'none';
-    } else {
-      sortCheck.style.display = 'none';
-    }
-  });
-  var categoryMobile = document.querySelector('.category__mobile');
-  function checkComputer() {
-    var isDisplayed = window.getComputedStyle(categoryMobile).display !== 'none';
-    if (!isDisplayed){
-      sortRatio.style.display = 'block';
-      sortCheck.style.display = 'block';
-    }
-    else{
-      sortRatio.style.display = 'none';
-      sortCheck.style.display = 'none';
-    }
-  }
+    var ratioHeading = document.querySelector('.mobile-menu__sort');
+    var checkHeading = document.querySelector('.mobile-menu__filter');
+    var sortRatio = document.querySelector('.category-sort');
+    var sortCheck = document.querySelector('.category-filter');
+    
+    ratioHeading.addEventListener("click", function() {
+      // Kiểm tra xem category-sort đã được hiển thị chưa
+      var isDisplayed = window.getComputedStyle(sortRatio).display !== 'none';
+      if (!isDisplayed) {
+        sortRatio.style.display = 'block';
+        sortCheck.style.display = 'none';
+      } else {
+        sortRatio.style.display = 'none';
+      }
+    });
 
-  checkComputer(); // Kiểm tra khi trang được tải
+    checkHeading.addEventListener("click", function() {
+      // Kiểm tra xem category-sort đã được hiển thị chưa
+      var isDisplayed = window.getComputedStyle(sortCheck).display !== 'none';
+      if (!isDisplayed) {
+        sortCheck.style.display = 'block';
+        sortRatio.style.display = 'none';
+      } else {
+        sortCheck.style.display = 'none';
+      }
+    });
 
-  window.addEventListener('resize', function() {
-    checkComputer(); // Kiểm tra lại khi cửa sổ được thay đổi kích thước
+    var categoryMobile = document.querySelector('.category__mobile');
+
+    function checkComputer() {
+      var isDisplayed = window.getComputedStyle(categoryMobile).display !== 'none';
+      if (!isDisplayed) {
+        sortRatio.style.display = 'block';
+        sortCheck.style.display = 'block';
+      } else {
+        sortRatio.style.display = 'none';
+        sortCheck.style.display = 'none';
+      }
+    }
+
+    checkComputer(); // Kiểm tra khi trang được tải
+
+    window.addEventListener('resize', function() {
+      checkComputer(); // Kiểm tra lại khi cửa sổ được thay đổi kích thước
+    });
   });
-});
 </script>
+
 
 <script src="./carouselProduct.js"></script>
 
