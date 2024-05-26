@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T&N</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+      </head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container-fuild">
+        <div class="admin__menu-navigation">
+            <ul>
+                <li class="no-hover">
+                    <a href="./index.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </span>
+                        <span class="title">T&N</span>
+                    </a>
+                </li>
+
+                <li class="hovered">
+                    <a href="./adminDashboard.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminCustomer.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./productManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./orderManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminPassword.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./login.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="admin__menu-main">
+            <div class="admin__menu-topbar">
+                <div class="admin__menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+
+                <div class="admin__menu-user">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+            </div>
+
+            <!-- ======================= Cards ================== -->
+            <div class="admin__cardBox">
+                <div class="admin__card">
+                    <div>
+                        <div class="numbers">5,555</div>
+                        <div class="cardName">Likes</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+
+                <div class="admin__card">
+                    <div>
+                        <div class="numbers">111</div>
+                        <div class="cardName">Sales</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+
+                <div class="admin__card">
+                    <div>
+                        <div class="numbers">222</div>
+                        <div class="cardName">Comments</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                </div>
+
+                <div class="admin__card">
+                    <div>
+                        <div class="numbers">$7,777</div>
+                        <div class="cardName">Earning</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <i class="fa-solid fa-money-bill"></i>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========================= Order management section ==================== -->
+            <div class="admin__container container">
+                <div class="recentOrders">
+                    <div class="admin__cardHeader">
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                              <th>Order ID</th>
+                              <th>Customer ID</th>
+                              <th>Customer Name</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                          <tr onclick="window.location.href = 'orderManagementDetail.html'" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh">
+                            <td>O124</td>
+                            <td>C12346</td>
+                            <td>Nguyen Dai Anh Tuan</td>
+                            <td>Delivered</td>
+                          </tr>
+                          <tr onclick="window.location.href = 'orderManagementDetail.html'" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh">
+                            <td>O125</td>
+                            <td>C12347</td>
+                            <td>Nguyen Huu Thien</td>
+                            <td>Return</td>
+                          </tr>
+                          <tr onclick="window.location.href = 'orderManagementDetail.html'" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh">
+                            <td>O123</td>
+                            <td>C12345</td>
+                            <td>Nguyen Tuan Tu</td>
+                            <td>In Progress</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="./adminMenu.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

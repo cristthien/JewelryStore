@@ -96,4 +96,7 @@
     .slogan-video-section{
         margin-top: 10px;
     }
+    .wrapper{
+        display: block;
+    }
 }

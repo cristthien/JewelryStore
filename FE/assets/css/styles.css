@@ -1540,3 +1540,466 @@ header.modal-header {
     cursor: pointer;
     text-decoration: none;
 }
+
+/* =================================Css cho trang Admin======================================= */
+
+
+/* =============== Navigation ================ */
+.admin__menu-navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #000;
+    border-left: 10px solid #000;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+  .admin__menu-navigation.active {
+    width: 80px;
+  }
+  
+  .admin__menu-navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .admin__menu-navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+  
+  .admin__menu-navigation ul li:hover,
+  .admin__menu-navigation ul li.hovered {
+      background-color: #fff;
+  }
+  
+  .admin__menu-navigation ul li a {
+      position: relative;
+      display: block;
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+      color: #fff;
+  }
+  
+  .admin__menu-navigation ul li:hover a,
+  .admin__menu-navigation ul li.hovered a {
+      color: #000;
+  }
+  
+  .admin__menu-navigation ul li a .icon {
+      position: relative;
+      display: block;
+      min-width: 60px;
+      height: 60px;
+      line-height: 75px;
+      text-align: center;
+  }
+  
+  .admin__menu-navigation ul li a .icon i {
+      font-size: 1.75rem;
+  }
+  
+  .admin__menu-navigation ul li a .title {
+      position: relative;
+      display: block;
+      padding: 0 10px;
+      height: 60px;
+      line-height: 60px;
+      text-align: start;
+      white-space: nowrap;
+  }
+  
+  /* Ngăn chặn hiệu ứng hover cho thẻ li đầu tiên */
+  .admin__menu-navigation ul li.no-hover:hover,
+  .admin__menu-navigation ul li.no-hover.hovered {
+      background-color: transparent;
+  }
+  
+  .admin__menu-navigation ul li.no-hover:hover a,
+  .admin__menu-navigation ul li.no-hover.hovered a {
+      color: #fff;
+  }
+  
+  /* Cho phép nhấp chuột vào thẻ a trong thẻ li có lớp no-hover */
+  .admin__menu-navigation ul li.no-hover a {
+      pointer-events: auto;
+  }
+  
+ /* --------- curve outside ---------- */
+.admin__menu-navigation ul li:not(.no-hover):hover a::before,
+.admin__menu-navigation ul li:not(.no-hover).hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px #fff;
+    pointer-events: none;
+}
+
+.admin__menu-navigation ul li:not(.no-hover):hover a::after,
+.admin__menu-navigation ul li:not(.no-hover).hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px #fff;
+    pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.admin__menu-main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #fff;
+    transition: 0.5s;
+  }
+  .admin__menu-main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+  }
+
+
+  .admin__menu-topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .admin__menu-toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .admin__menu-search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+  }
+  
+  .admin__menu-search label {
+    position: relative;
+    width: 100%;
+  }
+  
+  .admin__menu-search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #999;
+  }
+  
+  .admin__menu-search label i {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+    transform: translateY(50%);
+  }
+  
+  .admin__menu-user {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .admin__menu-user i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.75rem;
+  }
+
+  /* ======================= Cards ====================== */
+.admin__cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+  }
+  
+  .admin__cardBox .admin__card {
+    position: relative;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .admin__cardBox .admin__card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: #000;
+  }
+  
+  .admin__cardBox .admin__card .cardName {
+    color: #999;
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+  
+  .admin__cardBox .admin__card .iconBx {
+    font-size: 3.5rem;
+    color: #999;
+  }
+  
+  .admin__cardBox .admin__card:hover {
+    background: #000;
+  }
+  .admin__cardBox .admin__card:hover .numbers,
+  .admin__cardBox .admin__card:hover .cardName,
+  .admin__cardBox .admin__card:hover .iconBx {
+    color: #fff;
+  }
+
+
+  .recentOrders {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+
+  .admin__cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .admin__cardHeader h2 {
+    font-weight: 600;
+    color: #000;
+  }
+
+  .admin__cardHeader .btn {
+    position: relative;
+    padding: 5px 10px;
+    background: #000;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 6px;
+  }
+  
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+    .admin__menu-navigation {
+      left: -300px;
+    }
+    .admin__menu-navigation.active {
+      width: 300px;
+      left: 0;
+    }
+    .admin__menu-main {
+      width: 100%;
+      left: 0;
+    }
+    .admin__menu-main.active {
+      left: 300px;
+    }
+    .admin__cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin__cardBox {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    .admin__menu-user {
+      min-width: 40px;
+    }
+    .admin__menu-navigation {
+      width: 100%;
+      left: -100%;
+      z-index: 1000;
+    }
+    .admin__menu-navigation.active {
+      width: 100%;
+      left: 0;
+    }
+    .admin__menu-toggle {
+      z-index: 10001;
+    }
+    .admin__menu-main.active .admin__menu-toggle {
+      color: #fff;
+      position: fixed;
+      right: 0;
+      left: initial;
+    }
+  }
+
+  /* Css Product management */
+  .admin__container{
+    margin-top: 16px;
+  }
+
+  .admin__container table tbody tr td {
+    cursor: pointer;
+  }
+
+  .admin__add-product-btn{
+    float: right;
+    transform: translateX(-20%);
+  }
+
+  .wrapper{
+    width: 100%;
+    border-radius: 5px;
+    /* padding: 25px 25px 30px; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .wrapper h2{
+    font-family: Fancy Cut,Almarai,Times,serif;
+    font-size: 24px;
+    width: 200px;
+  }
+
+  .wrapper textarea{
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    font-family: Fancy Cut,Almarai,Times,serif;
+    border-color: #bfbfbf;
+    max-height: 160px;
+  }
+
+  textarea:is(:focus, :valid){
+    border-color: #000;
+    border-width: 2px;
+    padding: 14px;
+  }
+  
+  textarea::-webkit-scrollbar{
+    width: 0px;
+  }
+
+  .admin__product-manage-radio{
+    margin-right: 40px;
+    margin-left: 10px;
+  }
+
+  .wrapper .radio-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .wrapper .radio-group input{
+    transform: translateY(-50%);
+  }
+
+  /* .wrapper .radio-group p{
+    width: 80px;
+  } */
+
+  .admin__add-stock-btn{
+    float: right;
+    transform: translateX(-20%);
+  }
+
+  .wrapper-custom{
+    padding: 10px 10px 30px;
+  }
+
+  .wrapper-custom h2{
+    font-size: 20px;
+    width: 80px;
+  }
+
+  .wrapper-custom textarea{
+    height: 50px;
+    padding: 10px;
+    width: 50%;
+  }
+  
+  .admin__product-manage-stock-item{
+    margin-top: 60px;
+  }
+
+  .admin__submit-btn{
+    margin-top: 40px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .admin__edit-btn{
+    float: right;
+  }
+
+  .admin__back-btn{
+    margin-left: 15px;
+  }
+
+  .admin__save-btn{
+    width: 100%;
+    display: none;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .admin__delete-btn{
+    float: right;
+    margin-bottom: 10px;
+  }
+
+  .admin__order-manage-table-custom th, .admin__order-manage-table-custom td {
+    text-align: center;
+    cursor: text !important;
+}
+
+.admin__order-manage-total-price{
+    display: flex;
+    float: right;
+}
+
+.admin__order-manage-total-price h6 {
+    margin-left: 16px;
+}
+
+.admin-table-custom{
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}

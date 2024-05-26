@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T&N</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+      </head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container-fuild">
+        <div class="admin__menu-navigation">
+            <ul>
+                <li class="no-hover">
+                    <a href="./index.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </span>
+                        <span class="title">T&N</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminDashboard.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminCustomer.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./productManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li class="hovered">
+                    <a href="./orderManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminPassword.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./login.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="admin__menu-main">
+            <div class="admin__menu-topbar">
+                <div class="admin__menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="admin__menu-search">
+                    <h2>Order Detail</h2>
+                </div>
+
+                <div class="admin__menu-user">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+            </div>
+
+            <!-- ========================= Order management section ==================== -->
+            <div class="admin__container container">
+                <button type="button" class="btn btn-outline-dark admin__back-btn" onclick="window.location.href = 'orderManagement.html'">Back</button>
+               <div class="row">
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Order ID:</h2>
+                        <textarea placeholder="Order ID..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Customer ID:</h2>
+                        <textarea placeholder="Customer ID..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Customer Name:</h2>
+                        <textarea placeholder="Customer Name..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Email:</h2>
+                        <textarea placeholder="Customer Email..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Phone Number:</h2>
+                        <textarea placeholder="Customer Phone number..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Address:</h2>
+                        <textarea placeholder="Customer address..." required disabled></textarea>
+                    </div>
+                </div>
+               </div>
+
+               <div class="admin__order-manage-table-section">
+                <table class="table table-striped table-bordered admin__order-manage-table-custom">
+                    <thead>
+                      <tr>
+                        <th>Product name</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>unit Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>La Panthère de Cartier Watch</td>
+                        <td>Small model, quartz movement, rose gold, diamonds</td>
+                        <td>2</td>
+                        <td>$47,200.00</td>
+                      </tr>
+                      <tr>
+                        <td>La Panthère de Cartier Watch</td>
+                        <td>Small model, quartz movement, rose gold, diamonds</td>
+                        <td>3</td>
+                        <td>$50,000.00</td>
+                      </tr>
+                      <tr>
+                        <td>La Panthère de Cartier Watch</td>
+                        <td>Small model, quartz movement, rose gold, diamonds</td>
+                        <td>1</td>
+                        <td>$55,200.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="admin__order-manage-total-price">
+                    <h6>Total price: </h6>
+                    <h6>$299,600.00</h6>
+                  </div>
+               </div>
+
+            </div>
+            
+
+
+        </div>
+    </div>
+
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="./adminMenu.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
+    <script src="./popover.js"></script>
+
+    <script src="./textarea.js"></script>
+</body>
+
+</html>

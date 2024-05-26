@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T&N</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/responsive.css">
+      </head>
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container-fuild">
+        <div class="admin__menu-navigation">
+            <ul>
+                <li class="no-hover">
+                    <a href="./index.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-gem"></i>
+                        </span>
+                        <span class="title">T&N</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminDashboard.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminCustomer.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li class="hovered">
+                    <a href="./productManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./orderManagement.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-clipboard-list"></i>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./adminPassword.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-user-lock"></i>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./login.html">
+                        <span class="icon">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="admin__menu-main">
+            <div class="admin__menu-topbar">
+                <div class="admin__menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="admin__menu-search">
+                    <h2>Product Detail</h2>
+                    <!-- <label>
+                        <input type="text" placeholder="Search here">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label> -->
+                </div>
+
+                <div class="admin__menu-user">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+            </div>
+
+            <!-- ========================= Product management section ==================== -->
+            <div class="admin__container container">
+                <button type="button" class="btn btn-outline-dark admin__back-btn" onclick="window.location.href = 'productManagement.html'">Back</button>
+                <button type="button" class="btn btn-primary admin__edit-btn">Edit</button>
+               <div class="row">
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Product Name</h2>
+                        <textarea placeholder="Enter product name..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Price</h2>
+                        <textarea placeholder="Enter price..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Description</h2>
+                        <textarea placeholder="Enter description..." required disabled></textarea>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrapper">
+                        <h2>Stock</h2>
+                        <div class="radio-group">
+                            <p>Size:</p>
+                            <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="sizeRadio" checked disabled>
+                        </div>
+                        <div class="radio-group">
+                            <p>Non-size:</p>
+                            <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="nonSizeRadio" disabled>
+                        </div>
+                    </div>
+                </div>
+               </div>
+               <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-dark admin__add-stock-btn" disabled><i class="fa-solid fa-plus" style="margin-right: 10px;"></i>Add new stock</button>
+                </div>
+               </div>
+               <div class="row admin__product-manage-stock-section" id="stockSection">
+                <div class="col-6 admin__product-manage-stock-item">
+                    <div class="wrapper wrapper-custom">
+                        <h2>Stock</h2>
+                        <textarea placeholder="Enter stock..." required disabled></textarea>
+                    </div>
+                    <div class="wrapper wrapper-custom">
+                        <h2>Size</h2>
+                        <textarea placeholder="Enter size..." required disabled></textarea>
+                    </div>
+                </div>
+               </div>
+
+               <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-dark admin__save-btn">Save</button>
+                </div>
+               </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+
+
+
+    <!-- =========== Scripts =========  -->
+    <script src="./adminMenu.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
+    <script src="./popover.js"></script>
+
+    <script src="./textarea.js"></script>
+
+    <script src = "./insertStock.js"></script>
+
+        <script>
+            const submitBtn = document.querySelector('.admin__save-btn');
+            const addBtn = document.querySelector('.admin__add-stock-btn');
+            document.querySelector('.admin__edit-btn').addEventListener('click', function() {
+                document.querySelectorAll('textarea').forEach(function(textarea) {
+                    textarea.disabled = false;
+                });
+                document.querySelectorAll('textarea, input[type="radio"]').forEach(function(element) {
+                element.disabled = false;
+                });
+                if(addBtn){
+                    addBtn.disabled = false;
+                }
+                submitBtn.style.display = 'block';
+            });
+
+            submitBtn.addEventListener('click', function() {
+                submitBtn.style.display = 'none';
+                document.querySelectorAll('textarea').forEach(function(textarea) {
+                    textarea.disabled = true;
+                });
+                document.querySelectorAll('textarea, input[type="radio"]').forEach(function(element) {
+                element.disabled = true;
+                });
+                if(addBtn){
+                    addBtn.disabled = true;
+                }
+            });
+        </script>
+</body>
+
+</html>
