@@ -99,6 +99,7 @@ ul {
 .header-right-function #openOffcanvas{
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .header-user-btn,
@@ -110,14 +111,22 @@ ul {
     margin-left: 20px;
 }
 
-.shopping__badge{
+.shopping__badge {
     background-color: #000;
-    border-radius: 10px;
+    border-radius: 50%;
     color: #fff;
-    height: 24px;
     text-align: center;
     margin-bottom: 0;
-    /* width: 16px; */
+    position: absolute;
+    right: -8px;
+    font-size: 13px;
+    top: 2px;
+    min-width: 20px;
+    font-weight: 400;
+    align-content: center;
+    line-height: 1;
+    padding: 4px 0;
+    margin: auto;
 }
 
 /* Css chung cho cả 2 bên function */
