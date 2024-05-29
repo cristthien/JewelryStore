@@ -461,7 +461,14 @@
             <div class="login-container">
                     <h4 class="login__header" style="margin-bottom: 0px;">Create an account</h4>
                     <p class="have-account" style="margin-bottom: 40px;">Already have an account? <a href="login.html" style="color: #000;">Log in</a></p>
-                <div class="login__body container-fluid">
+                    <div class="login__google-section">
+                      <button type="button" class="btn btn-outline-dark login__google-btn"><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Continue with Google</button>
+                      <div class="horizontal-line">
+                        <span>OR</span>
+                      </div>
+                    </div>
+
+                    <div class="login__body container-fluid">
                     <label for="alias" class="login__label">
                         What should we call you?
                     </label>
@@ -486,7 +493,7 @@
                     <button id="login-account-btn" class="login__btn" onclick="window.location.href='myProfile.html'" disabled>
                         Create an account
                     </button>
-                </div>
+                    </div>
             </div>
         </div>
 

@@ -765,9 +765,11 @@
                   >
                 </li>
               </ul>
-              <button class="btn btn-dark" id="log-out-btn">Log Out</button>
+              <button class="btn btn-dark" id="log-out-btn" onclick="window.location.href='login.html'">Log Out</button>
             </div>
             <div class="col-9">
+              <button class="btn btn-dark" id="edit-profile-btn" style="float: right;">Edit</button>
+              <button class="btn btn-dark" id="edit-profile-btn" style="float: right; margin-right: 10px;" onclick = "window.location.href='email.html'">Change email</button>
               <table class="table table-custom">
                 <tbody>
                   <tr>
@@ -776,13 +778,12 @@
                       <input
                         id="email"
                         type="text"
-                        class="form-control phone-change__input"
+                        class="form-control profile__input-email"
                         placeholder="Enter new email"
                         value="cristthien@gmail.com"
                         disabled
                       />
                     </td>
-                    <button class="btn btn-dark">Edit email</button>
                   </tr>
                   <tr>
                     <td style="text-align: right">Name</td>
@@ -790,9 +791,10 @@
                       <input
                         id="username"
                         type="text"
-                        class="form-control phone-change__input"
+                        class="form-control profile__input"
                         placeholder="Enter new user name"
                         value="gia thien"
+                        disabled
                       />
                     </td>
                   </tr>
@@ -802,9 +804,10 @@
                       <input
                         id="phone"
                         type="text"
-                        class="form-control phone-change__input"
+                        class="form-control profile__input"
                         placeholder="Enter new phone number"
                         value="0367117926"
+                        disabled
                       />
                     </td>
                   </tr>
@@ -818,6 +821,8 @@
                           id="check__male"
                           name="optradio"
                           value="male"
+                          checked
+                          disabled
                         />
                         <label class="form-check-label" for="check__male"
                           >Male</label
@@ -828,6 +833,7 @@
                           id="check__female"
                           name="optradio"
                           value="female"
+                          disabled
                         />
                         <label class="form-check-label" for="check__female"
                           >Female</label
@@ -838,6 +844,7 @@
                           id="check__other"
                           name="optradio"
                           value="other"
+                          disabled
                         />
                         <label class="form-check-label" for="check__other"
                           >Other</label
@@ -849,16 +856,18 @@
                     <td style="text-align: right">Date of birth</td>
                     <td>
                       <select
-                        class="form-select form-select-sm"
+                        class="form-select form-select-sm profile__dob"
                         id="day"
                         name="day"
-                        style="width: 20%; display: inline-block"
+                        class = "profile__dob"
+                        disabled
                       ></select>
                       <select
-                        class="form-select form-select-sm"
+                        class="form-select form-select-sm profile__dob"
                         id="month"
                         name="month"
-                        style="width: 20%; display: inline-block"
+                        class = "profile__dob"
+                        disabled
                       >
                         <option value="1">January</option>
                         <option value="2">February</option>
@@ -874,10 +883,10 @@
                         <option value="12">December</option>
                       </select>
                       <select
-                        class="form-select form-select-sm"
+                        class="form-select form-select-sm profile__dob"
                         id="year"
                         name="year"
-                        style="width: 20%; display: inline-block"
+                        disabled
                       ></select>
                     </td>
                   </tr>
@@ -885,7 +894,7 @@
                     <td></td>
                     <!-- Cell for alignment -->
                     <td>
-                      <button class="btn btn-dark" onclick="">Save</button>
+                      <button class="btn btn-dark" id = "save-profile" style="display: none;">Save</button>
                     </td>
                   </tr>
                 </tbody>
@@ -983,8 +992,7 @@
 
   <script
     src="https://kit.fontawesome.com/8e1e4a8c95.js"
-    crossorigin="anonymous"
-  ></script>
+    crossorigin="anonymous"></script>
 
   <script>
     // Function to populate days based on selected month and year
@@ -1040,4 +1048,50 @@
     monthSelect.value = currentDate.getMonth() + 1;
     yearSelect.value = currentDate.getFullYear();
   </script>
+
+<script>
+  document.getElementById('edit-profile-btn').addEventListener('click', function() {
+    // Enable the input fields
+    document.querySelectorAll('.profile__input').forEach(function(input) {
+      input.disabled = false;
+    });
+    // Enable the input fields
+    document.querySelectorAll('.profile__input').forEach(function(input) {
+        input.disabled = false;
+      });
+
+      // Enable the gender radio buttons
+      document.querySelectorAll('.form-check-input').forEach(function(input) {
+        input.disabled = false;
+      });
+
+      // Enable the date of birth selects
+      document.querySelectorAll('.profile__dob').forEach(function(select) {
+        select.disabled = false;
+      });
+
+    // Show the save button
+    document.getElementById('save-profile').style.display = 'block';
+  });
+
+  document.getElementById('save-profile').addEventListener('click', function() {  
+    // Disable the input fields
+    document.querySelectorAll('.profile__input').forEach(function(input) {
+        input.disabled = true;
+    });
+
+    // Disable the gender radio buttons
+    document.querySelectorAll('.form-check-input').forEach(function(input) {
+        input.disabled = true;
+      });
+
+      // Disable the date of birth selects
+      document.querySelectorAll('.profile__dob').forEach(function(select) {
+        select.disabled = true;
+      });
+
+    // Hide the save button
+    this.style.display = 'none';
+});
+</script>
 </html>

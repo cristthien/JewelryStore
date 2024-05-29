@@ -28,7 +28,7 @@
     }
 
     #header .mobile-menu-btn{
-        display: block;
+        display: flex;
     }
     #header {
         height: var(--header-height);
@@ -54,6 +54,9 @@
         display: none;
     }
 
+    .card__header-desc-expand{
+        display: none;
+    }
     .category-sort{
         display: none;
     }
@@ -99,4 +102,12 @@
     .wrapper{
         display: block;
     }
+    .profile__input{
+        width: 80% !important;
+    }
+    .profile__dob{
+        display: block;
+        width: 50%;
+    }
+
 }
