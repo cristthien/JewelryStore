@@ -1,667 +1,1043 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>T&N</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/responsive.css">
-</head>
-<body>
-  <div id="main">
-        <!-- Header section -->
-        <div id="header">
-          <div class="row header-top">
-            <div class="col-3">
-              <div class="header-function">
-                <div class="header-left-function">
-                    <a href="map.html"><i class="header-location-btn ti-location-pin"></i></a>
-                    <div id="mobile-menu"class="mobile-menu-btn">
-                      <i class="ti-menu"></i>
-                    </div>
-                    <i class="header-search-btn ti-search"></i>
+  <head>
+    <title>T&N</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="./assets/font/themify-icons/themify-icons.css"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+  <body>
+    <div id="main">
+      <!-- Header section -->
+      <div id="header">
+        <div class="row header-top">
+          <div class="col-3">
+            <div class="header-function">
+              <div class="header-left-function">
+                <a href="map.html"
+                  ><i class="header-location-btn ti-location-pin"></i
+                ></a>
+                <div id="mobile-menu" class="mobile-menu-btn">
+                  <i class="ti-menu"></i>
                 </div>
-            </div>
-            </div> 
-            <div class="col-6">
-              <div class="header-brand-name text-center">
-                <a class="nav-to-home header-brand-name text-center" href="index.html">T&N</a>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="header-function">
-                <div class="header-right-function">
-                    <a href="login.html"><i class="header-user-btn ti-user"></i></a>
-                    <a id="openOffcanvas">
-                      <i class="header-shopping-cart-btn ti-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section">
-                      </i>
-                      <p class="shopping__badge">3</p>
-                    </a>
-                </div>
+                <i class="header-search-btn ti-search"></i>
               </div>
             </div>
           </div>
-    
-          <!-- Nav section -->
-            <ul id="header-nav">
-              <li><a class="header-nav__item nav__high-jewelry">High jewelry</a>
-              </li>
-              <li><a class="header-nav__item nav__jewelry">Jewelry</a>
-              </li>
-              <li><a class="header-nav__item nav__accessories">Accessories</a>
-              </li>
-              <li><a class="header-nav__item nav__news" href="newsPage.html">News</a>
-              </li>
-              <li><a class="header-nav__item nav__stories" href="story.html">Stories</a>
-              </li>
-              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__high-jewelry">High jewelry</a>
-              </li>
-              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__jewelry">Jewelry</a>
-              </li>
-              <li><a class="header-nav__item-mobile" data-bs-toggle="offcanvas" data-bs-target="#subnav__accessories">Accessories</a>
-              </li>
-              <li><a class="header-nav__item-mobile" href="newsPage.html">News</a>
-              </li>
-              <li><a class="header-nav__item-mobile" href="story.html">Stories</a>
-              </li>
-            </ul>
-    
-            <!-- subnav section -->
-            <div class="subnav subnav__high-jewelry" style="border-top: 1px solid #ddd; display: none;">
-              <div class="row justify-content-center" style="padding-top: 10px;">
-              <div class="col-2">
+          <div class="col-6">
+            <div class="header-brand-name text-center">
+              <a
+                class="nav-to-home header-brand-name text-center"
+                href="index.html"
+                >T&N</a
+              >
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="header-function">
+              <div class="header-right-function">
+                <a href="login.html"><i class="header-user-btn ti-user"></i></a>
+                <a id="openOffcanvas">
+                  <i
+                    class="header-shopping-cart-btn ti-shopping-cart"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#shopping-bag-section"
+                  >
+                  </i>
+                  <p class="shopping__badge">3</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nav section -->
+        <ul id="header-nav">
+          <li>
+            <a class="header-nav__item nav__high-jewelry">High jewelry</a>
+          </li>
+          <li><a class="header-nav__item nav__jewelry">Jewelry</a></li>
+          <li><a class="header-nav__item nav__accessories">Accessories</a></li>
+          <li>
+            <a class="header-nav__item nav__news" href="newsPage.html">News</a>
+          </li>
+          <li>
+            <a class="header-nav__item nav__stories" href="story.html"
+              >Stories</a
+            >
+          </li>
+          <li>
+            <a
+              class="header-nav__item-mobile"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#subnav__high-jewelry"
+              >High jewelry</a
+            >
+          </li>
+          <li>
+            <a
+              class="header-nav__item-mobile"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#subnav__jewelry"
+              >Jewelry</a
+            >
+          </li>
+          <li>
+            <a
+              class="header-nav__item-mobile"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#subnav__accessories"
+              >Accessories</a
+            >
+          </li>
+          <li>
+            <a class="header-nav__item-mobile" href="newsPage.html">News</a>
+          </li>
+          <li>
+            <a class="header-nav__item-mobile" href="story.html">Stories</a>
+          </li>
+        </ul>
+
+        <!-- subnav section -->
+        <div
+          class="subnav subnav__high-jewelry"
+          style="border-top: 1px solid #ddd; display: none"
+        >
+          <div class="row justify-content-center" style="padding-top: 10px">
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product A</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product B</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product C</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product D</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product E</p>
+              </a>
+            </div>
+            <a href="highjewelry.html" class="View-all-btn">view all</a>
+          </div>
+        </div>
+        <div
+          class="subnav subnav__jewelry"
+          style="border-top: 1px solid #ddd; display: none"
+        >
+          <div class="row justify-content-center" style="padding-top: 10px">
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product A</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product B</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product C</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product D</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product E</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product F</p>
+              </a>
+            </div>
+            <a href="highjewelry.html" class="View-all-btn">view all</a>
+          </div>
+        </div>
+        <div
+          class="subnav subnav__accessories"
+          style="border-top: 1px solid #ddd; display: none"
+        >
+          <div class="row justify-content-center" style="padding-top: 10px">
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product A</p>
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="highjewelry.html" class="subnav__item">
+                <img
+                  src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                  alt=""
+                  class="subnav__img img-fluid"
+                />
+                <p class="subnav__desc">Product B</p>
+              </a>
+            </div>
+            <a href="highjewelry.html" class="View-all-btn">view all</a>
+          </div>
+        </div>
+
+        <div
+          class="offcanvas offcanvas-end offcanvas-full"
+          id="subnav__high-jewelry"
+        >
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title">High Jewelry</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="row justify-content-center" style="padding-top: 10px">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product A</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product B</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product C</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product D</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product E</p>
                 </a>
               </div>
               <a href="highjewelry.html" class="View-all-btn">view all</a>
             </div>
-            </div>
-            <div class="subnav subnav__jewelry" style="border-top: 1px solid #ddd; display: none;">
-              <div class="row justify-content-center" style="padding-top: 10px;">
-              <div class="col-2">
+          </div>
+        </div>
+
+        <div
+          class="offcanvas offcanvas-end offcanvas-full"
+          id="subnav__jewelry"
+        >
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Jewelry</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="row justify-content-center" style="padding-top: 10px">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product A</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product B</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product C</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product D</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product E</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product F</p>
                 </a>
               </div>
               <a href="highjewelry.html" class="View-all-btn">view all</a>
             </div>
-            </div>
-            <div class="subnav subnav__accessories" style="border-top: 1px solid #ddd; display: none;">
-              <div class="row justify-content-center" style="padding-top: 10px;">
-              <div class="col-2">
+          </div>
+        </div>
+
+        <div
+          class="offcanvas offcanvas-end offcanvas-full"
+          id="subnav__accessories"
+        >
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Accessories</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="row justify-content-center" style="padding-top: 10px">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product A</p>
                 </a>
               </div>
-              <div class="col-2">
+              <div class="col-6">
                 <a href="highjewelry.html" class="subnav__item">
-                  <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
+                  <img
+                    src="./assets/img/jewelry-homepage-item/jewelry2.png"
+                    alt=""
+                    class="subnav__img img-fluid"
+                  />
                   <p class="subnav__desc">Product B</p>
                 </a>
               </div>
               <a href="highjewelry.html" class="View-all-btn">view all</a>
             </div>
-            </div>
-    
-            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__high-jewelry">
-              <div class="offcanvas-header">
-                <h1 class="offcanvas-title">High Jewelry</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="row justify-content-center" style="padding-top: 10px;">
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product A</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product B</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product C</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product D</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product E</p>
-                    </a>
-                  </div>
-                  <a href="highjewelry.html" class="View-all-btn">view all</a>
-                </div>
-              </div>
-            </div>
-    
-            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__jewelry">
-              <div class="offcanvas-header">
-                <h1 class="offcanvas-title">Jewelry</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="row justify-content-center" style="padding-top: 10px;">
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product A</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product B</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product C</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product D</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product E</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product F</p>
-                    </a>
-                  </div>
-                  <a href="highjewelry.html" class="View-all-btn">view all</a>
-                </div>
-              </div>
-            </div>
-    
-            <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__accessories">
-              <div class="offcanvas-header">
-                <h1 class="offcanvas-title">Accessories</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="row justify-content-center" style="padding-top: 10px;">
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product A</p>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a href="highjewelry.html" class="subnav__item">
-                      <img src="./assets/img/jewelry-homepage-item/jewelry2.png" alt="" class="subnav__img img-fluid">
-                      <p class="subnav__desc">Product B</p>
-                    </a>
-                  </div>
-                  <a href="highjewelry.html" class="View-all-btn">view all</a>
-                </div>
-              </div>
-            </div>
-    
-            <!-- Bag section -->
-            <div class="offcanvas offcanvas-end" id="shopping-bag-section">
-              <div class="offcanvas-header">
-                <h1 class="offcanvas-title shopping-bag__title">Shopping bag</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-              </div>
-              <div class="offcanvas-body shopping-bag__body">
-                <div class="row shopping-bag__item">
-                  <div class="col-6">
-                    <a href="productDetail.html" class="shopping-bag__img">
-                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <div class="product-item__close">
-                      <i class="ti-close"></i>
-                    </div>
-                    <a href="productDetail.html" class="product-item__name-shopping-bag">
-                      La Panthère de Cartier Watch
-                    </a>
-                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
-                    <div class="product-item__price-shopping-bag">
-                      <span class="product-item__low-price"></span>
-                      <span class="product-item__high-price">$47,200.00</span>
-                    </div>
-                  </div>
-                </div> <!-- end row-->
-                <div class="row shopping-bag__item">
-                  <div class="col-6">
-                    <a href="productDetail.html" class="shopping-bag__img">
-                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <div class="product-item__close">
-                      <i class="ti-close" onclick="deleteRow(this)"></i>
-                    </div>
-                    <a href="productDetail.html" class="product-item__name-shopping-bag">
-                      La Panthère de Cartier Watch
-                    </a>
-                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
-                    <div class="product-item__price-shopping-bag">
-                      <span class="product-item__low-price"></span>
-                      <span class="product-item__high-price">$47,200.00</span>
-                    </div>
-                  </div>
-                </div> <!-- end row-->
-                <div class="row shopping-bag__item">
-                  <div class="col-6">
-                    <a href="productDetail.html" class="shopping-bag__img">
-                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <div class="product-item__close">
-                      <i class="ti-close"></i>
-                    </div>
-                    <a href="productDetail.html" class="product-item__name-shopping-bag">
-                      La Panthère de Cartier Watch
-                    </a>
-                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
-                    <div class="product-item__price-shopping-bag">
-                      <span class="product-item__low-price"></span>
-                      <span class="product-item__high-price">$47,200.00</span>
-                    </div>
-                  </div>
-                </div> <!-- end row-->
-                <div class="subTotal-section">
-                  <div class="row" style="margin-top: 10px;">
-                    <div class="col-6">
-                      <p class="subTotal__text">subtotal</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="subToTal__calc">$22,550.00</p>
-                    </div>
-                  </div>
-                  <p class="subTotal__message">Shipping and taxes calculated at checkout.</p>
-                  <div class="row justify-content-center"></div>
-                  <button type="button" class="btn btn-dark subTotal__btn" onclick="viewShoppingBag()">View My Shopping Bag</button>
-                </div>
-              </div>
-            </div>
-    
-            <div class="header-search-section">
-              <div class="container-fluid header-search-container">
-                <div class="input-group d-flex justify-content-center search__area">
-                  <input type="text" placeholder="Search products" class="form-control input-search-control">
-                  <button class="btn btn-dark" type="submit">Search</button>
-                </div>
-    
-                <div class="search-suggestion-section">
-                  <div class="search-suggestion-container container open">
-                    <div class="row">
-                      <div class="col-md-3 product-item-col">
-                        <div class="product-item">
-                        <a href="productDetail.html">
-                          <img src="./assets/img/product-item/high-jewelry/related-product-1.avif" alt="product img" class="img-fluid" style="margin-top: 10px;">
-                        </a>
-                        <a href="productDetail.html" class="product-item__name">La Panthère de Cartier Watch</a>
-                            <a href="productDetail.html" class="product-item__desc">Small model, quartz movement, rose gold, diamonds</a>
-                            <div class="product-item__price">
-                              <span class="product-item__low-price"></span>
-                              <span class="product-item__high-price">$47,200.00</span>
-                            </div>
-                            <div class="product-item__action">
-                              <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
-                                <i class="product-item__like-unfill fa-regular fa-heart"></i>
-                                <i class="product-item__like-fill fa-solid fa-heart"></i>
-                              </span>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3 product-item-col">
-                        <div class="product-item">
-                        <a href="productDetail.html">
-                          <img src="./assets/img/product-item/high-jewelry/related-product-1.avif" alt="product img" class="img-fluid" style="margin-top: 10px;">
-                        </a>
-                        <a href="productDetail.html" class="product-item__name">La Panthère de Cartier Watch</a>
-                            <a href="productDetail.html" class="product-item__desc">Small model, quartz movement, rose gold, diamonds</a>
-                            <div class="product-item__price">
-                              <span class="product-item__low-price"></span>
-                              <span class="product-item__high-price">$47,200.00</span>
-                            </div>
-                            <div class="product-item__action">
-                              <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
-                                <i class="product-item__like-unfill fa-regular fa-heart"></i>
-                                <i class="product-item__like-fill fa-solid fa-heart"></i>
-                              </span>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3 product-item-col">
-                        <div class="product-item">
-                        <a href="productDetail.html">
-                          <img src="./assets/img/product-item/high-jewelry/related-product-1.avif" alt="product img" class="img-fluid" style="margin-top: 10px;">
-                        </a>
-                        <a href="productDetail.html" class="product-item__name">La Panthère de Cartier Watch</a>
-                            <a href="productDetail.html" class="product-item__desc">Small model, quartz movement, rose gold, diamonds</a>
-                            <div class="product-item__price">
-                              <span class="product-item__low-price"></span>
-                              <span class="product-item__high-price">$47,200.00</span>
-                            </div>
-                            <div class="product-item__action">
-                              <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
-                                <i class="product-item__like-unfill fa-regular fa-heart"></i>
-                                <i class="product-item__like-fill fa-solid fa-heart"></i>
-                              </span>
-                            </div>
-                          </div>
-                      </div>
-                      <div class="col-md-3 product-item-col">
-                        <div class="product-item">
-                        <a href="productDetail.html">
-                          <img src="./assets/img/product-item/high-jewelry/related-product-1.avif" alt="product img" class="img-fluid" style="margin-top: 10px;">
-                        </a>
-                        <a href="productDetail.html" class="product-item__name">La Panthère de Cartier Watch</a>
-                            <a href="productDetail.html" class="product-item__desc">Small model, quartz movement, rose gold, diamonds</a>
-                            <div class="product-item__price">
-                              <span class="product-item__low-price"></span>
-                              <span class="product-item__high-price">$47,200.00</span>
-                            </div>
-                            <div class="product-item__action">
-                              <span class="product-item__like product-item__like-liked" style="margin-top: 15px; margin-right: 5px;">
-                                <i class="product-item__like-unfill fa-regular fa-heart"></i>
-                                <i class="product-item__like-fill fa-solid fa-heart"></i>
-                              </span>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
 
-        <!-- Slider section -->
-        <div id="slider">
-        </div>
-
-        <!-- Content section -->
-        <div id="content" style="margin-top: 24px;">
-            <div class="container container-fluid">
-                <div class="row mb-5 profile-row">
-                    <div class="col-3" style="border-right: 1px solid #ddd;">
-                        <ul class="profile-list">
-                            <li><a class="profile-list__item" href="myProfile.html" style="text-decoration: underline;">My profile</a>
-                            </li>
-                            <li><a class="profile-list__item" href="myPassword.html">My password</a>
-                            </li>
-                            <li><a class="profile-list__item" href="myOrder.html">My orders</a>
-                            </li>
-                            <li><a class="profile-list__item" href="myAddress.html">My addresses</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-9">
-                        <table class="table table-custom">
-                            <tbody>
-                              <tr>
-                                <td style="text-align: right;">User name</td>
-                                <td>
-                                  nguyen_t_tu
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Email</td>
-                                <td>
-                                  tuantums10@gmail.com
-                                  <a href="email.html">Change</a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Phone number</td>
-                                <td>
-                                  123456789
-                                  <a href="phone.html">Change</a>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Gender</td>
-                                <td>
-                                  <div class="gender-selection">
-                                      <input type="radio" class="form-check-input" id="check__male" name="optradio" value="male">
-                                      <label class="form-check-label" for="check__male">Male</label>
-                                      <input type="radio" class="form-check-input" id="check__female" name="optradio" value="female">
-                                      <label class="form-check-label" for="check__female">Female</label>
-                                      <input type="radio" class="form-check-input" id="check__other" name="optradio" value="other">
-                                      <label class="form-check-label" for="check__other">Other</label>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Date of birth</td>
-                                <td>
-                                  <select class="form-select form-select-sm" id="day" name="day" style="width: 20%; display: inline-block;">
-                                  </select>
-                                  <select class="form-select form-select-sm" id="month" name="month" style="width: 20%; display: inline-block;">
-                                      <option value="1">January</option>
-                                      <option value="2">February</option>
-                                      <option value="3">March</option>
-                                      <option value="4">April</option>
-                                      <option value="5">May</option>
-                                      <option value="6">June</option>
-                                      <option value="7">July</option>
-                                      <option value="8">August</option>
-                                      <option value="9">September</option>
-                                      <option value="10">October</option>
-                                      <option value="11">November</option>
-                                      <option value="12">December</option>
-                                  </select>
-                                  <select class="form-select form-select-sm" id="year" name="year" style="width: 20%; display: inline-block;">
-                                  </select>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td></td> <!-- Cell for alignment -->
-                                <td>
-                                    <button class="btn btn-dark" onclick="">Save</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
+        <!-- Bag section -->
+        <div class="offcanvas offcanvas-end" id="shopping-bag-section">
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title shopping-bag__title">Shopping bag</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <div class="offcanvas-body shopping-bag__body">
+            <div class="row shopping-bag__item">
+              <div class="col-6">
+                <a href="productDetail.html" class="shopping-bag__img">
+                  <img
+                    src="./assets/img/product-item/high-jewelry/watch-back.avif"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="col-6">
+                <div class="product-item__close">
+                  <i class="ti-close"></i>
                 </div>
+                <a
+                  href="productDetail.html"
+                  class="product-item__name-shopping-bag"
+                >
+                  La Panthère de Cartier Watch
+                </a>
+                <p class="product-item__desc-shopping-bag">
+                  Small model, quartz movement, rose gold, diamonds
+                </p>
+                <div class="product-item__price-shopping-bag">
+                  <span class="product-item__low-price"></span>
+                  <span class="product-item__high-price">$47,200.00</span>
+                </div>
+              </div>
             </div>
-
-          <!-- Contact section -->
-          <div class="contact-section">
-            <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
-            <div class="input-group mb-3 contact-form d-flex justify-content-center">
-              <form action="" class="d-flex mt-3 w-50">
-                      <input type="email" name="" placeholder="Email" required id="contact-id" class="form-control input-email-control">
-                      <button class="btn btn-dark form-submit-btn" type="submit">Subscribe</button>
-              </form>
+            <!-- end row-->
+            <div class="row shopping-bag__item">
+              <div class="col-6">
+                <a href="productDetail.html" class="shopping-bag__img">
+                  <img
+                    src="./assets/img/product-item/high-jewelry/watch-back.avif"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="col-6">
+                <div class="product-item__close">
+                  <i class="ti-close" onclick="deleteRow(this)"></i>
+                </div>
+                <a
+                  href="productDetail.html"
+                  class="product-item__name-shopping-bag"
+                >
+                  La Panthère de Cartier Watch
+                </a>
+                <p class="product-item__desc-shopping-bag">
+                  Small model, quartz movement, rose gold, diamonds
+                </p>
+                <div class="product-item__price-shopping-bag">
+                  <span class="product-item__low-price"></span>
+                  <span class="product-item__high-price">$47,200.00</span>
+                </div>
+              </div>
+            </div>
+            <!-- end row-->
+            <div class="row shopping-bag__item">
+              <div class="col-6">
+                <a href="productDetail.html" class="shopping-bag__img">
+                  <img
+                    src="./assets/img/product-item/high-jewelry/watch-back.avif"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="col-6">
+                <div class="product-item__close">
+                  <i class="ti-close"></i>
+                </div>
+                <a
+                  href="productDetail.html"
+                  class="product-item__name-shopping-bag"
+                >
+                  La Panthère de Cartier Watch
+                </a>
+                <p class="product-item__desc-shopping-bag">
+                  Small model, quartz movement, rose gold, diamonds
+                </p>
+                <div class="product-item__price-shopping-bag">
+                  <span class="product-item__low-price"></span>
+                  <span class="product-item__high-price">$47,200.00</span>
+                </div>
+              </div>
+            </div>
+            <!-- end row-->
+            <div class="subTotal-section">
+              <div class="row" style="margin-top: 10px">
+                <div class="col-6">
+                  <p class="subTotal__text">subtotal</p>
+                </div>
+                <div class="col-6">
+                  <p class="subToTal__calc">$22,550.00</p>
+                </div>
+              </div>
+              <p class="subTotal__message">
+                Shipping and taxes calculated at checkout.
+              </p>
+              <div class="row justify-content-center"></div>
+              <button
+                type="button"
+                class="btn btn-dark subTotal__btn"
+                onclick="viewShoppingBag()"
+              >
+                View My Shopping Bag
+              </button>
             </div>
           </div>
         </div>
 
-        <footer class="container-fluid" style="margin-top: 10px;">
-          <div class="row">
-            <div class="col-lg-3 col-md-6">
-              <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
-              <ul class="footer-item footer-nav" id="footer-item-1">
-                <li><a href="#">CONTACT US</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">TRACK YOUR ORDER</a></li>
-                <li><a href="#">BOOK AN APPOINTMENT</a></li>   
-              </ul>
+        <div class="header-search-section">
+          <div class="container-fluid header-search-container">
+            <div class="input-group d-flex justify-content-center search__area">
+              <input
+                type="text"
+                placeholder="Search products"
+                class="form-control input-search-control"
+              />
+              <button class="btn btn-dark" type="submit">Search</button>
             </div>
-            <div class="col-lg-3 col-md-6">
-              <h4 class="footer-title" onclick="">OUR COMPANY</h4>
-              <ul class="footer-item footer-nav" id="footer-item-2">
-                <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
-                
-                <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <h4 class="footer-title" onclick="">LEGAL AREA</h4>
-              <ul class="footer-item footer-nav" id="footer-item-3">
-                <li><a href="#">TERMS OF USE</a></li>
-                <li><a href="#">PRIVACY POLICY</a></li>   
-                <li><a href="#">CONDITIONS OF SALE</a></li>  
-                <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
-                <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <h4 class="footer-title" onclick="">FOLLOW US</h4>
-              <ul class="footer-item socials-list" id="footer-item-4">
-                <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
-                <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
-                <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
-                <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
-                <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
-              </ul>
+
+            <div class="search-suggestion-section">
+              <div class="search-suggestion-container container open">
+                <div class="row">
+                  <div class="col-md-3 product-item-col">
+                    <div class="product-item">
+                      <a href="productDetail.html">
+                        <img
+                          src="./assets/img/product-item/high-jewelry/related-product-1.avif"
+                          alt="product img"
+                          class="img-fluid"
+                          style="margin-top: 10px"
+                        />
+                      </a>
+                      <a href="productDetail.html" class="product-item__name"
+                        >La Panthère de Cartier Watch</a
+                      >
+                      <a href="productDetail.html" class="product-item__desc"
+                        >Small model, quartz movement, rose gold, diamonds</a
+                      >
+                      <div class="product-item__price">
+                        <span class="product-item__low-price"></span>
+                        <span class="product-item__high-price">$47,200.00</span>
+                      </div>
+                      <div class="product-item__action">
+                        <span
+                          class="product-item__like product-item__like-liked"
+                          style="margin-top: 15px; margin-right: 5px"
+                        >
+                          <i
+                            class="product-item__like-unfill fa-regular fa-heart"
+                          ></i>
+                          <i
+                            class="product-item__like-fill fa-solid fa-heart"
+                          ></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 product-item-col">
+                    <div class="product-item">
+                      <a href="productDetail.html">
+                        <img
+                          src="./assets/img/product-item/high-jewelry/related-product-1.avif"
+                          alt="product img"
+                          class="img-fluid"
+                          style="margin-top: 10px"
+                        />
+                      </a>
+                      <a href="productDetail.html" class="product-item__name"
+                        >La Panthère de Cartier Watch</a
+                      >
+                      <a href="productDetail.html" class="product-item__desc"
+                        >Small model, quartz movement, rose gold, diamonds</a
+                      >
+                      <div class="product-item__price">
+                        <span class="product-item__low-price"></span>
+                        <span class="product-item__high-price">$47,200.00</span>
+                      </div>
+                      <div class="product-item__action">
+                        <span
+                          class="product-item__like product-item__like-liked"
+                          style="margin-top: 15px; margin-right: 5px"
+                        >
+                          <i
+                            class="product-item__like-unfill fa-regular fa-heart"
+                          ></i>
+                          <i
+                            class="product-item__like-fill fa-solid fa-heart"
+                          ></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 product-item-col">
+                    <div class="product-item">
+                      <a href="productDetail.html">
+                        <img
+                          src="./assets/img/product-item/high-jewelry/related-product-1.avif"
+                          alt="product img"
+                          class="img-fluid"
+                          style="margin-top: 10px"
+                        />
+                      </a>
+                      <a href="productDetail.html" class="product-item__name"
+                        >La Panthère de Cartier Watch</a
+                      >
+                      <a href="productDetail.html" class="product-item__desc"
+                        >Small model, quartz movement, rose gold, diamonds</a
+                      >
+                      <div class="product-item__price">
+                        <span class="product-item__low-price"></span>
+                        <span class="product-item__high-price">$47,200.00</span>
+                      </div>
+                      <div class="product-item__action">
+                        <span
+                          class="product-item__like product-item__like-liked"
+                          style="margin-top: 15px; margin-right: 5px"
+                        >
+                          <i
+                            class="product-item__like-unfill fa-regular fa-heart"
+                          ></i>
+                          <i
+                            class="product-item__like-fill fa-solid fa-heart"
+                          ></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 product-item-col">
+                    <div class="product-item">
+                      <a href="productDetail.html">
+                        <img
+                          src="./assets/img/product-item/high-jewelry/related-product-1.avif"
+                          alt="product img"
+                          class="img-fluid"
+                          style="margin-top: 10px"
+                        />
+                      </a>
+                      <a href="productDetail.html" class="product-item__name"
+                        >La Panthère de Cartier Watch</a
+                      >
+                      <a href="productDetail.html" class="product-item__desc"
+                        >Small model, quartz movement, rose gold, diamonds</a
+                      >
+                      <div class="product-item__price">
+                        <span class="product-item__low-price"></span>
+                        <span class="product-item__high-price">$47,200.00</span>
+                      </div>
+                      <div class="product-item__action">
+                        <span
+                          class="product-item__like product-item__like-liked"
+                          style="margin-top: 15px; margin-right: 5px"
+                        >
+                          <i
+                            class="product-item__like-unfill fa-regular fa-heart"
+                          ></i>
+                          <i
+                            class="product-item__like-fill fa-solid fa-heart"
+                          ></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </footer>
-
+        </div>
       </div>
-</body>
+
+      <!-- Slider section -->
+      <div id="slider"></div>
+      <!-- Content section -->
+      <div id="content" style="margin-top: 24px">
+        <div class="container container-fluid">
+          <div class="row mb-5 profile-row">
+            <div class="col-3" style="border-right: 1px solid #ddd">
+              <ul class="profile-list">
+                <li>
+                  <a
+                    class="profile-list__item"
+                    href="/profile"
+                    style="text-decoration: underline"
+                    >My profile</a
+                  >
+                </li>
+                <li>
+                  <a class="profile-list__item" href="myPassword.html"
+                    >My password</a
+                  >
+                </li>
+                <li>
+                  <a class="profile-list__item" href="myOrder.html"
+                    >My orders</a
+                  >
+                </li>
+                <li>
+                  <a class="profile-list__item" href="myAddress.html"
+                    >My addresses</a
+                  >
+                </li>
+              </ul>
+              <button class="btn btn-dark" id="log-out-btn">Log Out</button>
+            </div>
+            <div class="col-9">
+              <table class="table table-custom">
+                <tbody>
+                  <tr>
+                    <td style="text-align: right">Email</td>
+                    <td id="email">
+                      <input
+                        id="email"
+                        type="text"
+                        class="form-control phone-change__input"
+                        placeholder="Enter new email"
+                        value="cristthien@gmail.com"
+                        disabled
+                      />
+                    </td>
+                    <button class="btn btn-dark">Edit email</button>
+                  </tr>
+                  <tr>
+                    <td style="text-align: right">Name</td>
+                    <td id="username">
+                      <input
+                        id="username"
+                        type="text"
+                        class="form-control phone-change__input"
+                        placeholder="Enter new user name"
+                        value="gia thien"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: right">Phone number</td>
+                    <td id="phone">
+                      <input
+                        id="phone"
+                        type="text"
+                        class="form-control phone-change__input"
+                        placeholder="Enter new phone number"
+                        value="0367117926"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: right">Gender</td>
+                    <td>
+                      <div class="gender-selection">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="check__male"
+                          name="optradio"
+                          value="male"
+                        />
+                        <label class="form-check-label" for="check__male"
+                          >Male</label
+                        >
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="check__female"
+                          name="optradio"
+                          value="female"
+                        />
+                        <label class="form-check-label" for="check__female"
+                          >Female</label
+                        >
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="check__other"
+                          name="optradio"
+                          value="other"
+                        />
+                        <label class="form-check-label" for="check__other"
+                          >Other</label
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: right">Date of birth</td>
+                    <td>
+                      <select
+                        class="form-select form-select-sm"
+                        id="day"
+                        name="day"
+                        style="width: 20%; display: inline-block"
+                      ></select>
+                      <select
+                        class="form-select form-select-sm"
+                        id="month"
+                        name="month"
+                        style="width: 20%; display: inline-block"
+                      >
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                      </select>
+                      <select
+                        class="form-select form-select-sm"
+                        id="year"
+                        name="year"
+                        style="width: 20%; display: inline-block"
+                      ></select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <!-- Cell for alignment -->
+                    <td>
+                      <button class="btn btn-dark" onclick="">Save</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact section -->
+        <div class="contact-section">
+          <h1 class="heading text-center">SUBSCRIBE TO OUR NEWSLETTER</h1>
+          <div
+            class="input-group mb-3 contact-form d-flex justify-content-center"
+          >
+            <form action="" class="d-flex mt-3 w-50">
+              <input
+                type="email"
+                name=""
+                placeholder="Email"
+                required
+                id="contact-id"
+                class="form-control input-email-control"
+              />
+              <button class="btn btn-dark form-submit-btn" type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <footer class="container-fluid" style="margin-top: 10px">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
+            <ul class="footer-item footer-nav" id="footer-item-1">
+              <li><a href="#">CONTACT US</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">TRACK YOUR ORDER</a></li>
+              <li><a href="#">BOOK AN APPOINTMENT</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title" onclick="">OUR COMPANY</h4>
+            <ul class="footer-item footer-nav" id="footer-item-2">
+              <li>
+                <a href="#"
+                  >FIND A BOUTIQUE <i class="ti-arrow-top-right"></i
+                ></a>
+              </li>
+
+              <li>
+                <a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title" onclick="">LEGAL AREA</h4>
+            <ul class="footer-item footer-nav" id="footer-item-3">
+              <li><a href="#">TERMS OF USE</a></li>
+              <li><a href="#">PRIVACY POLICY</a></li>
+              <li><a href="#">CONDITIONS OF SALE</a></li>
+              <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>
+              <li><a href="#">ACCESSIBILITY STATEMENT</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title" onclick="">FOLLOW US</h4>
+            <ul class="footer-item socials-list" id="footer-item-4">
+              <a href="https://www.facebook.com/Urlgrim"
+                ><i class="ti-facebook"></i
+              ></a>
+              <a href="https://www.facebook.com/Urlgrim"
+                ><i class="ti-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com/Urlgrim"
+                ><i class="ti-youtube"></i
+              ></a>
+              <a href="https://www.facebook.com/Urlgrim"
+                ><i class="ti-pinterest"></i
+              ></a>
+              <a href="https://www.facebook.com/Urlgrim"
+                ><i class="ti-twitter"></i
+              ></a>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
 
   <script src="js/bootstrap.bundle.min.js"></script>
 
   <script src="./header.js"></script>
 
-  <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+  <script
+    src="https://kit.fontawesome.com/8e1e4a8c95.js"
+    crossorigin="anonymous"
+  ></script>
 
-<script>
-  // Function to populate days based on selected month and year
-  function populateDays() {
-      var month = parseInt(document.getElementById('month').value, 10);
-      var year = parseInt(document.getElementById('year').value, 10);
-      var daySelect = document.getElementById('day');
+  <script>
+    // Function to populate days based on selected month and year
+    function populateDays() {
+      var month = parseInt(document.getElementById("month").value, 10);
+      var year = parseInt(document.getElementById("year").value, 10);
+      var daySelect = document.getElementById("day");
       var daysInMonth = 31; // Default to 31 days
 
       if (month === 4 || month === 6 || month === 9 || month === 11) {
-          daysInMonth = 30;
-      } 
-      else if (month === 2) { // February
-          daysInMonth = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28; // Leap year check
+        daysInMonth = 30;
+      } else if (month === 2) {
+        // February
+        daysInMonth =
+          year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 29 : 28; // Leap year check
       }
 
       // Clear existing options
-      daySelect.innerHTML = '';
+      daySelect.innerHTML = "";
 
       // Populate day options
       for (var i = 1; i <= daysInMonth; i++) {
-          var option = document.createElement('option');
-          option.value = i;
-          option.textContent = i;
-          daySelect.appendChild(option);
+        var option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        daySelect.appendChild(option);
       }
-  }
+    }
 
-  // Initialize dropdowns with current date
-  var currentDate = new Date();
-  var daySelect = document.getElementById('day');
-  var monthSelect = document.getElementById('month');
-  var yearSelect = document.getElementById('year');
+    // Initialize dropdowns with current date
+    var currentDate = new Date();
+    var daySelect = document.getElementById("day");
+    var monthSelect = document.getElementById("month");
+    var yearSelect = document.getElementById("year");
 
-  // Populate years dropdown
-  for (let year = 1910; year <= currentDate.getFullYear(); year++) {
-      let option = document.createElement('option');
+    // Populate years dropdown
+    for (let year = 1910; year <= currentDate.getFullYear(); year++) {
+      let option = document.createElement("option");
       option.value = year;
       option.textContent = year;
       yearSelect.appendChild(option);
-  }
+    }
 
+    // Add event listeners to month and year dropdowns
+    monthSelect.addEventListener("change", populateDays);
+    yearSelect.addEventListener("change", populateDays);
 
-  // Add event listeners to month and year dropdowns
-  monthSelect.addEventListener('change', populateDays);
-  yearSelect.addEventListener('change', populateDays);
-
-  // Populate days based on the current month and year
-  populateDays();
+    // Populate days based on the current month and year
+    populateDays();
 
     // Set default values for day, month, and year dropdowns
     daySelect.value = currentDate.getDate();
     monthSelect.value = currentDate.getMonth() + 1;
     yearSelect.value = currentDate.getFullYear();
-</script>
-
-
+  </script>
 </html>
