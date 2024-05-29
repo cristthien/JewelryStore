@@ -64,13 +64,13 @@ document.addEventListener("DOMContentLoaded", function() {
         "Gia Lai",
         "Hà Giang",
         "Hà Nam",
-        "Hà Nội (thủ đô)",
+        "Hà Nội",
         "Hà Tĩnh",
         "Hải Dương",
-        "Hải Phòng (thành phố)",
+        "Hải Phòng",
         "Hậu Giang",
         "Hòa Bình",
-        "Hồ Chí Minh (thành phố)",
+        "Thành phố Hồ Chí Minh",
         "Hưng Yên",
         "Khánh Hòa",
         "Kiên Giang",
@@ -936,7 +936,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     "Bình Chánh"
                 ];
             }
-            else if (selectedProvince === "Thừa Thiên Huế") {
+            else if (selectedProvince === "Thừa Thiên-Huế") {
                 var districts = [
                     "Thành phố Huế",
                     "Huyện A Lưới",
