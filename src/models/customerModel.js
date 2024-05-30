@@ -9,7 +9,12 @@ const customerSchema = mongoose.Schema({
     match:
       /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
   },
-  password: { type: String, required: true },
+  password: { type: String },
   address: { type: String },
+  phone: { type: String },
+  dob: { type: String },
+  gender: { type: String, enum: ["male", "female", "other"] },
+  methodLogin: { type: String },
+  verify: { type: Boolean, default: false },
 });
 module.exports = mongoose.model("Customer", customerSchema);

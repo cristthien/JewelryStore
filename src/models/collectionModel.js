@@ -7,5 +7,6 @@ const collectionSchema = mongoose.Schema({
   thumbnail: { type: String, required: true },
   slug: { type: String, slug: "name" },
   image: { type: String },
+  tag: { type: String },
 });
 module.exports = mongoose.model("Collection", collectionSchema);

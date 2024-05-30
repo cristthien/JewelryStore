@@ -18,6 +18,10 @@ productRoute.put(
   upload.array("images", 12),
   productController.update
 );
+productRoute.get(
+  "/get-random-three-products/:id",
+  productController.getRandomThreeProducts
+);
 productRoute.get("/search/:slug", productController.searchProduct);
 productRoute.delete("/:slug", productController.delete);
 productRoute.get("/:slug", productController.getDetailProduct);

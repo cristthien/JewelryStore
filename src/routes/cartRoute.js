@@ -9,12 +9,7 @@ cartRoute.post(
   checkValidProduct,
   cartController.update
 );
-cartRoute.delete(
-  "/",
-  checkValidCustomer,
-  checkValidProduct,
-  cartController.delete
-);
+cartRoute.delete("/", checkValidCustomer, cartController.delete);
 cartRoute.get("/", checkValidCustomer, cartController.index);
 
 module.exports = cartRoute;

@@ -21,12 +21,11 @@ module.exports = async (query) => {
   // Stage 2: $matchStage
   const matchStage = matchOperationGenerator(query);
   if (matchStage) {
-    console.log(matchStage);
     pipeline.push(matchStage);
   }
 
   // Stage 3: $limit stage
-  const limitStage = { $limit: 30 };
+  const limitStage = { $limit: 40 };
   pipeline.push(limitStage);
 
   // Stage 4: $project stage
@@ -36,6 +35,8 @@ module.exports = async (query) => {
       image: 1,
       price: 1,
       description: 1,
+      slug: 1,
+      collection: 1,
     },
   };
   pipeline.push(projectStage);

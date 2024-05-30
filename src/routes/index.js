@@ -5,14 +5,36 @@ const staffRoute = require("./staffRoute.js");
 const collectionRoute = require("./collectionRoute.js");
 const cartRoute = require("./cartRoute.js");
 const commentRoute = require("./commentRoute.js");
+const responseStatusServer = require("../utilities/responseStatusServer.js");
 
 //test
-const productModel = require("../models/productModel.js");
+const Product = require("../models/productModel.js");
 const getEmbedding = require("../utilities/embeddingGenerator.js");
 const { MultipleMongooseObject } = require("../utilities/Mongoose.js");
 const multer = require("multer");
+const Collection = require("../models/collectionModel.js");
+const mailer = require("../utilities/mailer.js");
 
 function routes(app) {
+  //  test
+
+  app.use("/verify", async (req, res) => {
+    mailer.sendVerifyEmail(
+      "nguyenthienchanel@gmail.com",
+      "Verify Email",
+      "giathien123"
+    );
+    res.send("Work oke");
+  });
+  app.use("/reset", async (req, res) => {
+    mailer.sendResetPasswordEmail(
+      "nguyenthienchanel@gmail.com",
+      "Verify Email",
+      "giathien123"
+    );
+    res.send("Work oke");
+  });
+
   app.use("/cart", cartRoute);
   app.use("/collection", collectionRoute);
   app.use("/customer", customerRoute);
@@ -20,14 +42,6 @@ function routes(app) {
   app.use("/product", productRoute);
   app.use("/comment", commentRoute);
   app.use("/staff", staffRoute);
-
-  //  test
-
-  app.use("/solve", async (req, res) => {
-    const textSearch = await productModel.find({
-      collection: "66222aee2b6460c00f815810",
-    });
-    res.json(textSearch.length);
-  });
+  app.use("/", responseStatusServer);
 }
 module.exports = routes;

@@ -4,12 +4,13 @@ const SizeProduct = require("../models/sizeModel.js");
 const { MultipleMongooseObject } = require("../utilities/Mongoose.js");
 const sortCriteria = require("../utilities/sortCriteria.js");
 const { error, success } = require("../utilities/responeApj.js");
+const refineDescription = require("../utilities/refineDescription.js");
 
 class collectionController {
   // [GET] /news
   index(req, res, next) {
     Collection.find()
-      .select("name slug thumbnail image")
+      .select("name slug thumbnail image tag")
       .then((collections) => {
         if (!collections) {
           res.status(404).json(error("Not Found", 404));
@@ -89,26 +90,18 @@ class collectionController {
           return res.status(404).json(error("Collection Not Found", 404)); // Specific error message
         }
 
-        const { _id, name, description, thumbnail } = collection;
+        const { _id, name, description, thumbnail, tag } = collection;
 
         // let sortCriteria = sortCriteria(req);
         let sortCriteria = {};
         let products = await Product.find({
           collection: { $in: [_id] },
         })
-          .select("name price image slug stock description")
+          .select("name price image slug stock description collection")
           .sort(sortCriteria);
+        products = refineDescription(products);
 
         const totalLength = products.length;
-        products = MultipleMongooseObject(products);
-        for (const product of products) {
-          if (!product.stock) {
-            const sizes = await SizeProduct.find({
-              product: product._id,
-            }).select("size stock");
-            product.sizes = sizes; // Assign sizes array to product if found
-          }
-        }
 
         res.status(200).json(
           success(
@@ -117,6 +110,7 @@ class collectionController {
               name,
               description,
               thumbnail,
+              tag,
               length: totalLength,
               data: products,
             },

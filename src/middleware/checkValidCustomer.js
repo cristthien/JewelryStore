@@ -17,9 +17,9 @@ module.exports = (req, res, next) => {
         }
       })
       .catch((err) => {
-        res.status(500).json(error(err.message, 500));
+        res.status(200).json(error(err.message, 500));
       });
   } catch (e) {
-    return res.status(401).json(error(e.message, 401));
+    return res.status(200).json(error(e.message, 401));
   }
 };

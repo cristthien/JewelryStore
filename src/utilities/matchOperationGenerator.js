@@ -55,15 +55,14 @@ function getGoldType(inputString) {
 function matchOptionGenerator(query) {
   const cate = getCategory(query);
   const goldType = getGoldType(query);
+  console.log(goldType);
   let matchStage;
   if (!cate) {
     if (!goldType) {
       return null;
     } else {
       matchStage = {
-        $match: {
-          description: { $regex: goldType, $options: "i" },
-        },
+        description: { $regex: goldType, $options: "i" },
       };
     }
   } else {
@@ -76,14 +75,18 @@ function matchOptionGenerator(query) {
     } else {
       nameFilter = [{ name: { $regex: "\\b" + cate + "\\b", $options: "i" } }];
     }
-    console.log(nameFilter);
     if (!goldType) {
       matchStage = {
         $or: nameFilter,
       };
-    } else {
+    } else if (cate) {
       matchStage = {
         $or: nameFilter,
+        description: { $regex: goldType, $options: "i" },
+      };
+    } else {
+      console.log("gianthien");
+      matchStage = {
         description: { $regex: goldType, $options: "i" },
       };
     }

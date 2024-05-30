@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   Product.findOne({ slug: req.body.slug })
     .then((product) => {
       if (!product) {
-        res.status(404).json(error("Product not found", 404));
+        res.status(200).json(error("Product not found", 404));
       } else {
         req.product = product;
         next();
