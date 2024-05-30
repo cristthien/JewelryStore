@@ -42,6 +42,9 @@
         display: block;
     }
 
+    .header__account-name{
+        display: none;
+    }
     .search__area{
         width: 90%;
     }
