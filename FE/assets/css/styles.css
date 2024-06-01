@@ -1452,8 +1452,13 @@ i.product-item__like-fill{
     width: 50%;
 }
 
+.gender-selection {
+    display: flex; /* Sử dụng flexbox */
+}
+
+.gender-selection input[type="radio"],
 .gender-selection label {
-    margin-right: 14px; /* Tạo khoảng cách giữa các radio button */
+    margin-right: 10px; /* Khoảng cách giữa các phần tử */
 }
 
 .ordered__product-item-detail{

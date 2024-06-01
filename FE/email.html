@@ -14,33 +14,36 @@
         <!-- Header section -->
         <div id="header">
           <div class="row header-top">
-            <div class="col-3">
-              <div class="header-function">
-                <div class="header-left-function">
-                    <a href="map.html"><i class="header-location-btn ti-location-pin"></i></a>
-                    <div id="mobile-menu"class="mobile-menu-btn">
-                      <i class="ti-menu"></i>
+            <div class="col-4 header-function">
+                  <div class="icon-container header-left-function">
+                    <a href="map.html"><i class="header-location-btn fa-solid fa-map-location-dot"></i></a>
+                  </div> 
+                    <div id="mobile-menu" class="icon-container header-left-function mobile-menu-btn">
+                      <i class="fa-solid fa-bars"></i>
                     </div>
-                    <i class="header-search-btn ti-search"></i>
-                </div>
-            </div>
+                    <div class="icon-container header-left-function">
+                      <i class="header-search-btn fas fa-search"></i>
+                    </div> 
             </div> 
-            <div class="col-6">
+            <div class="col-4">
               <div class="header-brand-name text-center">
                 <a class="nav-to-home header-brand-name text-center" href="index.html">T&N</a>
               </div>
             </div>
-            <div class="col-3">
-              <div class="header-function">
-                <div class="header-right-function">
-                    <a href="login.html"><i class="header-user-btn ti-user"></i></a>
+            <div class="col-4 header-function">
+                  <!-- <a href="login.html"><i class="header-user-btn ti-user"></i></a> -->
+                  <div class="icon-container header-right-function">
                     <a id="openOffcanvas">
-                      <i class="header-shopping-cart-btn ti-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section">
-                      </i>
+                      <!-- <i class="header-shopping-cart-btn ti-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section">
+                      </i> -->
+                      <i class="header-shopping-cart-btn fa-solid fa-cart-shopping" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section"></i>
                       <p class="shopping__badge">3</p>
                     </a>
-                </div>
-              </div>
+                  </div> 
+                  <div class="icon-container header-right-function">
+                    <p class="header__account-name">Gia Thien</p>
+                    <a href="login.html"><i class="header-user-btn fa-regular fa-user"></i></a>
+                  </div> 
             </div>
           </div>
     
@@ -284,6 +287,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
               </div>
               <div class="offcanvas-body shopping-bag__body">
+
                 <div class="row shopping-bag__item">
                   <div class="col-6">
                     <a href="productDetail.html" class="shopping-bag__img">
@@ -298,32 +302,32 @@
                       La Panthère de Cartier Watch
                     </a>
                     <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
+                    <div class="product-item__other-infor">
+                      <div class="row product-item__size-shopping-bag">
+                        <div class="col-6">
+                          <p>Size:</p>
+                        </div>
+                        <div class="col-6">
+                          <p>15cm</p>
+                        </div>
+                      </div>
+                      <div class="row product-item__quantity-shopping-bag">
+                        <div class="col-6">
+                          <p>Quantity:</p>
+                        </div>
+                        <div class="col-6">
+                          <p>1</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="product-item__price-shopping-bag">
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
                   </div>
                 </div> <!-- end row-->
-                <div class="row shopping-bag__item">
-                  <div class="col-6">
-                    <a href="productDetail.html" class="shopping-bag__img">
-                      <img src="./assets/img/product-item/high-jewelry/watch-back.avif" alt="" class="img-fluid">
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <div class="product-item__close">
-                      <i class="ti-close" onclick="deleteRow(this)"></i>
-                    </div>
-                    <a href="productDetail.html" class="product-item__name-shopping-bag">
-                      La Panthère de Cartier Watch
-                    </a>
-                    <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
-                    <div class="product-item__price-shopping-bag">
-                      <span class="product-item__low-price"></span>
-                      <span class="product-item__high-price">$47,200.00</span>
-                    </div>
-                  </div>
-                </div> <!-- end row-->
+
                 <div class="row shopping-bag__item">
                   <div class="col-6">
                     <a href="productDetail.html" class="shopping-bag__img">
@@ -338,12 +342,33 @@
                       La Panthère de Cartier Watch
                     </a>
                     <p class="product-item__desc-shopping-bag">Small model, quartz movement, rose gold, diamonds</p>
+                    <div class="product-item__other-infor">
+                      <div class="row product-item__size-shopping-bag">
+                        <div class="col-6">
+                          <p>Size:</p>
+                        </div>
+                        <div class="col-6">
+                          <p>15cm</p>
+                        </div>
+                      </div>
+                      <div class="row product-item__quantity-shopping-bag">
+                        <div class="col-6">
+                          <p>Quantity:</p>
+                        </div>
+                        <div class="col-6">
+                          <p>1</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="product-item__price-shopping-bag">
                       <span class="product-item__low-price"></span>
                       <span class="product-item__high-price">$47,200.00</span>
                     </div>
                   </div>
                 </div> <!-- end row-->
+
+
                 <div class="subTotal-section">
                   <div class="row" style="margin-top: 10px;">
                     <div class="col-6">
@@ -477,21 +502,15 @@
                         <table class="table table-custom">
                             <tbody>
                               <tr>
-                                <td style="text-align: right;">The new email address</td>
+                                <td style="text-align: right;">New email address</td>
                                 <td>
-                                    <input type="text" class="form-control email-change__input" placeholder="Enter new email address">
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="text-align: right;">Code</td>
-                                <td>
-                                    <input type="text" class="form-control email-change__input" placeholder="Enter the code sent to new email">
+                                  <input type="email" class="form-control email-change__input" id="new-email" placeholder="Enter new email address" oninput="validateEmail()">
                                 </td>
                               </tr>
                               <tr>
                                 <td></td> <!-- Cell for alignment -->
                                 <td>
-                                    <button class="btn btn-dark" onclick="window.location.href='myProfile.html'">Save</button>
+                                  <button id="send-code-btn" class="btn btn-dark" onclick="sendCode()" disabled>Send code</button>
                                 </td>
                             </tr>
                             </tbody>
@@ -563,5 +582,26 @@
   <script src="./header.js"></script>
 
   <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
+  <script>
+  function validateEmail() {
+    var emailInput = document.getElementById("new-email").value;
+    var sendCodeBtn = document.getElementById("send-code-btn");
+
+    // Kiểm tra xem email đã nhập hay chưa
+    if (emailInput.trim() !== "") {
+        // Nếu đã nhập email, kích hoạt nút "Send code"
+        sendCodeBtn.disabled = false;
+    } else {
+        // Nếu chưa nhập email, vô hiệu hóa nút "Send code"
+        sendCodeBtn.disabled = true;
+    }
+}
+
+function sendCode() {
+    // Thực hiện logic gửi mã code
+    window.location.href = 'changeEmail.html';
+}
+</script>
 
 </html>

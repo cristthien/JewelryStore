@@ -477,91 +477,148 @@
               </div>
             </div>
         </div>
+
         <!-- Slider section -->
         <div id="slider">
         </div>
 
-        <div id="content">
-            <div class="login-container">
+        <!-- Content section -->
+        <div id="content" style="margin-top: 24px;">
+            <div class="container container-fluid">
+                <div class="row mb-5 profile-row">
+                    <div class="col-3" style="border-right: 1px solid #ddd;">
+                        <ul class="profile-list">
+                            <li><a class="profile-list__item" href="myProfile.html" style="text-decoration: underline;">My profile</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myPassword.html">My password</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myOrder.html">My orders</a>
+                            </li>
+                            <li><a class="profile-list__item" href="myAddress.html">My addresses</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-9" style="text-align: center;" >
+                        <p style="color: #989898;">We sent a reset link to
+                            <a style="color: #000;">contact@dscode...com</a>
+                            enter 5 digit code that mentioned in the email</p>
+                            <div class="code-inputs">
+                                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                                <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                            </div>
+                            <p id="wrong-code" class="wrong-code-message">Wrong code, re-enter</p>
+                        <button id="verify-code-btn" class="btn btn-dark" disabled>
+                            Verify Code
+                        </button>
+                        <p style="color: #989898; text-align: center; margin-top: 10px;">Haven’t got the email yet?
+                        <a href="#">Resend email</a>
+                        </p>
 
-                <button type="button" class="btn btn-outline-dark" 
-                style="margin-top: 10px; margin-left: 10px;" onclick="window.location.href = 'login.html'">
-                <i class="fa-solid fa-chevron-left"></i></button>
-                    
-                
-                <h4 class="login__header">Forgot Password</h4>
-                <div class="login__body container-fluid">
-                    <p style="color: #989898;">Please enter your email to reset the password</p>
-                    <label for="user-name" class="login__label">
-                        Enter email address
-                    </label>
-                    <input id="user-name" type="email" class="login__input" placeholder="example@gmail.com">
-                    <button id="reset-password-btn" class="login__btn" onclick="window.location.href = 'sendCodeFP.html'" disabled>
-                        Reset Password
-                    </button>
-              </div>
+                    </div>
+                </div>
+            </div>
+
+          <!-- Contact section -->
+          <div class="contact-section">
+            <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+            <div class="input-group mb-3 contact-form d-flex justify-content-center">
+              <form action="" class="d-flex mt-3 w-50">
+                      <input type="email" name="" placeholder="Email" required id="contact-id" class="form-control input-email-control">
+                      <button class="btn btn-dark form-submit-btn" type="submit">Subscribe</button>
+              </form>
+            </div>
           </div>
         </div>
 
-
         <footer class="container-fluid" style="margin-top: 10px;">
-            <div class="row">
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
-                <ul class="footer-item footer-nav" id="footer-item-1">
-                  <li><a href="#">CONTACT US</a></li>
-                  <li><a href="#">FAQ</a></li>
-                  <li><a href="#">TRACK YOUR ORDER</a></li>
-                  <li><a href="#">BOOK AN APPOINTMENT</a></li>   
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">OUR COMPANY</h4>
-                <ul class="footer-item footer-nav" id="footer-item-2">
-                  <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
-                  
-                  <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">LEGAL AREA</h4>
-                <ul class="footer-item footer-nav" id="footer-item-3">
-                  <li><a href="#">TERMS OF USE</a></li>
-                  <li><a href="#">PRIVACY POLICY</a></li>   
-                  <li><a href="#">CONDITIONS OF SALE</a></li>  
-                  <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
-                  <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
-                </ul>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                <h4 class="footer-title" onclick="">FOLLOW US</h4>
-                <ul class="footer-item socials-list" id="footer-item-4">
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
-                  <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
-                </ul>
-              </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">CUSTOMER CARE</h4>
+              <ul class="footer-item footer-nav" id="footer-item-1">
+                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">TRACK YOUR ORDER</a></li>
+                <li><a href="#">BOOK AN APPOINTMENT</a></li>   
+              </ul>
             </div>
-          </footer>
-  
-    </div>
-</body>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
-<!-- Js cho header -->
-<script src="./header.js"></script>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">OUR COMPANY</h4>
+              <ul class="footer-item footer-nav" id="footer-item-2">
+                <li><a href="#">FIND A BOUTIQUE <i class="ti-arrow-top-right"></i></a></li>
+                
+                <li><a href="#">CAREERS <i class="ti-arrow-top-right"></i> </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">LEGAL AREA</h4>
+              <ul class="footer-item footer-nav" id="footer-item-3">
+                <li><a href="#">TERMS OF USE</a></li>
+                <li><a href="#">PRIVACY POLICY</a></li>   
+                <li><a href="#">CONDITIONS OF SALE</a></li>  
+                <li><a href="#">HUMAN RIGHTS STATEMENT</a></li>  
+                <li><a href="#">ACCESSIBILITY STATEMENT</a></li> 
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4 class="footer-title" onclick="">FOLLOW US</h4>
+              <ul class="footer-item socials-list" id="footer-item-4">
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-facebook"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-instagram"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-youtube"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-pinterest"></i></a>
+                <a href="https://www.facebook.com/Urlgrim"><i class="ti-twitter"></i></a>
+              </ul>
+            </div>
+          </div>
+        </footer>
 
-<script>
-    document.getElementById('user-name').addEventListener('input', function() {
-        var inputField = document.getElementById('user-name');
-        var resetButton = document.getElementById('reset-password-btn');
-        if (inputField.value.trim() === "") {
-            resetButton.disabled = true;
-        } else {
-            resetButton.disabled = false;
-        }
+      </div>
+</body>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script src="./header.js"></script>
+
+  <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+
+  <script>
+    const inputs = document.querySelectorAll('.code-inputs input');
+    const verifyButton = document.getElementById('verify-code-btn');
+    const wrongCodeMessage = document.getElementById('wrong-code');
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+            if (Array.from(inputs).every(input => input.value.length === 1)) {
+                verifyButton.disabled = false;
+            } else {
+                verifyButton.disabled = true;
+            }
+            wrongCodeMessage.style.display = 'none';
+        });
+        input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
     });
+
+    verifyButton.addEventListener('click', () => {
+            // Giả sử mã đúng là 12345, thay thế đoạn này bằng mã xác thực thực tế
+            const correctCode = '12345';
+            const enteredCode = Array.from(inputs).map(input => input.value).join('');
+            if (enteredCode !== correctCode) {
+                wrongCodeMessage.style.display = 'block';
+            } else {
+                alert('Code verified successfully');
+                window.location.href = 'myProfile.html'
+            }
+        });
 </script>
+
 </html>

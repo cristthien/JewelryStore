@@ -102,6 +102,11 @@
     .slogan-video-section{
         margin-top: 10px;
     }
+
+    .table-custom td > input:first-child{
+        width: 100%;
+    }
+
     .wrapper{
         display: block;
     }
@@ -110,7 +115,7 @@
     }
     .profile__dob{
         display: block;
-        width: 50%;
+        width: 100%;
     }
 
 }
