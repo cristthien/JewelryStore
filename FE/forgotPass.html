@@ -458,50 +458,22 @@
 
         <div id="content">
             <div class="login-container">
-                    <h4 class="login__header">Sign in</h4>
-                    <div class="login__google-section">
-                      <button type="button" class="btn btn-outline-dark login__google-btn"><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Continue with Google</button>
-                      <div class="horizontal-line">
-                        <span>OR</span>
-                      </div>
-                    </div>
+
+                <button type="button" class="btn btn-outline-dark" 
+                style="margin-top: 10px; margin-left: 10px;" onclick="window.location.href = 'login.html'">
+                <i class="fa-solid fa-chevron-left"></i></button>
+                    
+                
+                <h4 class="login__header">Forgot Password</h4>
                 <div class="login__body container-fluid">
+                    <p style="color: #989898;">Please enter your email to reset the password</p>
                     <label for="user-name" class="login__label">
-                        Email or mobile phone number
+                        Enter email address
                     </label>
-                    <input id="user-name" type="text" class="login__input" placeholder="Email address">
-                    <label for="password" class="login__label">
-                        Your password
-                        <div class="hide-password">
-                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
-                          <span id="toggle-text">Show</span>
-                        </div>
-                    </label>
-                    <input id="password" type="password" class="login__input" placeholder="Password" style="margin-bottom: 0;">
-                    <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
-                    <span id="password-week" class="week-message">Password week. Password should contain uppercase letter</span>
-                    <button id="login-account-btn" class="login__btn" onclick="window.location.href='myProfile.html'" disabled>
-                        Log in
+                    <input id="user-name" type="email" class="login__input" placeholder="example@gmail.com">
+                    <button id="reset-password-btn" class="login__btn" onclick="window.location.href = 'sendCodeFP.html'" disabled>
+                        Reset Password
                     </button>
-                    <div class="Term-of-use">
-                        By continuing, you agree to the <a href="#" class="policy">Privacy Policy</a>.
-                    </div>
-                    <div class="login__other">
-                        <div class="issue-with-sign">
-                            Other issue
-                        </div>
-                        <div class="forgot-pass">
-                            <a href="forgotPass.html" style="color: #000;">Forgot your password</a>
-                        </div>
-                    </div>
-                    <div class="create-account-section">
-                        <div class="create-account__heading">
-                                <span>Don't have an account?</span>
-                            </div>
-                        <button class="create-account__btn" onclick="window.location.href = 'createAccount.html'">
-                            Create an account
-                        </button>
-                    </div>
               </div>
           </div>
         </div>
@@ -556,44 +528,15 @@
 <!-- Js cho header -->
 <script src="./header.js"></script>
 
-
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-const passwordInput = document.getElementById('password');
-const toggleIcon = document.getElementById('toggle-icon');
-const toggleText = document.getElementById('toggle-text');
-let passwordVisible = false;
-
-toggleIcon.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
-
-toggleText.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
-});
+    document.getElementById('user-name').addEventListener('input', function() {
+        var inputField = document.getElementById('user-name');
+        var resetButton = document.getElementById('reset-password-btn');
+        if (inputField.value.trim() === "") {
+            resetButton.disabled = true;
+        } else {
+            resetButton.disabled = false;
+        }
+    });
 </script>
-<script src="./checkValidLogin.js"></script>
 </html>

@@ -458,53 +458,35 @@
 
         <div id="content">
             <div class="login-container">
-                    <h4 class="login__header">Sign in</h4>
-                    <div class="login__google-section">
-                      <button type="button" class="btn btn-outline-dark login__google-btn"><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Continue with Google</button>
-                      <div class="horizontal-line">
-                        <span>OR</span>
-                      </div>
-                    </div>
+                <h4 class="login__header">Set a new password</h4>
                 <div class="login__body container-fluid">
-                    <label for="user-name" class="login__label">
-                        Email or mobile phone number
-                    </label>
-                    <input id="user-name" type="text" class="login__input" placeholder="Email address">
+                    <p style="color: #989898;">Create a new password. Ensure it differs from previous ones for security</p>
                     <label for="password" class="login__label">
-                        Your password
-                        <div class="hide-password">
-                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
-                          <span id="toggle-text">Show</span>
+                        Password
+                        <div class="hide-password" data-target="password">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>Show</span>
                         </div>
                     </label>
-                    <input id="password" type="password" class="login__input" placeholder="Password" style="margin-bottom: 0;">
+                    <input id="password" type="password" class="login__input" placeholder="Enter your new password" style="margin-bottom: 0;">
                     <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
-                    <span id="password-week" class="week-message">Password week. Password should contain uppercase letter</span>
-                    <button id="login-account-btn" class="login__btn" onclick="window.location.href='myProfile.html'" disabled>
-                        Log in
+                    <span id="password-week" class="week-message">Password weak. Password should contain uppercase letters</span>
+                    
+                    <label for="confirm-password" class="login__label" style="margin-top: 24px;">
+                        Confirm Password
+                        <div class="hide-password" data-target="confirm-password">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>Show</span>
+                        </div>
+                    </label>
+                    <input id="confirm-password" type="password" class="login__input" placeholder="Re-enter password">
+
+                    <button id="update-password-btn" class="login__btn" onclick="updatePassword()" disabled>
+                        Update Password
                     </button>
-                    <div class="Term-of-use">
-                        By continuing, you agree to the <a href="#" class="policy">Privacy Policy</a>.
-                    </div>
-                    <div class="login__other">
-                        <div class="issue-with-sign">
-                            Other issue
-                        </div>
-                        <div class="forgot-pass">
-                            <a href="forgotPass.html" style="color: #000;">Forgot your password</a>
-                        </div>
-                    </div>
-                    <div class="create-account-section">
-                        <div class="create-account__heading">
-                                <span>Don't have an account?</span>
-                            </div>
-                        <button class="create-account__btn" onclick="window.location.href = 'createAccount.html'">
-                            Create an account
-                        </button>
-                    </div>
-              </div>
-          </div>
-        </div>
+                </div>
+            </div>
+        </div>  
 
 
         <footer class="container-fluid" style="margin-top: 10px;">
@@ -556,44 +538,38 @@
 <!-- Js cho header -->
 <script src="./header.js"></script>
 
+<script src="./checkValidLogin.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-const passwordInput = document.getElementById('password');
-const toggleIcon = document.getElementById('toggle-icon');
-const toggleText = document.getElementById('toggle-text');
-let passwordVisible = false;
+    document.addEventListener("DOMContentLoaded", function() {
+        const togglePasswordVisibility = (target) => {
+            const passwordInput = document.getElementById(target);
+            const toggleIcon = document.querySelector(`.hide-password[data-target="${target}"] i`);
+            const toggleText = document.querySelector(`.hide-password[data-target="${target}"] span`);
+            const passwordVisible = passwordInput.type === 'password';
 
-toggleIcon.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
+            passwordInput.type = passwordVisible ? 'text' : 'password';
+            toggleIcon.classList.toggle('fa-eye', !passwordVisible);
+            toggleIcon.classList.toggle('fa-eye-slash', passwordVisible);
+            toggleText.innerText = passwordVisible ? 'Hide' : 'Show';
+        };
 
-toggleText.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
-});
+        document.querySelectorAll('.hide-password').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                togglePasswordVisibility(target);
+            });
+        });
+    });
 </script>
-<script src="./checkValidLogin.js"></script>
+
+<script>
+  function updatePassword() {
+      // Perform password update logic here
+      // For demonstration, I'll just show an alert
+      alert("Password updated successfully!");
+      // After showing the alert, you might want to redirect to login.html
+      window.location.href = 'login.html';
+  }
+</script>
 </html>

@@ -78,7 +78,7 @@
                 </li>
 
                 <li>
-                    <a href="./login.html">
+                    <a href="./adminLogin.html">
                         <span class="icon">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </span>
@@ -100,13 +100,14 @@
                 </div>
 
                 <div class="admin__menu-user">
+                    <p class="header__account-name">Gia Thien</p>
                     <i class="fa-solid fa-user-tie"></i>
                 </div>
             </div>
 
             <!-- ========================= Order management section ==================== -->
             <div class="admin__container container">
-                <button type="button" class="btn btn-outline-dark admin__back-btn" onclick="window.location.href = 'orderManagement.html'">Back</button>
+                <button type="button" class="btn btn-outline-dark admin__back-btn" onclick="window.location.href = 'adminCustomer.html'">Back</button>
                 <button type="button" class="btn btn-danger admin__delete-btn">Delete</button>
                 <div class="row">
                 <div class="col-6">
@@ -140,7 +141,48 @@
                     </div>
                 </div>
                </div>
-
+               <h5 style="font-family: Fancy Cut,Almarai,Times,serif; font-weight: 600;">Order</h5>
+               <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Product name</th>
+                      <th>Description</th>
+                      <th>Quantity</th>
+                      <th>Unit Price</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                  <tr onclick="window.location.href = 'orderManagementDetail.html'">
+                    <td>O124</td>
+                    <td>La Panthère de Cartier Watch</td>
+                    <td>Small model, quartz movement, rose gold, diamonds</td>
+                    <td>3</td>
+                    <td>$50,000.00</td>
+                  </tr>
+                  <tr onclick="window.location.href = 'orderManagementDetail.html'">
+                    <td>O124</td>
+                    <td>La Panthère de Cartier Watch</td>
+                    <td>Small model, quartz movement, rose gold, diamonds</td>
+                    <td>2</td>
+                    <td>$50,000.00</td>
+                  </tr>
+                  <tr onclick="window.location.href = 'orderManagementDetail.html'">
+                    <td>O125</td>
+                    <td>La Panthère de Cartier Watch</td>
+                    <td>Small model, quartz movement, rose gold, diamonds</td>
+                    <td>1</td>
+                    <td>$50,000.00</td>
+                  </tr>
+                  <tr onclick="window.location.href = 'orderManagementDetail.html'">
+                    <td>O125</td>
+                    <td>La Panthère de Cartier Watch</td>
+                    <td>Small model, quartz movement, rose gold, diamonds</td>
+                    <td>4</td>
+                    <td>$50,000.00</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             
 

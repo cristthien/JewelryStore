@@ -458,50 +458,31 @@
 
         <div id="content">
             <div class="login-container">
-                    <h4 class="login__header">Sign in</h4>
-                    <div class="login__google-section">
-                      <button type="button" class="btn btn-outline-dark login__google-btn"><i class="fa-brands fa-google" style="margin-right: 10px;"></i>Continue with Google</button>
-                      <div class="horizontal-line">
-                        <span>OR</span>
-                      </div>
-                    </div>
+
+                <button type="button" class="btn btn-outline-dark" 
+                style="margin-top: 10px; margin-left: 10px;" onclick="window.location.href = 'forgotPass.html'">
+                <i class="fa-solid fa-chevron-left"></i></button>
+                    
+                
+                <h4 class="login__header">Check your email</h4>
                 <div class="login__body container-fluid">
-                    <label for="user-name" class="login__label">
-                        Email or mobile phone number
-                    </label>
-                    <input id="user-name" type="text" class="login__input" placeholder="Email address">
-                    <label for="password" class="login__label">
-                        Your password
-                        <div class="hide-password">
-                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
-                          <span id="toggle-text">Show</span>
+                    <p style="color: #989898;">We sent a reset link to
+                        <a style="color: #000;">contact@dscode...com</a>
+                        enter 5 digit code that mentioned in the email</p>
+                        <div class="code-inputs">
+                            <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                            <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                            <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                            <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                            <input type="text" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                         </div>
-                    </label>
-                    <input id="password" type="password" class="login__input" placeholder="Password" style="margin-bottom: 0;">
-                    <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
-                    <span id="password-week" class="week-message">Password week. Password should contain uppercase letter</span>
-                    <button id="login-account-btn" class="login__btn" onclick="window.location.href='myProfile.html'" disabled>
-                        Log in
+                        <p id="wrong-code" class="wrong-code-message">Wrong code, re-enter</p>
+                    <button id="verify-code-btn" class="login__btn" disabled>
+                        Verify Code
                     </button>
-                    <div class="Term-of-use">
-                        By continuing, you agree to the <a href="#" class="policy">Privacy Policy</a>.
-                    </div>
-                    <div class="login__other">
-                        <div class="issue-with-sign">
-                            Other issue
-                        </div>
-                        <div class="forgot-pass">
-                            <a href="forgotPass.html" style="color: #000;">Forgot your password</a>
-                        </div>
-                    </div>
-                    <div class="create-account-section">
-                        <div class="create-account__heading">
-                                <span>Don't have an account?</span>
-                            </div>
-                        <button class="create-account__btn" onclick="window.location.href = 'createAccount.html'">
-                            Create an account
-                        </button>
-                    </div>
+                    <p style="color: #989898; text-align: center;">Haven’t got the email yet?
+                    <a href="#">Resend email</a>
+                    </p>
               </div>
           </div>
         </div>
@@ -556,44 +537,41 @@
 <!-- Js cho header -->
 <script src="./header.js"></script>
 
-
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-const passwordInput = document.getElementById('password');
-const toggleIcon = document.getElementById('toggle-icon');
-const toggleText = document.getElementById('toggle-text');
-let passwordVisible = false;
+    const inputs = document.querySelectorAll('.code-inputs input');
+    const verifyButton = document.getElementById('verify-code-btn');
+    const wrongCodeMessage = document.getElementById('wrong-code');
 
-toggleIcon.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+            if (Array.from(inputs).every(input => input.value.length === 1)) {
+                verifyButton.disabled = false;
+            } else {
+                verifyButton.disabled = true;
+            }
+            wrongCodeMessage.style.display = 'none';
+        });
+        input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+    });
 
-toggleText.addEventListener('click', function() {
-passwordVisible = !passwordVisible;
-if (passwordVisible) {
-  passwordInput.type = 'text';
-  toggleIcon.classList.remove('fa-eye');
-  toggleIcon.classList.add('fa-eye-slash');
-  toggleText.innerText = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleIcon.classList.remove('fa-eye-slash');
-  toggleIcon.classList.add('fa-eye');
-  toggleText.innerText = 'Show';
-}
-});
-});
+    verifyButton.addEventListener('click', () => {
+            // Giả sử mã đúng là 12345, thay thế đoạn này bằng mã xác thực thực tế
+            const correctCode = '12345';
+            const enteredCode = Array.from(inputs).map(input => input.value).join('');
+            if (enteredCode !== correctCode) {
+                wrongCodeMessage.style.display = 'block';
+            } else {
+                alert('Code verified successfully');
+                window.location.href = 'forgotPassResetPass.html'
+            }
+        });
 </script>
-<script src="./checkValidLogin.js"></script>
+
 </html>
