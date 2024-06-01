@@ -112,44 +112,66 @@
             <!-- ========================= Product management section ==================== -->
             <div class="admin__container container">
                 <button type="button" class="btn btn-outline-dark admin__back-btn" onclick="window.location.href = 'productManagement.html'">Back</button>
-               <div class="row">
-                <div class="col-6">
-                    <div class="wrapper">
-                        <h2>Product Name</h2>
-                        <textarea placeholder="Enter product name..." required></textarea>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="wrapper">
-                        <h2>Price</h2>
-                        <textarea placeholder="Enter price..." required></textarea>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="wrapper">
-                        <h2>Description</h2>
-                        <textarea placeholder="Enter description..." required></textarea>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="wrapper">
-                        <h2>Stock</h2>
-                        <div class="radio-group">
-                            <p>Size:</p>
-                            <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="sizeRadio" checked>
-                        </div>
-                        <div class="radio-group">
-                            <p>Non-size:</p>
-                            <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="nonSizeRadio">
+               <div class="row" style="margin-top: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;" >
+                  <!-- Cột bên trái với nội dung mới -->
+                    <div class="col-6">
+                        <div class="scrollable-content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <img class="displayImage img-fluid" src="" alt="">
+                                </div>
+                                <div class="col-6" style="margin-top: 10px;">
+                                    <img class="displayImage img-fluid" src="" alt="">
+                                </div>
+                                <div class="col-6" style="margin-top: 10px;">
+                                    <img class="displayImage img-fluid" src="" alt="">
+                                </div>
+                                <!-- Thêm các ảnh khác vào đây nếu cần -->
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <!-- Cột bên phải với nội dung gốc -->
+                    <div class="col-6">
+                        <div class="wrapper">
+                            <h2>Product Name</h2>
+                            <textarea placeholder="Enter product name..." required></textarea>
+                        </div>
+                        <div class="wrapper">
+                            <h2>Price</h2>
+                            <textarea placeholder="Enter price..." required></textarea>
+                        </div>
+                        <div class="wrapper">
+                            <h2>Description</h2>
+                            <textarea placeholder="Enter description..." required></textarea>
+                        </div>
+                        <div class="wrapper">
+                            <h2>Product Images</h2>
+                            <input type="file" id="imagesInput" accept="image/*" multiple>
+                        </div>
+                    </div>
+
                </div>
                <div class="row">
+                <div class="col-12">
+                    <div class="col-6">
+                        <div class="wrapper">
+                            <h2>Stock</h2>
+                            <div class="radio-group">
+                                <p>Size:</p>
+                                <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="sizeRadio" checked>
+                            </div>
+                            <div class="radio-group">
+                                <p>Non-size:</p>
+                                <input type="radio" class="form-check-input admin__product-manage-radio" name="optradio" id="nonSizeRadio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12">
                     <button type="button" class="btn btn-dark admin__add-stock-btn"><i class="fa-solid fa-plus" style="margin-right: 10px;"></i>Add new stock</button>
                 </div>
                </div>
+
                <div class="row admin__product-manage-stock-section" id="stockSection">
                 <div class="col-6 admin__product-manage-stock-item">
                     <div class="wrapper wrapper-custom">
@@ -189,6 +211,28 @@
     <script src="./textarea.js"></script>
 
     <script src = "./insertStock.js"></script>
+
+    <script>
+        // Lắng nghe sự kiện change trên input chọn file
+        document.getElementById('imagesInput').addEventListener('change', function(event) {
+            const displayImages = document.querySelectorAll('.displayImage');
+            // Lặp qua mỗi thẻ img và gán src cho từng thẻ
+            for (let i = 0; i < displayImages.length; i++) {
+                const image = displayImages[i];
+                // Kiểm tra xem người dùng đã chọn tệp tin mới hay chưa
+                if (event.target.files && event.target.files[i]) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        // Gán URL dữ liệu cho thuộc tính src của thẻ img
+                        image.src = e.target.result;
+                    };
+                    // Đọc tệp đã chọn dưới dạng URL dữ liệu
+                    reader.readAsDataURL(event.target.files[i]);
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

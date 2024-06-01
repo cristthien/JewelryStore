@@ -2132,3 +2132,9 @@ header.modal-header {
     transform: translateY(25%);
     
 }
+
+.scrollable-content {
+    max-height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Thêm dòng này để ẩn thanh cuộn ngang */
+}
