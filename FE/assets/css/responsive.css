@@ -104,18 +104,28 @@
     }
 
     .table-custom td > input:first-child{
-        width: 100%;
+        width: 70%;
+    }
+
+    .profile-list > li a {
+        font-size: 13px;
+    }
+    .gender-selection{
+        display: grid;
+        grid-template-columns: max-content auto; /* Cột đầu tiên có chiều rộng tối đa cần thiết, cột thứ hai mở rộng */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        gap: 10px; /* Khoảng cách giữa các phần tử */
     }
 
     .wrapper{
         display: block;
     }
-    .profile__input{
+    /* .profile__input{
         width: 80% !important;
-    }
+    } */
     .profile__dob{
         display: block;
-        width: 100%;
+        width: 70%;
     }
 
 }
