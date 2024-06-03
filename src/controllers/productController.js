@@ -13,15 +13,18 @@ const matchOptionGenerator = require("../utilities/matchOperationGenerator.js");
 const fuzzyProductSearch = require("../utilities/fuzzyProductSearch.js");
 const combineAndRemoveDuplicates = require("../utilities/combineWithoutDuplicate.js");
 const getEmbedding = require("../utilities/embeddingGenerator.js");
+const deleteImage = require("../utilities/deleteImage.js");
 
 class productController {
   // [GET] /news
   async index(req, res, next) {
     try {
-      let products = await Product.find().select("name price image slug stock");
+      let products = await Product.find().select(
+        "name price image slug stock description"
+      );
       const totalLength = products.length; // Calculate total length
       products = MultipleMongooseObject(products);
-
+      products = await refineDescription(products);
       // Efficient asynchronous size fetching using Promise.all
       const sizePromises = products.map((product) =>
         !product.stock
@@ -49,17 +52,30 @@ class productController {
 
   async create(req, res, next) {
     req.body.image = req.files.map((file) => {
-      return "img/product/" + file.filename;
+      return `${process.env.APP_URL}/img/product/` + file.filename;
     });
+
+    req.body.name_embedding_hf = await getEmbedding(req.body.description);
+    const newProduct = new Product(req.body);
+    const idProduct = newProduct._id;
+
     if (req.body.sizes) {
       try {
-        SizeProduct.insertMany(req.body.sizes);
+        req.body.sizes = JSON.parse(req.body.sizes);
+        if (Array.isArray(req.body.sizes)) {
+          const sizesInput = req.body.sizes.map((item) => ({
+            ...item,
+            product: idProduct,
+          }));
+          await SizeProduct.insertMany(sizesInput);
+        } else {
+          throw new Error("sizes must be an array");
+        }
       } catch (err) {
+        console.log(err.message);
         next(err);
       }
     }
-    req.body.name_embedding_hf = await getEmbedding(req.body.description);
-    const newProduct = new Product(req.body);
     newProduct
       .save()
       .then((result) =>
@@ -103,13 +119,40 @@ class productController {
       })
       .catch((e) => next(e));
   }
-  update(req, res, next) {
-    if (req.files) {
-      req.body.image = req.files.map((file) => {
-        return "img/product/" + file.filename;
-      });
+  async update(req, res, next) {
+    const { id } = req.params;
+    const product = await Product.findOne({ _id: id });
+    if (!product) {
+      return res.redirect(`${process.env.APP_CLIENT}/admin/products/add`);
     }
-    Product.findOneAndUpdate({ slug: req.params.slug }, req.body, { new: true })
+    // If image change remove and add again
+    if (req.files.length > 0) {
+      req.body.image = req.files.map((file) => {
+        return `${process.env.APP_URL}/img/product/` + file.filename;
+      });
+      deleteImage(product.image);
+    }
+
+    if (req.body.sizes) {
+      try {
+        await SizeProduct.deleteMany({ product: id });
+        req.body.sizes = JSON.parse(req.body.sizes);
+        if (Array.isArray(req.body.sizes)) {
+          const sizesInput = req.body.sizes.map((item) => ({
+            ...item,
+            product: id,
+          }));
+          await SizeProduct.insertMany(sizesInput);
+        } else {
+          throw new Error("sizes must be an array");
+        }
+      } catch (err) {
+        console.log(err.message);
+        next(err);
+      }
+    }
+
+    Product.findOneAndUpdate({ _id: id }, req.body, { new: true })
       .then((result) =>
         res
           .status(200)

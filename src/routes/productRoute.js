@@ -2,6 +2,7 @@ const express = require("express");
 const productRoute = express.Router();
 const productController = require("../controllers/productController.js");
 const multer = require("multer");
+const checkAuthAdmin = require("../middleware/checkAuthAdmin.js");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -13,11 +14,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-productRoute.put(
-  "/:slug",
-  upload.array("images", 12),
-  productController.update
-);
+productRoute.post("/:id", upload.array("images", 12), productController.update);
 productRoute.get(
   "/get-random-three-products/:id",
   productController.getRandomThreeProducts

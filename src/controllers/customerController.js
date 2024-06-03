@@ -53,7 +53,7 @@ class customerController {
   }
   //[POST] /customer/login
   login(req, res, next) {
-    Customer.findOne({ email: req.body.email })
+    Customer.findOne({ email: req.body.email, methodLogin: undefined })
       .exec()
       .then((customer) => {
         if (!customer) {
@@ -98,92 +98,110 @@ class customerController {
   }
   //[GET] / customer/:customerID
   getDetailInfo(req, res, next) {
-    Customer.find({ _id: req.params.customerID })
+    const { customerID } = req;
+
+    Customer.findById(customerID)
       .exec()
       .then((customer) => {
-        res.status(200).json(
-          success("Getting information is successfully", {
-            name: customer.name,
-          })
-        );
+        if (!customer) {
+          return res.status(290).json(error("Customer not found", 404));
+        }
+
+        // Remove the password field
+        const customerObj = customer.toObject();
+        delete customerObj.password;
+
+        // Format the dob field if it exists
+        if (customerObj.dob) {
+          const dob = new Date(customerObj.dob);
+          customerObj.dob = dob.toISOString().split("T")[0]; // Format as YYYY-MM-DD
+        }
+
+        res
+          .status(200)
+          .json(success("Getting information successfully", customerObj));
       })
       .catch((e) => next(e));
   }
+
   UpdateInfo(req, res, next) {
-    Customer.findOneAndUpdate({ _id: req.params.customerID }, req.body, {
-      new: true,
-    })
-      .then((customer) =>
-        res
-          .status(200)
-          .json(
-            success(
-              "Updating information is success",
-              { name: customer.name, email: customer.email },
-              200
-            )
-          )
-      )
-      .catch((e) => {
-        next(e);
-      });
+    console.log("usser");
+    const { customerID } = req;
+    try {
+      const { day, month, year } = req.body;
+      if (day && month && year) {
+        // Create a new Date object for the date of birth
+        const dob = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+        // Validate the date object
+        if (isNaN(dob)) {
+          return res.status(200).json(error("Invalid date of birth provided"));
+        }
+
+        // If valid, set dob in the request body
+        req.body.dob = dob;
+      }
+
+      Customer.findOneAndUpdate({ _id: customerID }, req.body, {
+        new: true,
+      })
+        .then((customer) => {
+          if (!customer) {
+            return res.status(200).json(error("Customer not found", 404));
+          }
+
+          res.status(200).json(
+            success("Updating information is successful", {
+              name: customer.name,
+              email: customer.email,
+            })
+          );
+        })
+        .catch((e) => next(e));
+    } catch (e) {
+      next(e);
+    }
   }
 
   async loginWithGoogle(req, res, next) {
     const { email, name } = req.body;
-    const existedUser = await Customer.findOne({
-      email: email,
-      methodLogin: "google",
-    });
-    if (!existedUser) {
-      const newCustomer = new Customer({
-        name: name,
-        email: email,
-        methodLogin: "google",
-      });
-      try {
-        await newCustomer.save();
 
-        const token = jwt.sign(
-          { userID: newCustomer._id },
-          process.env.JWT_SECRET_KEY,
-          {
-            expiresIn: "30 days",
-          }
-        );
-        res.status(200).json(
-          success(
-            "Login successfully",
-            {
-              name: newCustomer.name,
-              token: token,
-            },
-            200
-          )
-        );
-      } catch (e) {
-        res.status(200).json(error("Internal saving user", 500));
+    try {
+      // Check if the user already exists
+      let user = await Customer.findOne({
+        email: email,
+      });
+
+      if (!user) {
+        // If user does not exist, create a new user
+        user = new Customer({ name, email, methodLogin: "google" });
+        await user.save();
       }
-    } else {
-      const token = jwt.sign(
-        { userID: existedUser._id },
-        process.env.JWT_SECRET_KEY,
-        {
-          expiresIn: "30 days",
-        }
-      );
+      if (!user.methodLogin) {
+        return res.status(200).json(error("You need to login", 401));
+      }
+
+      // Generate a JWT token for the user
+      const token = jwt.sign({ userID: user._id }, process.env.JWT_SECRET_KEY, {
+        expiresIn: "30 days",
+      });
+
+      // Respond with success message and user details
       res.status(200).json(
         success(
           "Login successfully",
           {
-            name: existedUser.name,
+            name: user.name,
             token: token,
           },
           200
         )
       );
+    } catch (error) {
+      // Handle any errors that occur during the process
+      next(error);
     }
   }
+
   async verify(req, res, next) {
     try {
       const { email, token } = req.query;
@@ -226,32 +244,53 @@ class customerController {
     }
   }
   async change(req, res, next) {
-    const { customerID } = req;
-    const { oldPassword, newPassword } = req.body;
-    Customer.findOne({ _id: customerID })
-      .then((customer) => {
-        bcrypt.compare(oldPassword, customer.password).then(function (result) {
-          console.log(result);
-          if (result) {
-            bcrypt.hash(newPassword, saltRounds, async function (err, hash) {
-              if (err) {
-                res
-                  .status(200)
-                  .json(error("Have trouble in hasing password", 500));
-              }
-              customer.password = hash;
-              await customer.save();
-              res.redirect(`${process.env.APP_CLIENT}/login`);
-            });
-          } else {
-            res.status(200).json(error("Old password is not correct", 400));
-          }
-        });
-      })
-      .catch((err) => {
-        res.status(200).json(error(err.message, 500));
-      });
+    try {
+      const { customerID } = req;
+      const { oldPassword, newPassword } = req.body;
+
+      // Validate input parameters
+      if (!oldPassword || !newPassword) {
+        return res
+          .status(200)
+          .json(error("Both old and new passwords are required", 400));
+      }
+
+      // Find the customer by ID
+      const customer = await Customer.findById(customerID);
+
+      // If customer not found
+      if (!customer) {
+        return res.status(200).json(error("Customer not found", 404));
+      }
+
+      // Compare old password with the stored password
+      const passwordMatch = await bcrypt.compare(
+        oldPassword,
+        customer.password
+      );
+
+      if (!passwordMatch) {
+        return res.status(200).json(error("Old password is incorrect", 400));
+      }
+
+      // Hash the new password
+      const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
+      // Update customer's password
+      customer.password = hashedPassword;
+      await customer.save();
+
+      // Password successfully changed
+      return res
+        .status(200)
+        .json(success("Password changed successfully", {}, 200));
+    } catch (error) {
+      // Handle errors
+      console.error("Error changing password:", error);
+      return res.status(200).json(error("Internal server error", 500));
+    }
   }
+
   async registerResetPassword(req, res, next) {
     const { email } = req.body;
     try {
@@ -272,6 +311,47 @@ class customerController {
       }
     } catch (e) {
       res.status(200).json(error(e.message), 401);
+    }
+  }
+
+  async changeEmailNotify(req, res, next) {
+    const { customerID } = req;
+    const { email } = req.body;
+    try {
+      const customer = await Customer.findOne({ _id: customerID });
+      if (!customer) {
+        res.status(200).json(error("Customer is not found", 404));
+      } else {
+        console.log(email, customer);
+        mailer.sendVerifyChangeEmail(
+          email,
+          "Verify Change Email",
+          customer.password
+        );
+        res
+          .status(200)
+          .json(
+            success("Please check new email to verify before login", {}, 200)
+          );
+      }
+    } catch (e) {
+      res.status(200).json(error("Internal server error", 500));
+    }
+  }
+  async verifyEmail(req, res, next) {
+    const { email, token } = req.query;
+    try {
+      const customer = await Customer.findOneAndUpdate(
+        { password: token },
+        { email: email }
+      );
+      if (!customer) {
+        res.status(200).json(error("Customer not found", 404));
+      } else {
+        res.redirect(`${process.env.APP_CLIENT}/login`);
+      }
+    } catch (e) {
+      res.status(200).json("Internal server error", 500);
     }
   }
 }

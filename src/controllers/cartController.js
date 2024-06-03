@@ -7,7 +7,7 @@ class orderController {
   // [GET] /news
   index(req, res, next) {
     Cart.find({ customer: req.customerID })
-      .populate("product", "name price image description") // Include stock information
+      .populate("product", "name price image description slug") // Include stock information
       .exec()
       .then((cartItems) => {
         cartItems.forEach((item) => {

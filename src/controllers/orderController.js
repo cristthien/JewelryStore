@@ -39,7 +39,9 @@ class orderController {
   }
 
   async create(req, res, next) {
-    const { cartItems, stocks, customerID, addressOrder } = req;
+    const { cartItems, stocks, customerID } = req;
+    const { addressOrder, phone, name } = req.body;
+
     const session = await mongoose.startSession();
     session.startTransaction();
     try {
@@ -61,8 +63,10 @@ class orderController {
       const newOrder = new Order({
         customer: customerID,
         total: total,
-        payment: req.paymentMethod,
+        payment: req.body.paymentMethod,
         address: addressOrder,
+        phone: phone,
+        name: name,
       });
       await newOrder.save({ session });
       for (const item of cartItems) {

@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     );
     if (cartItems.length == 0) {
       res
-        .status(400)
+        .status(200)
         .json(error("Cart does not contain any for ordering", 400));
     }
     stocks = [];
@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
       const stockProduct = await getStock(item.product, item.size);
       if (!stockProduct) {
         return res
-          .status(404)
+          .status(200)
           .json(
             error(
               `Product  ${item.product} with size ${item.size} not found)`,
@@ -44,7 +44,7 @@ module.exports = async (req, res, next) => {
       req.stocks = stocks;
       next();
     } else {
-      res.status(405).json({
+      res.status(200).json({
         insufficientItems: insufficientStock,
         message: "There are some product not enough stock",
         error: true,

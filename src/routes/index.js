@@ -18,23 +18,6 @@ const mailer = require("../utilities/mailer.js");
 function routes(app) {
   //  test
 
-  app.use("/verify", async (req, res) => {
-    mailer.sendVerifyEmail(
-      "nguyenthienchanel@gmail.com",
-      "Verify Email",
-      "giathien123"
-    );
-    res.send("Work oke");
-  });
-  app.use("/reset", async (req, res) => {
-    mailer.sendResetPasswordEmail(
-      "nguyenthienchanel@gmail.com",
-      "Verify Email",
-      "giathien123"
-    );
-    res.send("Work oke");
-  });
-
   app.use("/cart", cartRoute);
   app.use("/collection", collectionRoute);
   app.use("/customer", customerRoute);

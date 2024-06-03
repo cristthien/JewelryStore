@@ -15,6 +15,8 @@ const orderSchema = mongoose.Schema({
     default: "Cash on delivery",
   },
   address: { type: String, required: true },
+  phone: { type: String, require: true },
+  name: { type: String, require: true },
 });
 
 module.exports = mongoose.model("Order", orderSchema);
