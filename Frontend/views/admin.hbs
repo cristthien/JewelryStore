@@ -1,0 +1,122 @@
+<!-- ========================= Main ==================== -->
+<div class="admin__menu-main">
+  <div class="admin__menu-topbar">
+    <div class="admin__menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="admin__menu-user">
+      <i class="fa-solid fa-user-tie"></i>
+    </div>
+  </div>
+
+  <!-- ======================= Cards ================== -->
+  <div class="admin__cardBox">
+    <div class="admin__card">
+      <div>
+        <div class="numbers">5,555</div>
+        <div class="cardName">Likes</div>
+      </div>
+
+      <div class="iconBx">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+    </div>
+
+    <div class="admin__card">
+      <div>
+        <div id="sale-quantity" class="numbers"></div>
+        <div class="cardName">Sales</div>
+      </div>
+
+      <div class="iconBx">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+    </div>
+
+    <div class="admin__card">
+      <div>
+        <div class="numbers">234</div>
+        <div class="cardName">Comments</div>
+      </div>
+
+      <div class="iconBx">
+        <i class="fa-solid fa-comments"></i>
+      </div>
+    </div>
+
+    <div class="admin__card">
+      <div>
+        <div id="sale-revenue" class="numbers"></div>
+        <div class="cardName">Earning</div>
+      </div>
+
+      <div class="iconBx">
+        <i class="fa-solid fa-money-bill"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= Order management section ==================== -->
+  <div class="admin__container container">
+    <div class="recentOrders">
+      <div class="admin__cardHeader">
+        <h2>Recent Orders</h2>
+        <a href="/admin/orders" class="btn">View All</a>
+      </div>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Payment</th>
+            <th>Status</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="order-table">
+
+          {{! 
+          <tr
+            onclick="window.location.href = 'orderManagementDetail.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh"
+          >
+            <td>O124</td>
+            <td>C12346</td>
+            <td>Nguyen Dai Anh Tuan</td>
+            <td>Delivered</td>
+          </tr>
+          <tr
+            onclick="window.location.href = 'orderManagementDetail.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh"
+          >
+            <td>O125</td>
+            <td>C12347</td>
+            <td>Nguyen Huu Thien</td>
+            <td>Return</td>
+          </tr>
+          <tr
+            onclick="window.location.href = 'orderManagementDetail.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Phone number: 0967215332<br>Address: 202 Hiep Binh"
+          >
+            <td>O123</td>
+            <td>C12345</td>
+            <td>Nguyen Tuan Tu</td>
+            <td>In Progress</td>
+          </tr> }}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

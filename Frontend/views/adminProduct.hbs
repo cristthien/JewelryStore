@@ -1,0 +1,89 @@
+<!-- ========================= Main ==================== -->
+<div class="admin__menu-main">
+  <div class="admin__menu-topbar">
+    <div class="admin__menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="admin__menu-label">
+      <h4>Product Management</h4>
+    </div>
+
+    <div class="admin__menu-search">
+      <label>
+        <input type="text" placeholder="Search here" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+
+    <div class="admin__menu-user">
+      <i class="fa-solid fa-user-tie"></i>
+    </div>
+  </div>
+
+  <!-- ========================= Product management section ==================== -->
+  <div class="admin__container container">
+    <button
+      type="button m-3"
+      class="btn btn-dark admin__add-product-btn"
+      onclick="window.location.href = '/admin/products/add'"
+      style="
+    margin: 10px 0;
+"
+    >
+      <i
+        class="fa-solid fa-plus"
+        style="margin-right: 10px;"
+        aria-hidden="true"
+      ></i>Add new product</button>
+
+    <div class="admin-table-custom">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody id="product-table">
+          {{! <tr
+            onclick="window.location.href = 'productManagementDetailEdit.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4"
+          >
+            <td>La Panthère de Cartier Watch</td>
+            <td>Small model, quartz movement, rose gold, diamonds</td>
+            <td>$47,200.00</td>
+          </tr>
+          <tr
+            onclick="window.location.href = 'productManagementDetailEdit.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4"
+          >
+            <td>La Panthère de Cartier Watch</td>
+            <td>Small model, quartz movement, rose gold, diamonds</td>
+            <td>$47,200.00</td>
+          </tr>
+          <tr
+            onclick="window.location.href = 'productManagementDetailEdit.html'"
+            data-bs-toggle="popover"
+            data-bs-trigger="hover"
+            data-bs-html="true"
+            data-bs-content="Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4<br>Size: 15cm | Stock: 3<br>Size: 22cm | Stock: 4"
+          >
+            <td>La Panthère de Cartier Watch</td>
+            <td>Small model, quartz movement, rose gold, diamonds</td>
+            <td>$47,200.00</td>
+          </tr> }}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>

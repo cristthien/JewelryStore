@@ -1,0 +1,131 @@
+:root {
+    --header-height: 80px;
+  }
+
+/* PC */
+@media (min-width: 1024px){
+    .summary-section{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 150px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .summary-section{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 150px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+    #header-nav > li{
+        display: block;
+        text-align: left;
+    }
+
+    #header .mobile-menu-btn{
+        display: flex;
+    }
+    #header {
+        height: var(--header-height);
+    }
+
+    #header-nav .header-nav__item{
+        display: none;
+    }
+
+    #header-nav .header-nav__item-mobile{
+        display: block;
+    }
+
+    .header__account-name{
+        display: none;
+    }
+    .search__area{
+        width: 90%;
+    }
+
+    #slider{
+        margin-top: var(--header-height);
+    }
+
+    .header-left-function .header-location-btn{
+        display: none;
+    }
+
+    .card__header-desc-expand{
+        display: none;
+    }
+    .category-sort{
+        display: none;
+    }
+
+    .category-filter{
+        display: none;
+    }
+
+    .category__mobile{
+        display:flex;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .product-detail__img-container > .row>* {
+        /* CSS của các thẻ div .row là con trực tiếp của .product-detail__img-container */
+        padding: 0;
+
+    }
+    .login-container{
+        width: 90%;
+    }
+
+    .login__body {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .back__shopping{
+        text-align: center;
+    }
+
+    .comment__carousel-controls {
+        top: 0px;
+        right: 0px;
+    }
+    .slogan-video-section{
+        margin-top: 10px;
+    }
+
+    .table-custom td > input:first-child{
+        width: 70%;
+    }
+
+    .profile-list > li a {
+        font-size: 13px;
+    }
+    .gender-selection{
+        display: grid;
+        grid-template-columns: max-content auto; /* Cột đầu tiên có chiều rộng tối đa cần thiết, cột thứ hai mở rộng */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        gap: 10px; /* Khoảng cách giữa các phần tử */
+    }
+
+    .wrapper{
+        display: block;
+    }
+    /* .profile__input{
+        width: 80% !important;
+    } */
+    .profile__dob{
+        display: block;
+        width: 70%;
+    }
+
+}

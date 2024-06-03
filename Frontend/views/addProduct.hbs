@@ -1,0 +1,172 @@
+<!-- ========================= Main ==================== -->
+<div class="admin__menu-main">
+  <div class="admin__menu-topbar">
+    <div class="admin__menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="admin__menu-search">
+      <h2>Add New Product</h2>
+      <!-- <label>
+                        <input type="text" placeholder="Search here">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label> -->
+    </div>
+
+    <div class="admin__menu-user">
+      <p class="header__account-name">Gia Thien</p>
+      <i class="fa-solid fa-user-tie"></i>
+    </div>
+  </div>
+
+  <!-- ========================= Product management section ==================== -->
+  <div class="admin__container container">
+    <button
+      type="button"
+      class="btn btn-outline-dark admin__back-btn"
+      onclick="window.location.href = '/admin/products'"
+    >Back</button>
+    <div
+      class="row"
+      style="margin-top: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;"
+    >
+      <!-- Cột bên trái với nội dung mới -->
+      <div class="col-6">
+        <div class="scrollable-content">
+          <div id="img-container" class="row">
+
+            {{! <div class="col-12">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div>
+            <div class="col-6" style="margin-top: 10px;">
+              <img class="displayImage img-fluid" src="" alt="" />
+            </div> }}
+
+            <!-- Thêm các ảnh khác vào đây nếu cần -->
+          </div>
+        </div>
+      </div>
+      <!-- Cột bên phải với nội dung gốc -->
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Product Name</h2>
+          <textarea
+            id="name"
+            placeholder="Enter product name..."
+            required
+          ></textarea>
+        </div>
+        <div class="wrapper">
+          <h2>Price</h2>
+          <textarea id="price" placeholder="Enter price..." required></textarea>
+        </div>
+        <div class="wrapper">
+          <h2>Description</h2>
+          <textarea
+            id="description"
+            placeholder="Enter description..."
+            required
+          ></textarea>
+        </div>
+        <div class="wrapper">
+          <h2>Product Images</h2>
+          <input type="file" id="imagesInput" accept="image/*" multiple />
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="col-6">
+          <div class="wrapper">
+            <h2>Stock</h2>
+            <div class="radio-group">
+              <p>Size:</p>
+              <input
+                type="radio"
+                class="form-check-input admin__product-manage-radio"
+                name="optradio"
+                id="sizeRadio"
+                checked
+              />
+            </div>
+            <div class="radio-group">
+              <p>Non-size:</p>
+              <input
+                type="radio"
+                class="form-check-input admin__product-manage-radio"
+                name="optradio"
+                id="nonSizeRadio"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-dark admin__add-stock-btn"><i
+            class="fa-solid fa-plus"
+            style="margin-right: 10px;"
+          ></i>Add new stock</button>
+      </div>
+    </div>
+
+    <div class="row admin__product-manage-stock-section" id="stockSection">
+      <div class="col-6 admin__product-manage-stock-item">
+        <div class="wrapper wrapper-custom">
+          <h2>Stock</h2>
+          <textarea
+            class="stock-input"
+            placeholder="Stock..."
+            required
+          ></textarea>
+        </div>
+        <div class="wrapper wrapper-custom">
+          <h2>Size</h2>
+          <textarea
+            class="size-input"
+            placeholder="Size..."
+            required
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <button
+          id="submit"
+          type="button"
+          class="btn btn-dark admin__submit-btn"
+        >Submit</button>
+      </div>
+    </div>
+  </div>
+
+</div>

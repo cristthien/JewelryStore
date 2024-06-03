@@ -1,0 +1,195 @@
+<!-- Slider section -->
+<div id="slider"></div>
+<!-- Content section -->
+<div id="content" style="margin-top: 24px">
+  <div class="container container-fluid">
+    <div class="row mb-5 profile-row">
+      <div class="col-3" style="border-right: 1px solid #ddd">
+        <ul class="profile-list">
+          <li>
+            <a
+              class="profile-list__item"
+              href="/profile"
+              style="text-decoration: underline"
+            >My profile</a>
+          </li>
+          <li id="password-tab">
+            <a class="profile-list__item" href="/profile/password">My password</a>
+          </li>
+
+          <li>
+            <a class="profile-list__item" href="/profile/orders">My orders</a>
+          </li>
+          <li>
+            <a class="profile-list__item" href="/profile/address">My addresses</a>
+          </li>
+        </ul>
+        <button class="btn btn-dark" id="log-out-btn">Log Out</button>
+      </div>
+      <div class="col-9">
+        <button
+          class="btn btn-dark"
+          id="edit-profile-btn"
+          style="float: right;"
+        >Edit</button>
+        <button
+          class="btn btn-dark"
+          id="edit-profile-btn"
+          style="float: right; margin-right: 10px;"
+          onclick="window.location.href='/profile/email'"
+        >Change email</button>
+        <table class="table table-custom">
+          <tbody>
+            <tr>
+              <td style="text-align: right">Email</td>
+              <td id="email">
+                <input
+                  id="email"
+                  type="text"
+                  class="form-control profile__input-email"
+                  placeholder="Enter new email"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Name</td>
+              <td id="username">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  class="form-control profile__input"
+                  placeholder="Enter new user name"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Phone number</td>
+              <td id="phone">
+                <input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  class="form-control profile__input"
+                  placeholder="Enter new phone number"
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Gender</td>
+              <td>
+                <div class="gender-selection">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="check__male"
+                    name="optradio"
+                    value="male"
+                    disabled
+                  />
+                  <label class="form-check-label" for="check__male">Male</label>
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="check__female"
+                    name="optradio"
+                    value="female"
+                    disabled
+                  />
+                  <label
+                    class="form-check-label"
+                    for="check__female"
+                  >Female</label>
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="check__other"
+                    name="optradio"
+                    value="other"
+                    disabled
+                  />
+                  <label
+                    class="form-check-label"
+                    for="check__other"
+                  >Other</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right">Date of birth</td>
+              <td>
+                <select
+                  class="form-select form-select-sm profile__dob"
+                  id="day"
+                  name="day"
+                  class="profile__dob"
+                  disabled
+                ></select>
+                <select
+                  class="form-select form-select-sm profile__dob"
+                  id="month"
+                  name="month"
+                  class="profile__dob"
+                  disabled
+                >
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6">June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+                <select
+                  class="form-select form-select-sm profile__dob"
+                  id="year"
+                  name="year"
+                  disabled
+                ></select>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <!-- Cell for alignment -->
+              <td>
+                <button
+                  class="btn btn-dark"
+                  id="save-profile"
+                  style="display: none;"
+                >Save</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="contact-section">
+    <h1 class="heading text-center">SUBSCRIBE TO OUR NEWSLETTER</h1>
+    <div class="input-group mb-3 contact-form d-flex justify-content-center">
+      <form action="" class="d-flex mt-3 w-50">
+        <input
+          type="email"
+          name=""
+          placeholder="Email"
+          required
+          id="contact-id"
+          class="form-control input-email-control"
+        />
+        <button class="btn btn-dark form-submit-btn" type="submit">
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

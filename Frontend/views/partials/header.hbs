@@ -1,0 +1,252 @@
+<!-- Header section -->
+<div id="header">
+  <div class="row header-top">
+    <div class="col-3 header-function">
+      <div class="icon-container header-left-function">
+        <a href="map.html"><i
+            class="header-location-btn fa-solid fa-map-location-dot"
+          ></i></a>
+      </div>
+      <div
+        id="mobile-menu"
+        class="icon-container header-left-function mobile-menu-btn"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="icon-container header-left-function">
+        <i class="header-search-btn fas fa-search"></i>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="header-brand-name text-center">
+        <a class="nav-to-home header-brand-name text-center" href="/">T&N</a>
+      </div>
+    </div>
+
+    <div class="col-3 header-function">
+      <!-- <a href="login.html"><i class="header-user-btn ti-user"></i></a> -->
+      <div class="icon-container header-right-function">
+        <a id="openOffcanvas">
+          <!-- <i class="header-shopping-cart-btn ti-shopping-cart" data-bs-toggle="offcanvas" data-bs-target="#shopping-bag-section">
+                      </i> -->
+          <i
+            class="header-shopping-cart-btn fa-solid fa-cart-shopping"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#shopping-bag-section"
+          ></i>
+          <p class="shopping__badge">0</p>
+        </a>
+      </div>
+      <div class="icon-container header-right-function">
+        <p id="username" class="header__account-name"></p>
+        <a id="login-btn" href="/login"><i
+            class="header-user-btn fa-regular fa-user"
+          ></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Nav section -->
+  <ul id="header-nav">
+    <li><a class="header-nav__item nav__high-jewelry">High jewelry</a>
+    </li>
+    <li><a class="header-nav__item nav__jewelry">Jewelry</a>
+    </li>
+    <li><a class="header-nav__item nav__accessories">Accessories</a>
+    </li>
+    <li><a class="header-nav__item" href="/news">News</a>
+    </li>
+    <li><a class="header-nav__item" href="/stories">Stories</a>
+    </li>
+    <li><a
+        class="header-nav__item-mobile"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#subnav__high-jewelry"
+      >High jewelry</a>
+    </li>
+    <li><a
+        class="header-nav__item-mobile"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#subnav__jewelry"
+      >Jewelry</a>
+    </li>
+    <li><a
+        class="header-nav__item-mobile"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#subnav__accessories"
+      >Accessories</a>
+    </li>
+    <li><a class="header-nav__item-mobile" href="newsPage.html">News</a>
+    </li>
+    <li><a class="header-nav__item-mobile" href="story.html">Stories</a>
+    </li>
+  </ul>
+
+  <!-- subnav section -->
+  <div
+    class="subnav subnav__high-jewelry"
+    style="border-top: 1px solid #ddd; display: none;"
+  >
+    <div class="row justify-content-center" style="padding-top: 10px;">
+
+      {{#each categories.highJewelry}}
+        <div class="col-2">
+          <a href={{concate "/collections/" slug}} class="subnav__item">
+            <img src={{image}} alt="" class="subnav__img img-fluid" />
+            <p class="subnav__desc">{{name}}</p>
+          </a>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+  <div
+    class="subnav subnav__jewelry"
+    style="border-top: 1px solid #ddd; display: none;"
+  >
+    <div class="row justify-content-center" style="padding-top: 10px;">
+      {{#each categories.jewelry}}
+        <div class="col-2">
+          <a href={{concate "/collections/" slug}} class="subnav__item">
+            <img src={{image}} alt="" class="subnav__img img-fluid" />
+            <p class="subnav__desc">{{name}}</p>
+          </a>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+  <div
+    class="subnav subnav__accessories"
+    style="border-top: 1px solid #ddd; display: none;"
+  >
+    <div class="row justify-content-center" style="padding-top: 10px;">
+      {{#each categories.accessories}}
+        <div class="col-2">
+          <a href={{concate "/collections/" slug}} class="subnav__item">
+            <img src={{image}} alt="" class="subnav__img img-fluid" />
+            <p class="subnav__desc">{{name}}</p>
+          </a>
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__high-jewelry">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title">High Jewelry</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row justify-content-center" style="padding-top: 10px;">
+        {{#each categories.highJewelry}}
+          <div class="col-6">
+            <a href={{concate "/collections/" slug}} class="subnav__item">
+              <img src={{image}} alt="" class="subnav__img img-fluid" />
+              <p class="subnav__desc">{{name}}</p>
+            </a>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__jewelry">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title">Jewelry</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row justify-content-center" style="padding-top: 10px;">
+
+        {{#each categories.jewelry}}
+          <div class="col-6">
+            <a href={{concate "/collections/" slug}} class="subnav__item">
+              <img src={{image}} alt="" class="subnav__img img-fluid" />
+              <p class="subnav__desc">{{name}}</p>
+            </a>
+          </div>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end offcanvas-full" id="subnav__accessories">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title">Accessories</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row justify-content-center" style="padding-top: 10px;">
+        {{#each categories.accessories}}
+          <div class="col-6">
+            <a href={{concate "/collections/" slug}} class="subnav__item">
+              <img src={{image}} alt="" class="subnav__img img-fluid" />
+              <p class="subnav__desc">{{name}}</p>
+            </a>
+          </div>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bag section -->
+  <div class="offcanvas offcanvas-end" id="shopping-bag-section">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title shopping-bag__title">Shopping bag</h1>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+      ></button>
+    </div>
+    <div class="offcanvas-body shopping-bag__body">
+
+      <p><a href="/login"> Login</a> to see shopping bag</p>
+
+    </div>
+  </div>
+
+  <div class="header-search-section">
+    <div class="container-fluid header-search-container">
+      <div class="input-group d-flex justify-content-center search__area">
+        <input
+          type="text"
+          placeholder="Search products"
+          required
+          id="contact-id"
+          class="form-control input-search-control"
+        />
+        <button
+          class="btn btn-dark"
+          type="submit"
+          onclick="viewSearchFound()"
+        >Search</button>
+      </div>
+
+      <div class="search-suggestion-section">
+        <div class="search-suggestion-container container">
+          <div class="row">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

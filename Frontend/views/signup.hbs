@@ -1,0 +1,38 @@
+        <!-- Slider section -->
+        <div id="slider">
+        </div>
+        
+        <div id="content">
+            <div class="login-container">
+                    <h4 class="login__header" style="margin-bottom: 0px;">Create an account</h4>
+                    <p class="have-account" style="margin-bottom: 40px;">Already have an account? <a href="/login" style="color: #000;">Log in</a></p>
+                <div class="login__body container-fluid">
+                    <label for="alias" class="login__label">
+                        What should we call you?
+                    </label>
+                    <input id="alias" type="text" class="login__input" placeholder="Enter your profile name">
+                    <label for="user-name" class="login__label">
+                        What's your email?
+                    </label>
+                    <input id="user-name" type="text" class="login__input" placeholder="Enter your email address">
+                    <label for="password" class="login__label">
+                        Create a password
+                        <div class="hide-password">
+                          <i id="toggle-icon" class="fa-solid fa-eye"></i>
+                          <span id="toggle-text">Show</span>
+                        </div>
+                    </label>
+                    <input id="password" type="password" class="login__input" placeholder="Enter your password" style="margin-bottom: 0px;">
+                    <span id="password-error" class="error-message">Password must be 8 characters or more with a mix of letters & symbols. No accented characters & space</span>
+                    <span id="password-week" class="week-message">Password week. Password should contain uppercase letter</span>
+                    <span id="sign-up-status" class="error-message"></span>
+                    <div class="Term-of-use" style="text-align: start; margin-top: 34px;">
+                        By continuing, you agree to the <a href="" class="policy">Privacy Policy</a>.
+                    </div>
+                    <button id="login-account-btn" class="login__btn"  disabled>
+                        Create an account
+                    </button>
+                </div>
+            </div>
+        </div>
+

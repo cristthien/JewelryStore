@@ -1,0 +1,167 @@
+<!-- ========================= Main ==================== -->
+<div class="admin__menu-main">
+  <div class="admin__menu-topbar">
+    <div class="admin__menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="admin__menu-search">
+      <h2>Customer Detail</h2>
+    </div>
+
+    <div class="admin__menu-user">
+      <p class="header__account-name">Gia Thien</p>
+      <i class="fa-solid fa-user-tie"></i>
+    </div>
+  </div>
+
+  <!-- ========================= Order management section ==================== -->
+  <div class="admin__container container">
+    <button
+      type="button"
+      class="btn btn-outline-dark admin__back-btn"
+      onclick="window.location.href = '/admin/customers'"
+    >Back</button>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Customer ID:</h2>
+          <textarea
+            id="customer-id"
+            placeholder="Customer ID..."
+            required
+            disabled
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Customer Name:</h2>
+          <textarea
+            id="customer-name"
+            placeholder="Customer Name..."
+            required
+            disabled
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Email:</h2>
+          <textarea
+            id="email"
+            placeholder="Customer Email..."
+            required
+            disabled
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Phone Number:</h2>
+          <textarea
+            id="phone"
+            placeholder="Customer Phone number..."
+            required
+            disabled
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrapper">
+          <h2>Address:</h2>
+          <textarea
+            id="address"
+            placeholder="Customer address..."
+            required
+            disabled
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <h5
+      style="font-family: Fancy Cut,Almarai,Times,serif; font-weight: 600;"
+    >Order</h5>
+    <div id="order-container">
+      {{! 
+      <div class="order d-block">
+        <h3>Order ID:werwerwe </h3>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Product name</th>
+              <th>Description</th>
+              <th> Size</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="window.location.href = 'orderManagementDetail.html'">
+              <td>O124</td>
+              <td>La Panthère de Cartier Watch</td>
+              <td>Small model, quartz movement, rose gold, diamonds</td>
+              <td>3</td>
+              <td>$50,000.00</td>
+            </tr>
+            <tr onclick="window.location.href = 'orderManagementDetail.html'">
+              <td>O124</td>
+              <td>La Panthère de Cartier Watch</td>
+              <td>Small model, quartz movement, rose gold, diamonds</td>
+              <td>2</td>
+              <td>$50,000.00</td>
+            </tr>
+
+            <tr onclick="window.location.href = 'orderManagementDetail.html'">
+              <td>Total:</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>$299,600.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="order d-block">
+        <h3>Order ID: </h3>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Product name</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="window.location.href = 'orderManagementDetail.html'">
+              <td>O124</td>
+              <td>La Panthère de Cartier Watch</td>
+              <td>Small model, quartz movement, rose gold, diamonds</td>
+              <td>3</td>
+              <td>$50,000.00</td>
+            </tr>
+            <tr onclick="window.location.href = 'orderManagementDetail.html'">
+              <td>O124</td>
+              <td>La Panthère de Cartier Watch</td>
+              <td>Small model, quartz movement, rose gold, diamonds</td>
+              <td>2</td>
+              <td>$50,000.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="admin__order-manage-total-price">
+          <h6>Total price: </h6>
+          <h6>$299,600.00</h6>
+        </div>
+      </div> }}
+
+    </div>
+
+  </div>
+
+</div>

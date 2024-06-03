@@ -1,0 +1,206 @@
+<!-- Slider section -->
+<div id="slider">
+</div>
+
+<!-- Content section -->
+<div id="content">
+  <!-- chi tiết sản phẩm -->
+  <div class="container product-detail-section">
+    <div class="row">
+      <div class="col-12">
+        <div class="product-detail__path-to-page">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">HOME</a></li>
+            <li class="breadcrumb-item"><a
+                href={{concate "/collections/" representedCollection.slug}}
+              >{{representedCollection.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7 product-detail__img-container">
+          <!-- ảnh chính -->
+          <img
+            src={{mainImage}}
+            alt="watch-front"
+            class="img-fluid product-detail__img"
+          />
+          <!-- ảnh phụ -->
+          <!-- cặp ảnh 1 -->
+          {{#each (chunk restImage 2) as |imagePair|}}
+            <div class="row">
+              {{#each imagePair as |image|}}
+                <div class="col-md-6 product-detail__img-container">
+                  <img
+                    src="{{image}}"
+                    alt="product image"
+                    class="img-fluid product-detail__img"
+                  />
+                </div>
+              {{/each}}
+            </div>
+          {{/each}}
+
+        </div>
+
+        <div class="col-md-5">
+          <div class="product-detail__desc-container">
+            <h1 class="product-detail__heading">{{name}}</h1>
+            <p class="description">
+              {{description}}
+
+              Please note that the carat weight, number of stones and product
+              dimensions will vary based on the size of the creation you order.
+              For detailed information please contact us.
+            </p>
+            <a href="#" class="read-more">Read More</a>
+            {{#if sizes}}
+              <form action="" style="margin-top: 40px;">
+                <label for="sel-size" class="form-label">Select size:</label>
+                <select class="form-select" id="sel-size" name="select-size">
+                  
+                  <option value = 'Choose Size'>Choose Size</option>
+                  {{#each sizes}}
+                  <option   value ={{size}} {{#eq stock 0}}disabled{{/eq}}>{{size}}</option>
+                  {{/each}}
+                </select>
+              </form>
+            {{/if}}
+
+            <div class="product-detail__price">
+              <span class="product-detail__low-price"></span>
+              <span class="product-detail__high-price">{{formatPrice
+                  price
+                }}</span>
+            </div>
+            <div class="row">
+              <div class="col-10">
+                <button
+                  type="button" value={{slug}}
+                  class="btn btn-dark product-detail__buy-btn" {{#if disablebtn}}disabled{{/if}}
+                >Add to bag</button>
+              </div>
+              <div class="col-2">
+                <div class="product-detail__action">
+                  <span class="product-detail__like">
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-heart" style="display: none;"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comment section -->
+  <div class="container-fluid comment-section">
+    <div class="container">
+      <h1 class="comment-section__heading">binh luan noi bat</h1>
+      <div class="comment-section__main">
+      </div>
+    </div>
+  </div>
+
+  <!-- related product -->
+  <div class="container-fluid">
+    <div class="related-product-section">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="related-product__heading">related production</h1>
+        </div>
+        <div class="col-12">
+          <p class="related-product__desc">Same Categories</p>
+        </div>
+        <div class="row justify-content-center">
+            {{#each relatedCollectionProducts}} 
+                      <div class="col-md-2 related-product__col">
+            <div class="related-product__item">
+              <a href={{concate "/products/" slug}}>
+                <img
+                  src={{indexer image 0}}
+                  alt=""
+                  class="img-fluid"
+                  style="margin-top: 10px;"
+                />
+              </a>
+              <a href={{concate "/products/" slug}} class="product-item__name">{{name}}</a>
+              <a href={{concate "/products/" slug}} class="product-item__desc">{{description}}</a>
+              <div class="product-item__price">
+                <span class="product-item__low-price"></span>
+                <span class="product-item__high-price">{{formatPrice price}}</span>
+              </div>
+              <div class="product-iemt__action">
+                <span class="product-item__like product-item__like-liked">
+                  <i class="product-item__like-unfill fa-regular fa-heart"></i>
+                  <i class="product-item__like-fill fa-solid fa-heart"></i>
+                </span>
+              </div>
+              <button
+                type="button"
+                class="btn btn-dark discover-btn"
+              >discover</button>
+            </div>
+          </div>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- recommend product -->
+  <div class="container-fluid">
+    <div class="recommend-product-section">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="recommend-product__heading">you may also like</h1>
+        </div>
+        <div class="row justify-content-center">
+          {{#each firstTenProducts}} 
+            <div class="col-md-2 recommend-product__col">
+            <div class="recommend-product__item">
+              <a href={{concate "/products/" slug}}>
+                <img
+                  src={{indexer image 0}}
+                  alt=""
+                  class="img-fluid"
+                />
+              </a>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      <!-- Nút chuyển đổi -->
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center mt-3">
+          <button id="prevButton" class="btn btn-secondary mr-2">&lt; Prev</button>
+          <button id="nextButton" class="btn btn-secondary ml-2">Next &gt;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="contact-section">
+    <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+    <div class="input-group mb-3 contact-form d-flex justify-content-center">
+      <form action="" class="d-flex mt-3 w-50">
+        <input
+          type="email"
+          name=""
+          placeholder="Email"
+          required
+          id="contact-id"
+          class="form-control input-email-control"
+        />
+        <button
+          class="btn btn-dark form-submit-btn"
+          type="submit"
+        >Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>

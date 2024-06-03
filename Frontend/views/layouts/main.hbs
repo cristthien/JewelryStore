@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>T&N</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../../assets/js/constants.js"></script>
+  <link href="../../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/font/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+</head>
+<body>
+    <div class="main">
+    {{>header}}
+    {{{body}}}
+    {{>footer}}
+    </div>
+
+
+</body>
+    <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/libraries/axios.min.js"></script>
+    <script src="../../assets/js/utilis.js"></script>
+    <script src="../../assets/js/header.js"></script>
+
+    {{#each scripts}}
+    <script src="{{script}}"></script>
+    {{/each}}
+    <script src="https://kit.fontawesome.com/8e1e4a8c95.js" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,67 @@
+<!-- Slider section -->
+<div id="slider">
+</div>
+
+<div id="content">
+  <div class="login-container">
+    <h4 class="login__header">Log in</h4>
+    <div class="login__body container-fluid">
+      <label for="user-name" class="login__label">
+        Email or mobile phone number
+      </label>
+      <input
+        id="user-name"
+        type="text"
+        class="login__input"
+        placeholder="Email address"
+      />
+      <label for="password" class="login__label">
+        Your password
+        <div class="hide-password">
+          <i id="toggle-icon" class="fa-solid fa-eye"></i>
+          <span id="toggle-text">Show</span>
+        </div>
+      </label>
+      <input
+        id="password"
+        type="password"
+        class="login__input"
+        placeholder="Password"
+        style="margin-bottom: 0;"
+      />
+      <span id="password-error" class="error-message">Password must be 8
+        characters or more with a mix of letters & symbols. No accented
+        characters & space</span>
+      <span id="password-week" class="week-message">Password week. Password
+        should contain uppercase letter</span>
+      <span id="login-fail" class="error-message">Email or passwords is not
+        correct.</span>
+      <button id="login-account-btn" class="login__btn" disabled>
+        Log in
+      </button>
+      <div class="Term-of-use">
+        By continuing, you agree to the
+        <a href="#" class="policy">Privacy Policy</a>.
+      </div>
+      <div class="login__other">
+        <div id="login-with-google" class="issue-with-sign">
+          Login with Google
+        </div>
+        <div class="forgot-pass">
+          Forget your password
+        </div>
+      </div>
+      <div class="create-account-section">
+        <div class="create-account__heading">
+          <span>Don't have an account?</span>
+        </div>
+        <button
+          class="create-account__btn"
+          onclick="window.location.href = '/signup'"
+        >
+          Create an account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

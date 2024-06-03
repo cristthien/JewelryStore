@@ -1,0 +1,200 @@
+        <!-- Slider section -->
+        <div id="slider">
+        </div>
+
+
+    <div id="searcher">
+        <div class="container-fluid header-search-container">
+            <div class="input-group d-flex justify-content-center search__area">
+              <input type="text" placeholder="Search products" value="{{q}}" required id="main-search" class="form-control input-search-control">
+              <button class="btn btn-dark" type="submit" id="main-search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+<!-- Content section -->
+<div id="content" style="padding-top: 32px;">
+    <!-- Danh muc -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Phần filter -->
+        <div class="col-md-3">
+          <div class="path-to-page">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">HOME</a></li>
+              <li class="breadcrumb-item"><a href="/search">SEARCH</a></li>
+            </ul>
+          </div>
+          <div class="container-fluid">
+          <div class="row category__mobile">
+            <div class="col-6">
+              <h3 class="caterory__heading-mobile mobile-menu__sort">
+                SORT BY
+              </h3>
+            </div>
+            <div class="col-6">
+              <h3 class="caterory__heading-mobile mobile-menu__filter">
+                FILTER BY
+              </h3>
+            </div>
+          </div>
+          </div>
+          <div class="category-section">
+            <nav class="category">
+                <form action="" >
+                    <div class="category-sort">
+                    <h3 class="caterory__heading">
+                      SORT BY
+                    </h3>
+                      <div class="form-check category__holder">
+                        <input type="radio" class="form-check-input category__sort-ratio" name="optradio" value="recommended" {{#eq criteria.sortCriteria 'recommended'}}checked{{/eq}} {{#eq criteria.sortCriteria  undefined}}checked{{/eq}}>
+                        <a href="" class="category__item">recommended</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="radio" class="form-check-input category__sort-ratio" name="optradio" value="lowToHigh" {{#eq criteria.sortCriteria 'lowToHigh'}}checked{{/eq}}>
+                        <a href="" class="category__item">price low to high</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="radio" class="form-check-input category__sort-ratio" name="optradio" value="highToLow" {{#eq criteria.sortCriteria 'highToLow'}}checked{{/eq}}>
+                        <a href="" class="category__item">price high to low</a>
+                      </div>
+                  </div>
+                  <div class="category-filter">
+                    <h3 class="caterory__heading">
+                    CATEGORY
+                    <i class="category-btn__show-more ti-angle-up"></i>
+                    </h3>
+                    <div class="category-manager-section show">
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="category" value="bracelet" {{#contains criteria.selectedCategories 'bracelet'}}checked{{/contains}}>
+                        <a href="/collections/bracelets" class="category__item">bracelets</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="category" value="ring" {{#contains criteria.selectedCategories 'ring'}}checked{{/contains}} >
+                        <a href="/collections/rings" class="category__item">rings</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="category" value="earrings" {{#contains criteria.selectedCategories 'earrings'}}checked{{/contains}}>
+                        <a href="/collections/earrings" class="category__item">earnings</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="category" value="necklace" {{#contains criteria.selectedCategories 'necklace'}}checked{{/contains}} >
+                        <a href="/collections/necklaces" class="category__item">necklaces</a>
+                      </div>
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="category" value="watch" {{#contains criteria.selectedCategories 'watch'}}checked{{/contains}}>
+                        <a href="/collections/watches" class="category__item">watches</a>
+                      </div>
+                  </div>
+                  <div class="more-category-btn show">
+                    <p>More</p>
+                  </div>
+                  <h3 class="caterory__heading">
+                    collections
+                    <i class="category-btn__show-more ti-angle-up"></i>
+                    </h3>
+                    <div class="category-manager-section show">
+                      {{#each categories.highJewelry}}
+                      <div class="form-check category__holder">
+                        <input type="checkbox" class="form-check-input category__sort-check" name="collection" value={{_id}} {{#contains ../criteria.selectedCollections _id }}checked{{/contains}}>
+                        <a href={{concate "/collecions/" slug}} class="category__item">{{name}}</a>
+                      </div>
+                      {{/each}}
+
+
+                  </div>
+                  <div class="more-category-btn show">
+                    <p>More</p>
+                  </div>
+                  </div>
+                </form>
+            </nav>        
+          </div>
+        </div>
+        <!-- Phần sản phẩm -->
+        <div class="col-md-9">
+          <div class="row home-filter">
+              <div class="col-md-9 col-sm-6">
+                <span class="home-filter__total-product">{{length}} Models</span>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="grid-selection">
+                  <a href="#" class="btn btn__grid-selection" id="gridBtn"> 
+                    <span class="d-none d-sm-inline">Grid</span>
+                    <i class="ti-layout-grid2-alt"></i>
+                  </a>
+                  <a href="#" class="btn btn__grid-selection" id="feedBtn">
+                    <span class="d-none d-sm-inline">Feed</span>
+                    <i class="ti-layout-grid3"></i>
+                  </a>
+                </div>
+              </div>
+          </div>
+            <div class="row">
+                {{#each products }}
+                  <div class="col-md-3 col-sm-6 product-item-col">
+                  <div class="product-item">
+                            <!-- Carousel -->
+                    <div id="product-item__" class="carousel slide">
+                    
+                      <!-- The slideshow/carousel -->
+                      <div class="carousel-inner product-item__img">
+                         <a href={{concate "/products/" slug}} >
+                          {{#each image as |image i|}}
+                            <div class="carousel-item {{#if @first}}active{{/if}}">
+                              <img src={{image}} alt="" class="img-fluid">
+                            </div>
+                          {{/each}}
+                         </a>
+
+
+
+                      </div>
+
+                      <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev product-item__btn-direction" type="button" data-bs-target="#product-item__" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon product-item__btn-left-icon"></span>
+                    </button>
+                      <button class="carousel-control-next product-item__btn-direction" type="button" data-bs-target="#product-item__" data-bs-slide="next">
+                      <span class="carousel-control-next-icon product-item__btn-right-icon"></span>
+                    </button>
+                    </div>     
+                                        
+                    <a href="products/{{slug}}" class="product-item__name">{{name}}</a>
+                    <a href="products/{{slug}}" class="product-item__desc">{{description}}</a>
+                    <div class="product-item__price">
+                      <span class="product-item__low-price"></span>
+                      <span class="product-item__high-price">${{price}}</span>
+                    </div>
+                    <div class="product-item__action">
+                      <span class="product-item__like product-item__like-liked">
+                        <i class="product-item__like-unfill fa-regular fa-heart"></i>
+                        <i class="product-item__like-fill fa-solid fa-heart"></i>
+                      </span>
+                    </div>
+                    <button type="button" class="btn btn-dark buy-btn">Add to bag</button>
+                  </div>
+                </div> <!--của col-->
+
+                {{/each}}
+
+                <div class="col-12 product-item-btn__show-more">
+                  <button type="button" class="btn btn-outline-dark custom-btn" id="load-more">LOAD MORE</button>
+                </div>
+            </div> <!-- của row-->
+
+        </div>
+    </div>
+</div>
+
+
+    <!-- Contact section -->
+    <div class="contact-section">
+        <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+        <div class="input-group mb-3 contact-form d-flex justify-content-center">
+        <form action="" class="d-flex mt-3 w-50">
+              <input type="email" name="" placeholder="Email" required id="contact-id" class="form-control input-email-control">
+              <button class="btn btn-dark form-submit-btn" type="submit">Subscribe</button>
+        </form>
+        </div>
+    </div>
+</div>

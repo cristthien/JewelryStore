@@ -1,0 +1,44 @@
+<div id="admin-main">
+  <div id="admin-content">
+    <div class="login-container admin-login-container">
+      <h4 class="login__header">Admin Login</h4>
+      <div class="login__body container-fluid">
+        <label for="user-name" class="login__label">
+          Enter username
+        </label>
+        <input
+          id="user-name"
+          type="text"
+          class="login__input"
+          placeholder="Email address"
+        />
+        <label for="password" class="login__label">
+          Your password
+          <div class="hide-password">
+            <i id="toggle-icon" class="fa-solid fa-eye"></i>
+            <span id="toggle-text">Show</span>
+          </div>
+        </label>
+        <input
+          id="password"
+          type="password"
+          class="login__input"
+          placeholder="Password"
+          style="margin-bottom: 0;"
+        />
+        <span id="password-error" class="error-message">Password must be 8
+          characters or more with a mix of letters & symbols. No accented
+          characters & space</span>
+        <span id="password-week" class="week-message">Password week. Password
+          should contain uppercase letter</span>
+        <button id="login-account-btn" class="login__btn" disabled>
+          Log in
+        </button>
+        <!-- <div class="forgot-pass">
+                        <a href="forgotPass.html" style="color: #000;">Forget your password</a>
+                    </div> -->
+      </div>
+    </div>
+  </div>
+
+</div>

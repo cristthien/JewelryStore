@@ -1,0 +1,174 @@
+<!-- Slider section -->
+<div id="slider">
+</div>
+
+<!-- Content section -->
+<div id="content" style="margin-top: 24px;">
+  <div class="container container-fluid">
+    <div class="row mb-5 profile-row">
+      <div class="col-3" style="border-right: 1px solid #ddd;">
+        <ul class="profile-list">
+          <li><a class="profile-list__item" href="/profile">My profile</a>
+          </li>
+          <li id="password-tab"><a
+              class="profile-list__item"
+              href="/profile/password"
+            >My password</a>
+          </li>
+          <li><a class="profile-list__item" href="/profile/orders">My orders</a>
+          </li>
+          <li><a
+              class="profile-list__item"
+              href="/profile/address"
+              style="text-decoration: underline;"
+            >My addresses</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-9">
+        <div class="row">
+          <!-- Choose location -->
+          <div
+            class="col-8"
+            style="text-transform: uppercase; font-family: Fancy Cut,Almarai,Times,serif;"
+          >
+            my address
+          </div>
+
+        </div>
+        <div class="row" style="border-top: 1px solid #ddd; margin-top: 24px;">
+
+          <div class="col-12 address-item">
+            <p class="address-item-detail address-item__name"></p>
+            <i class="fa-solid fa-phone" style="display: inline-block;"></i>
+            <p
+              class="address-item-detail address-item__phone"
+              style="display: inline-block;"
+            ></p>
+            <br />
+            <i
+              class="fa-solid fa-address-book"
+              style="display: inline-block;"
+            ></i>
+            <p
+              class="address-item-detail address-item__address-detail"
+              style="display: inline-block;"
+            ></p>
+            <p class="address-item-detail address-item__address-select"></p>
+            <a class="address-item__btn address-item__btn-update">Update</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="contact-section">
+    <h1 class="heading text-center"> SUBSCRIBE TO OUR NEWSLETTER </h1>
+    <div class="input-group mb-3 contact-form d-flex justify-content-center">
+      <form action="" class="d-flex mt-3 w-50">
+        <input
+          type="email"
+          name=""
+          placeholder="Email"
+          required
+          id="contact-id"
+          class="form-control input-email-control"
+        />
+        <button
+          class="btn btn-dark form-submit-btn"
+          type="submit"
+        >Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal hiển thị chọn địa chỉ -->
+<div class="modal js-modal">
+  <div class="modal-container js-modal-container">
+    <div class="modal-close js-modal-close">
+      <i class="ti-close"></i>
+    </div>
+    <header class="modal-header">
+      New address
+    </header>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-6">
+          <label for="user-name" class="modal-label">
+            Enter Name
+          </label>
+          <input
+            id="user-name"
+            type="text"
+            class="modal-input"
+            placeholder="User name"
+          />
+        </div>
+        <div class="col-6">
+          <label for="phone-number" class="modal-label">
+            Enter phone number
+          </label>
+          <input
+            id="phone-number"
+            type="text"
+            class="modal-input"
+            placeholder="Phone number"
+          />
+        </div>
+        <div class="col-12">
+          <div class="address-selection">
+            <input
+              id="address"
+              type="text"
+              class="modal-input dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              placeholder="Province/City, District"
+            />
+            <i class="ti-angle-down icon-wrapper"></i>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="address"
+              style="width: 80%;"
+            >
+              <div class="row">
+                <div class="col-6"><span
+                    class="dropdown-btn province-button active"
+                    id="province-button"
+                  >Province</span></div>
+                <div class="col-6"><span
+                    class="dropdown-btn district-button"
+                    id="district-button"
+                  >District</span></div>
+              </div>
+              <div id="province" class="province-menu">
+
+              </div>
+              <div id="district" class="district-menu">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <input
+            id="address-detail"
+            type="text"
+            class="form-control modal-input"
+            placeholder="Address detail"
+          />
+        </div>
+      </div>
+
+      <button id="save-address-btn">
+        Save
+      </button>
+
+    </div>
+
+    <footer class="modal-footer">
+      <p class="modal-help">Need <a href="">help?</a></p>
+    </footer>
+  </div>
+</div>
