@@ -7,13 +7,16 @@ const cartRoute = require("./cartRoute.js");
 const adminRoute = require("./adminRoute.js");
 
 function routes(app) {
-  app.use("/admin", adminRoute);
   app.use("/cart", cartRoute);
   app.use("/products", productRoute);
+  app.use("/admin", adminRoute);
   app.use("/collections", collectionRoute);
   app.use("/search", searchRounte);
   app.use("/auth", authRoute);
   app.use("/profile", profileRoute);
+  app.use("/map", (req, res) => {
+    res.render("map");
+  });
   app.use("/forgot-password", (req, res) => {
     const scripts = [
       { script: "../../assets/js/account/forgotPassword.js" },

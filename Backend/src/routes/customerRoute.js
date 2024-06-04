@@ -26,6 +26,7 @@ customerRoute.post(
 );
 
 customerRoute.post("/auth/google", customerController.loginWithGoogle);
+customerRoute.get("/orders", checkValidCustomer, customerController.getOrders);
 customerRoute.get("/", checkValidCustomer, customerController.getDetailInfo);
 customerRoute.post("/", checkValidCustomer, customerController.UpdateInfo);
 

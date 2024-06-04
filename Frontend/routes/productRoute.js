@@ -4,6 +4,7 @@ const axios = require("axios");
 const GetFirstTenProduct = require("../utilities/GetFirstTenProduct");
 
 productRoute.get("/:slug", async (req, res) => {
+  console.log(req.params.slug);
   const scripts = [
     { script: "../../assets/js/product/handler.js" },
     { script: "../../assets/js/product/clientHandler.js" },
@@ -44,6 +45,7 @@ productRoute.get("/:slug", async (req, res) => {
       );
       const relatedCollectionProducts =
         relatedCollectionProductsRespone.data.results;
+
       const mayLikedProducts = mayLikedProductsResponse.data.results.products;
       const firstTenProducts = GetFirstTenProduct(mayLikedProducts);
       res.render("product", {

@@ -343,3 +343,23 @@ function RenderCartItem(products, total) {
   // Set the inner HTML of the container element with the generated HTML
   return cartItemsHTML;
 }
+
+const formSubmitButton = document.querySelector(".form-submit-btn");
+if (formSubmitButton) {
+  formSubmitButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    try {
+      const emailInput = document.querySelector(".input-email-control");
+      const email = emailInput.value;
+      console.log(email);
+      const response = await axios.get(`${SERVER}/subscriber?email=${email}`);
+      if (response.data.error) {
+        throw new Error(response.data.message);
+      }
+      alert("Subscription successful!");
+      window.location.reload();
+    } catch (e) {
+      alert(e.message);
+    }
+  });
+}

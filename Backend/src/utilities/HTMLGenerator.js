@@ -260,8 +260,81 @@ function verifyChangeEmailHTMLGenerator(email, token) {
         </html>
         `;
 }
+function thankYouEmailHTMLGenerator() {
+  return `<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Thank You for Subscribing - T&N Jewelry</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f4f4f4;
+                }
+                .email-container {
+                    width: 100%;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    background-color: #ffffff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    border: 1px solid #000000;
+                }
+                .header {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #000000;
+                    color: #ffffff;
+                }
+                .header h1 {
+                    margin: 0;
+                    font-size: 24px;
+                }
+                .content {
+                    padding: 20px;
+                }
+                .content h2 {
+                    color: #000000;
+                }
+                .content p {
+                    line-height: 1.6;
+                    color: #333333;
+                }
+                .footer {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #000000;
+                    color: #ffffff;
+                    font-size: 12px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="email-container">
+                <div class="header">
+                    <h1>Thank You for Subscribing!</h1>
+                </div>
+                <div class="content">
+                    <h2>Dear Valued Subscriber,</h2>
+                    <p>Thank you for subscribing to the T&N Jewelry newsletter. We are excited to have you as part of our community.</p>
+                    <p>As a subscriber, you'll be the first to know about our latest collections, exclusive offers, and upcoming events.</p>
+                    <p>We appreciate your interest in our premium jewelry pieces and look forward to sharing our passion for exquisite craftsmanship with you.</p>
+                    <p>Should you have any questions or need assistance, our dedicated support team is here to help.</p>
+                </div>
+                <div class="footer">
+                    <p>&copy; 2024 T&N Jewelry. All rights reserved.</p>
+                </div>
+            </div>
+        </body>
+        </html>`;
+}
+
 module.exports = {
   forgotPasswordHTMLGenerator,
   verifyEmailHTMLGenerator,
   verifyChangeEmailHTMLGenerator,
+  thankYouEmailHTMLGenerator,
 };

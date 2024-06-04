@@ -4,7 +4,7 @@ async function getEmbedding(query) {
   // Define the OpenAI API url and key.
   const url =
     "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2";
-  const hf_key = "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"; // Replace with your OpenAI key.
+  const hf_key = "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"; // Replace with your OpenAI key.
 
   // Call OpenAI API to get the embeddings.
   let response = await axios.post(
@@ -21,6 +21,7 @@ async function getEmbedding(query) {
   );
 
   if (response.status === 200) {
+    console.log(response.data, "gaithien");
     return response.data;
   } else {
     throw new Error(`Failed to get embedding. Status code: ${response.status}`);

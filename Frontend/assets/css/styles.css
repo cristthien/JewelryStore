@@ -2138,3 +2138,11 @@ header.modal-header {
     overflow-y: auto;
     overflow-x: hidden; /* Thêm dòng này để ẩn thanh cuộn ngang */
 }
+.contact-section__map{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Libre Caslon Display', serif;
+    text-transform: uppercase;
+    /* font-weight: 600; */
+  }

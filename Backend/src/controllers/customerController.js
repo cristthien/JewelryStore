@@ -1,7 +1,11 @@
 const Customer = require("../models/customerModel.js");
+const Order = require("../models/orderModel.js");
+const SizeProduct = require("../models/sizeModel.js");
+const OrderItem = require("../models/orderItemModel.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const { MultipleMongooseObject } = require("../utilities/Mongoose.js");
 const { error, success } = require("../utilities/responeApj.js");
 const mailer = require("../utilities/mailer.js");
 require("dotenv").config();
@@ -288,6 +292,43 @@ class customerController {
       // Handle errors
       console.error("Error changing password:", error);
       return res.status(200).json(error("Internal server error", 500));
+    }
+  }
+  async getOrders(req, res, next) {
+    const { customerID } = req;
+    console.log(customerID);
+    try {
+      let orders = await Order.find({ customer: customerID });
+      if (orders.length == 0) {
+        return res
+          .status(200)
+          .json(success("Fetching customer is successfully", orders, 200));
+      }
+      orders = MultipleMongooseObject(orders);
+      const resultOrders = await Promise.all(
+        orders.map(async (order) => {
+          const items = await OrderItem.find({ order: order._id }).populate(
+            "product",
+            "name slug price image"
+          );
+          return {
+            ...order,
+            items,
+          };
+        })
+      );
+
+      res
+        .status(200)
+        .json(
+          success(
+            "Fetching customer is successfully",
+            { orders: resultOrders },
+            200
+          )
+        );
+    } catch (e) {
+      next(e);
     }
   }
 
