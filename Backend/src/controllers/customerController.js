@@ -296,7 +296,6 @@ class customerController {
   }
   async getOrders(req, res, next) {
     const { customerID } = req;
-    console.log(customerID);
     try {
       let orders = await Order.find({ customer: customerID });
       if (orders.length == 0) {
@@ -305,6 +304,7 @@ class customerController {
           .json(success("Fetching customer is successfully", orders, 200));
       }
       orders = MultipleMongooseObject(orders);
+      orders.reverse();
       const resultOrders = await Promise.all(
         orders.map(async (order) => {
           const items = await OrderItem.find({ order: order._id }).populate(
@@ -348,7 +348,9 @@ class customerController {
         );
         res
           .status(200)
-          .json(success("You can open your make to active new password"), 200);
+          .json(
+            success("You can open your make to active new password", {}, 200)
+          );
       }
     } catch (e) {
       res.status(200).json(error(e.message), 401);
